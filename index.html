@@ -398,13 +398,13 @@ let D=null, curDate=null, curPlat='종합', calY=2026, calM=4, tC=null, rC=null;
 const DATES_SET=new Set();
 
 function init(){
-  document.getElementById('hdrSrc').textContent=D.meta.source;
-  D.meta.dates.forEach(d=>DATES_SET.add(d));
+  document.getElementById('hdrSrc').textContent='AGB 닐슨 전국 전플랫폼 (유료가구) 206개 채널 기준, 종편채널제외';
+  D.dates.forEach(d=>DATES_SET.add(d));
   const pt=document.getElementById('platTabs');
-  D.meta.platforms.forEach(p=>{const b=document.createElement('button');b.className='plat-tab-sm'+(p==='종합'?' active':'');b.textContent=p;b.onclick=()=>selPlat(p);pt.appendChild(b);});
+  ['종합','IPTV','Cable','Skylife'].forEach(p=>{const b=document.createElement('button');b.className='plat-tab-sm'+(p==='종합'?' active':'');b.textContent=p;b.onclick=()=>selPlat(p);pt.appendChild(b);});
   renderCal();
   initCharts();
-  selDate(D.meta.dates[D.meta.dates.length-1]);
+  selDate(D.dates[D.dates.length-1]);
   document.addEventListener('click',e=>{if(!document.getElementById('calWrap').contains(e.target))document.getElementById('calDrop').classList.add('hidden');});
   document.getElementById('searchInp').oninput=e=>filterTbl(e.target.value);
 
@@ -459,38 +459,40 @@ function selDate(date){
 }
 
 function renderKPI(){
-  const rows=D.rankings['종합'][curDate]||[];
+  const rows=((D.days[curDate]||{}).rankings||{})['종합']||[];
   const bk=rows.find(r=>r.channel==='바둑TV');
-  const pr=D.programs[curDate]||{};
+  const dayData=D.days[curDate]||{};
+  const pr=dayData;
   if(bk){
     document.getElementById('kR').textContent=bk.rank;
     document.getElementById('kRat').innerHTML=bk.rating.toFixed(3)+'<span class="kpi-unit">%</span>';
     document.getElementById('kShr').textContent='점유율: '+bk.share.toFixed(3)+'%';
   }
   // 전년 동기 대비
-  const yoy=pr.yoy;
+  const yoy=null;  // 추후 전년도 데이터 연동 시 추가
+  const monthly=(dayData.monthly)||{};
   if(yoy!=null){
     const pct=(yoy*100).toFixed(1);
     const up=parseFloat(pct)>=0;
     document.getElementById('kYoy').innerHTML=`<span style="color:${up?'var(--green)':'var(--red)'}">${up?'+':''}${pct}</span><span class="kpi-unit">%</span>`;
     document.getElementById('kYoySub').textContent='전년 동기 대비';
   }
-  if(pr.achievement!=null){
-    const p=(pr.achievement*100).toFixed(1);
+  if(monthly.achievement!=null){
+    const p=monthly.achievement.toFixed(1);
     document.getElementById('kAch').innerHTML=p+'<span class="kpi-unit">%</span>';
     const bar=document.getElementById('kAchBar');
     bar.style.width=Math.min(parseFloat(p),100)+'%';
     bar.style.background=parseFloat(p)>=100?'var(--green)':parseFloat(p)>=90?'var(--gold)':'var(--accent2)';
   }else{document.getElementById('kAch').innerHTML='—';document.getElementById('kAchBar').style.width='0%';}
-  if(pr.cumulative!=null){
+  if(monthly.cumulative!=null){
     document.getElementById('kCum').innerHTML=pr.cumulative.toFixed(3)+'<span class="kpi-unit">%</span>';
-    document.getElementById('kTgt').textContent='목표: '+(pr.target?pr.target.toFixed(3):'—')+'%';
+    document.getElementById('kTgt').textContent='목표: '+(monthly.target?monthly.target.toFixed(3):'—')+'%';
   }else{document.getElementById('kCum').innerHTML='—';document.getElementById('kTgt').textContent='목표: —%';}
 
 }
 
 function renderTbl(){
-  const rows=D.rankings[curPlat][curDate]||[];
+  const rows=((D.days[curDate]||{}).rankings||{})[curPlat]||[];
   const max=rows.length?rows[0].rating:1;
   const tb=document.getElementById('rankBody');tb.innerHTML='';
   if(!rows.length){tb.innerHTML='<tr><td colspan="5" class="no-data">데이터 없음</td></tr>';return;}
@@ -531,14 +533,15 @@ function jumpBaduk(ch){
 }
 
 function renderComp(){
-  const pr=D.programs[curDate]||{};
+  const dayData=D.days[curDate]||{};
+  const pr=dayData;
   const wrap=document.getElementById('compBarWrap');
   if(!wrap)return;
   wrap.innerHTML='';
   const txt=pr.competitor_text||'';
 
   // 바둑TV 시청률
-  const rows=D.rankings['종합'][curDate]||[];
+  const rows=((D.days[curDate]||{}).rankings||{})['종합']||[];
   const bkRating=(rows.find(r=>r.channel==='바둑TV')||{}).rating||0;
 
   const channels=[{name:'바둑TV',rating:bkRating,isSelf:true}];
@@ -564,76 +567,60 @@ function renderComp(){
 }
 
 function renderProg(){
-  const pr=D.programs[curDate]||{};
+  const dayData=D.days[curDate]||{};
   const wrap=document.getElementById('progWrap');
   wrap.innerHTML='';
-  if(!pr.program_blocks||!pr.program_blocks.length){
+  const programs=dayData.programs||{};
+  const ageRatings=dayData.age_ratings||{};
+  const AGE=['4-9세','10대','20대','30대','40대','50대','60대+'];
+
+  if(!Object.keys(programs).length){
     wrap.innerHTML='<div class="no-prog">해당 날짜의 프로그램별 시청률 데이터가 없습니다</div>';
     return;
   }
-  const AGE=D.meta.age_groups||['4-9세','10대','20대','30대','40대','50대','60대+'];
 
-  pr.program_blocks.forEach(function(block){
-    const isK=block.channel.includes('K바둑');
-    const progs=block.programs;
-    const avg=block.avg;
-    const bR=isK?255:0, bG=isK?107:212, bB=isK?53:255;
-    const allVals=progs.flatMap(function(p){
+  Object.keys(programs).forEach(function(channel){
+    const isK=channel.includes('K바둑');
+    const progs=programs[channel]||[];
+    const ageProgs=ageRatings[channel]||[];
+    const bR=isK?255:0,bG=isK?107:212,bB=isK?53:255;
+
+    // 최대값 계산
+    const allVals=ageProgs.flatMap(function(p){
       return Object.values(p.age_male||{}).concat(Object.values(p.age_female||{}));
     });
     const gMax=Math.max.apply(null,allVals.concat([0.001]));
 
-    function makeHeatCell(v,isAvgRow){
-      const td=document.createElement('td');
-      td.style.textAlign='center';
-      td.style.padding='0';
-      if(v>0){
-        const ratio=Math.min(v/gMax,1);
-        const alpha=(ratio*0.82).toFixed(2);
-        if(!isAvgRow) td.style.background='rgba('+bR+','+bG+','+bB+','+alpha+')';
-      }
-      const inn=document.createElement('div');
-      inn.className='age-hm-cell'+(v===0?' zero':'');
-      inn.style.cssText='font-size:12px;font-weight:'+(isAvgRow?'700':'400');
-      inn.textContent=v.toFixed(3);
-      td.appendChild(inn);
-      return td;
-    }
-
-    // 블록 컨테이너
+    // 채널 헤더
     const blockDiv=document.createElement('div');
     blockDiv.className='prog-channel-block';
     blockDiv.style.marginBottom='24px';
-
-    // 채널 헤더
     const hdr=document.createElement('div');
     hdr.className='prog-ch-hdr'+(isK?' kb':'');
     hdr.innerHTML='<span class="prog-ch-name '+(isK?'kb':'')+'">'
-      +block.channel+'</span>';
+      +channel+'</span>';
     blockDiv.appendChild(hdr);
 
-    // 테이블 래퍼
+    // 테이블
     const tblWrap=document.createElement('div');
     tblWrap.style.cssText='overflow-x:auto;border:1px solid var(--border)';
     const tbl=document.createElement('table');
     tbl.className='ptbl';
     tbl.style.minWidth='900px';
 
-    // thead 2행
+    // thead
     const thead=tbl.createTHead();
     const hr1=thead.insertRow();
     ['프로그램','시작','종료','시청률','점유율','시청자'].forEach(function(t,i){
       const th=document.createElement('th');
-      th.rowSpan=2; th.textContent=t;
-      th.style.cssText='text-align:'+(i===0?'left':'right')
-        +';vertical-align:bottom;border-bottom:1px solid var(--border)';
+      th.rowSpan=2;th.textContent=t;
+      th.style.cssText='text-align:'+(i===0?'left':'right')+';vertical-align:bottom;border-bottom:1px solid var(--border)';
       hr1.appendChild(th);
     });
     ['남성','여성'].forEach(function(sex){
       const th=document.createElement('th');
-      th.colSpan=AGE.length; th.textContent=sex;
-      th.style.cssText='text-align:center;border-bottom:1px solid rgba(30,45,69,.4);'
-        +(sex==='남성'?'color:var(--accent)':'color:var(--accent2)');
+      th.colSpan=AGE.length;th.textContent=sex;
+      th.style.cssText='text-align:center;border-bottom:1px solid rgba(30,45,69,.4);'+(sex==='남성'?'color:var(--accent)':'color:var(--accent2)');
       hr1.appendChild(th);
     });
     const hr2=thead.insertRow();
@@ -649,21 +636,33 @@ function renderProg(){
     // tbody
     const tbody=tbl.createTBody();
 
+    function makeHeatCell(v,isAvgRow){
+      const td=document.createElement('td');
+      td.style.textAlign='center';td.style.padding='0';
+      if(v>0&&!isAvgRow){
+        const ratio=Math.min(v/gMax,1);
+        td.style.background='rgba('+bR+','+bG+','+bB+','+(ratio*0.82).toFixed(2)+')';
+      }
+      const inn=document.createElement('div');
+      inn.className='age-hm-cell'+(v===0?' zero':'');
+      inn.style.cssText='font-size:12px;font-weight:'+(isAvgRow?'700':'400');
+      inn.textContent=v.toFixed(3);
+      td.appendChild(inn);
+      return td;
+    }
+
     progs.forEach(function(p){
       const row=tbody.insertRow();
-      const live=p.is_live!==undefined?p.is_live:p.program.includes('<생>');
+      const live=p.program&&p.program.includes('<생>');
       const badge=live?'<span class="badge-live">생</span>':'<span class="badge-re">재</span>';
-      const pname=p.program_name||(p.program.replace(/<생>/g,'').replace(/<재>/g,'').trim());
-      const players=p.players||'';
-      const tip=players?(pname+' / '+players):pname;
+      const pname=(p.program||'').replace(/<생>/g,'').replace(/<재>/g,'').trim();
 
       const tdN=document.createElement('td');
       tdN.style.textAlign='left';
-      tdN.innerHTML='<span class="tt" data-tip="'+tip.replace(/"/g,'&quot;')+'">'+pname+badge+'</span>'
-        +(players?'<br><span style="font-size:10px;color:var(--muted)">'+players+'</span>':'');
+      tdN.innerHTML='<span class="tt" data-tip="'+pname+'">'+pname+badge+'</span>';
       row.appendChild(tdN);
 
-      [p.start||'—', p.end||'—',
+      [p.start||'—',p.end||'—',
        p.rating>0?p.rating.toFixed(3)+'%':'—',
        p.share>0?p.share.toFixed(3)+'%':'—',
        p.viewers>0?p.viewers.toLocaleString():'—'
@@ -674,41 +673,46 @@ function renderProg(){
         row.appendChild(td);
       });
 
+      // 연령 히트맵 - 프로그램 매칭 (시작시간 기준)
+      const ageP=ageProgs.find(function(a){return a.start===p.start&&a.program===pname;})||
+                 ageProgs.find(function(a){return a.start===p.start;})||{};
       ['age_male','age_female'].forEach(function(gKey){
         AGE.forEach(function(age){
-          row.appendChild(makeHeatCell((p[gKey]||{})[age]||0,false));
+          row.appendChild(makeHeatCell((ageP[gKey]||{})[age]||0,false));
         });
       });
     });
 
     // 평균행
-    if(avg){
+    if(progs.length>0){
       const avgRow=tbody.insertRow();
       avgRow.className='prog-avg-row'+(isK?' kb':'');
-
       const tdLbl=document.createElement('td');
       tdLbl.textContent='평균';
       tdLbl.style.cssText='text-align:left;padding-left:10px;font-size:12px;font-weight:700;color:var(--text)';
       avgRow.appendChild(tdLbl);
-
-      ['',''].forEach(function(){
-        const td=document.createElement('td');avgRow.appendChild(td);
-      });
-
+      ['',''].forEach(function(){const td=document.createElement('td');avgRow.appendChild(td);});
       const avgRating=progs.reduce(function(s,p){return s+p.rating;},0)/progs.length;
       const avgShare=progs.reduce(function(s,p){return s+p.share;},0)/progs.length;
       const avgViewers=Math.round(progs.reduce(function(s,p){return s+p.viewers;},0)/progs.length);
-
-      [avgRating.toFixed(3)+'%', avgShare.toFixed(3)+'%', avgViewers.toLocaleString()].forEach(function(val){
+      [avgRating.toFixed(3)+'%',avgShare.toFixed(3)+'%',avgViewers.toLocaleString()].forEach(function(val){
         const td=document.createElement('td');
         td.textContent=val;
         td.style.cssText='text-align:right;font-size:12px;font-weight:700;color:var(--text)';
         avgRow.appendChild(td);
       });
-
+      // 평균 연령 셀 (음영 없음)
+      const avgAgeRow=ageProgs.length>0?{
+        age_male:Object.fromEntries(AGE.map(function(age){
+          return [age,Math.round(ageProgs.reduce(function(s,p){return s+(p.age_male||{})[age]||0;},0)/ageProgs.length*10000)/10000];
+        })),
+        age_female:Object.fromEntries(AGE.map(function(age){
+          return [age,Math.round(ageProgs.reduce(function(s,p){return s+(p.age_female||{})[age]||0;},0)/ageProgs.length*10000)/10000];
+        }))
+      }:{};
       ['age_male','age_female'].forEach(function(gKey){
         AGE.forEach(function(age){
-          avgRow.appendChild(makeHeatCell((avg[gKey]||{})[age]||0,true));
+          avgRow.appendChild(makeHeatCell((avgAgeRow[gKey]||{})[age]||0,true));
         });
       });
     }
@@ -718,65 +722,6 @@ function renderProg(){
     wrap.appendChild(blockDiv);
   });
 }
-
-function initCharts(){
-  const dates=D.meta.dates;
-  const labels=dates.map(d=>{const m=d.match(/(\d+)월(\d+)일/);return m?m[1]+'/'+m[2]:d;});
-  const bRat=dates.map(d=>{const r=D.rankings['종합'][d]?.find(x=>x.channel==='바둑TV');return r?+(r.rating).toFixed(4):null;});
-  const kRat=dates.map(d=>{const r=D.rankings['종합'][d]?.find(x=>x.channel==='K바둑');return r?+(r.rating).toFixed(4):null;});
-  const bRnk=dates.map(d=>{const r=D.rankings['종합'][d]?.find(x=>x.channel==='바둑TV');return r?r.rank:null;});
-  const kRnk=dates.map(d=>{const r=D.rankings['종합'][d]?.find(x=>x.channel==='K바둑');return r?r.rank:null;});
-  const co={responsive:true,animation:{duration:300},plugins:{legend:{display:false},tooltip:{backgroundColor:'var(--bg2)',borderColor:'var(--border)',borderWidth:1,titleFont:{family:'IBM Plex Mono',size:10},bodyFont:{family:'IBM Plex Mono',size:10}}},scales:{x:{ticks:{color:'#64748b',font:{family:'IBM Plex Mono',size:8}},grid:{color:'rgba(30,45,69,.5)'}},y:{ticks:{color:'#64748b',font:{family:'IBM Plex Mono',size:8}},grid:{color:'rgba(30,45,69,.5)'}}}};
-  tC=new Chart(document.getElementById('trendC'),{type:'line',data:{labels,datasets:[
-    {label:'바둑TV',data:bRat,borderColor:'#00d4ff',backgroundColor:'rgba(0,212,255,.07)',fill:false,tension:.4,pointBackgroundColor:'#00d4ff',pointRadius:4,pointHoverRadius:6},
-    {label:'K바둑',data:kRat,borderColor:'#ff6b35',backgroundColor:'rgba(255,107,53,.07)',fill:false,tension:.4,pointBackgroundColor:'#ff6b35',pointRadius:4,pointHoverRadius:6,}
-  ]},options:{...co,plugins:{...co.plugins,legend:{display:true,position:'bottom',labels:{usePointStyle:true,boxWidth:8,color:'#64748b',font:{size:10}}}},scales:{...co.scales,y:{...co.scales.y,title:{display:true,text:'시청률(%)',color:'#64748b',font:{size:8}}}}}});
-  rC=new Chart(document.getElementById('rankC'),{type:'line',data:{labels,datasets:[
-    {label:'바둑TV',data:bRnk,borderColor:'#00d4ff',backgroundColor:'rgba(0,212,255,.07)',fill:false,tension:.4,pointBackgroundColor:'#00d4ff',pointRadius:4,pointHoverRadius:6},
-    {label:'K바둑',data:kRnk,borderColor:'#ff6b35',backgroundColor:'rgba(255,107,53,.07)',fill:false,tension:.4,pointBackgroundColor:'#ff6b35',pointRadius:4,pointHoverRadius:6}
-  ]},options:{...co,plugins:{...co.plugins,legend:{display:true,position:'bottom',labels:{usePointStyle:true,boxWidth:8,color:'#64748b',font:{size:10}}}},scales:{...co.scales,y:{...co.scales.y,reverse:true,title:{display:true,text:'순위',color:'#64748b',font:{size:8}}}}}});
-
-  // 전년 동기 대비 추이: 올해 vs 전년 바둑TV 시청률
-  const thisYearRat=dates.map(d=>{const r=D.rankings['종합'][d]?.find(x=>x.channel==='바둑TV');return r?+r.rating.toFixed(4):null;});
-  const lastYearRat=dates.map(d=>{const p=D.programs[d]||{};return p.yoy_rating!=null?+parseFloat(p.yoy_rating).toFixed(4):null;});
-  new Chart(document.getElementById('yoyC'),{type:'line',data:{labels,datasets:[
-    {label:'올해',data:thisYearRat,borderColor:'#00d4ff',backgroundColor:'transparent',fill:false,tension:.4,pointBackgroundColor:'#00d4ff',pointRadius:4,pointHoverRadius:6},
-    {label:'전년',data:lastYearRat,borderColor:'#64748b',backgroundColor:'transparent',fill:false,tension:.4,pointBackgroundColor:'#64748b',pointRadius:4,pointHoverRadius:6,borderDash:[5,3]}
-  ]},options:{...co,plugins:{...co.plugins,legend:{display:true,position:'bottom',labels:{usePointStyle:true,boxWidth:8,color:'#64748b',font:{size:10}}}},scales:{...co.scales,y:{...co.scales.y,title:{display:true,text:'시청률(%)',color:'#64748b',font:{size:8}}}}}});
-}
-
-function updCharts(){
-  if(!tC||!rC)return;
-  const dates=D.meta.dates,idx=dates.indexOf(curDate);
-  [[tC,['#00d4ff','#ff6b35']],[rC,['#00d4ff','#ff6b35']]].forEach(([c,cols])=>{
-    c.data.datasets.forEach((ds,di)=>{
-      const col=cols[di]||cols[0];
-      ds.pointBackgroundColor=dates.map((_,i)=>i===idx?'#fff':col);
-      ds.pointRadius=dates.map((_,i)=>i===idx?7:4);
-    });
-    c.update('none');
-  });
-}
-
-
-function toggleTheme(){
-  const isDark=document.documentElement.getAttribute('data-theme')!=='light';
-  document.documentElement.setAttribute('data-theme',isDark?'light':'dark');
-  document.getElementById('themeBtn').textContent=isDark?'🌙 DARK':'☀️ LIGHT';
-  localStorage.setItem('theme',isDark?'light':'dark');
-  // 차트 색상 업데이트
-  if(tC&&rC){
-    const gc=isDark?'rgba(30,45,69,.5)':'rgba(203,213,225,.5)';
-    const tc=isDark?'#64748b':'#94a3b8';
-    [tC,rC].forEach(c=>{
-      c.options.scales.x.grid.color=gc;c.options.scales.y.grid.color=gc;
-      c.options.scales.x.ticks.color=tc;c.options.scales.y.ticks.color=tc;
-      c.update('none');
-    });
-  }
-}
-// 저장된 테마 복원
-
 
 function closeModal(e){
   if(e.target===document.getElementById('progModal'))
