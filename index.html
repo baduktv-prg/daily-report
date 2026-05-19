@@ -534,23 +534,18 @@ function jumpBaduk(ch){
 
 function renderComp(){
   const dayData=D.days[curDate]||{};
-  const pr=dayData;
   const wrap=document.getElementById('compBarWrap');
   if(!wrap)return;
   wrap.innerHTML='';
-  const txt=pr.competitor_text||'';
 
-  // 바둑TV 시청률
-  const rows=((D.days[curDate]||{}).rankings||{})['종합']||[];
+  const rows=((dayData.rankings)||{})['종합']||[];
   const bkRating=(rows.find(r=>r.channel==='바둑TV')||{}).rating||0;
+  const competitors=dayData.competitors||{};
 
   const channels=[{name:'바둑TV',rating:bkRating,isSelf:true}];
-  if(txt){
-    txt.split('/').forEach(part=>{
-      const m=part.trim().match(/^(.+?)\s+([\d.]+)\s+\(\d+%\)/);
-      if(m) channels.push({name:m[1].trim(),rating:parseFloat(m[2]),isSelf:false});
-    });
-  }
+  Object.keys(competitors).forEach(function(ch){
+    channels.push({name:ch,rating:competitors[ch].rating,isSelf:false});
+  });
 
   const maxVal=Math.max.apply(null,channels.map(c=>c.rating).concat([0.001]));
   channels.forEach(function(c){
