@@ -280,6 +280,20 @@ footer{text-align:center;padding:20px;color:var(--muted);font-family:'Noto Sans 
 .comp-bar-fill{height:100%;background:var(--accent2);transition:width .4s}
 .comp-bar-val{font-size:11px;color:var(--muted);width:60px;flex-shrink:0;text-align:right}
 
+/* ── 총평/분석 섹션 ── */
+.analysis-section{margin-top:24px;margin-bottom:24px}
+.analysis-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:12px}
+.analysis-card{background:var(--bg2);border:1px solid var(--border);padding:16px}
+.analysis-card-title{font-size:13px;font-weight:700;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
+.analysis-card-title.baduk{color:var(--accent)}
+.analysis-card-title.kbaduk{color:var(--accent2)}
+.analysis-card-title.etc{color:var(--muted)}
+.analysis-text{font-size:13px;color:var(--muted);line-height:1.8}
+.analysis-empty{font-size:12px;color:var(--muted);font-style:italic}
+.prog-analysis{margin-top:6px;padding:6px 10px;background:var(--bg3);border-left:2px solid var(--accent);font-size:11px;color:var(--muted);line-height:1.7}
+.prog-analysis.kbaduk{border-left-color:var(--accent2)}
+@media(max-width:768px){.analysis-grid{grid-template-columns:1fr}}
+
 .stats-bar{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:28px;margin-bottom:20px}
 .stats-bar .card{margin:0}
 </style>
@@ -387,6 +401,27 @@ footer{text-align:center;padding:20px;color:var(--muted);font-family:'Noto Sans 
       <div class="slabel" style="margin-top:0">프로그램별 시청률</div>
       <div id="progWrap"></div>
     </div>
+      <div class="analysis-section">
+      <div class="slabel">일일 총평 및 분석</div>
+      <div class="analysis-grid">
+        <div class="analysis-card">
+          <div class="analysis-card-title baduk"><div class="dot a"></div>총평</div>
+          <div class="analysis-text" id="summaryBaduk"><span class="analysis-empty">데이터 없음</span></div>
+          <div style="margin-top:12px;padding-top:10px;border-top:1px solid var(--border)">
+            <div class="analysis-card-title kbaduk" style="margin-bottom:8px"><div class="dot o"></div>K바둑</div>
+            <div class="analysis-text" id="summaryKbaduk"><span class="analysis-empty">데이터 없음</span></div>
+          </div>
+        </div>
+        <div class="analysis-card">
+          <div class="analysis-card-title baduk"><div class="dot a"></div>생중계 · 본방 분석</div>
+          <div id="analysisLive"><span class="analysis-empty">데이터 없음</span></div>
+        </div>
+        <div class="analysis-card">
+          <div class="analysis-card-title baduk"><div class="dot a"></div>재방 분석</div>
+          <div id="analysisRerun"><span class="analysis-empty">데이터 없음</span></div>
+        </div>
+      </div>
+    </div>
   </div>
 
 </div>
@@ -394,6 +429,7 @@ footer{text-align:center;padding:20px;color:var(--muted);font-family:'Noto Sans 
 <footer>AGB 닐슨 · 전국 전플랫폼 (유료가구) · 206개 채널 기준 · 종편채널제외</footer>
 
 <script>
+
 let D=null, curDate=null, curPlat='종합', calY=2026, calM=4, tC=null, rC=null;
 const DATES_SET=new Set();
 
@@ -455,7 +491,7 @@ function selDate(date){
   curDate=date;
   const m=date.match(/(\d+)월/);if(m){calM=parseInt(m[1]);renderCal();}
   document.getElementById('calLabel').textContent=date;
-  renderKPI();renderTbl();renderComp();renderProg();updCharts();
+  renderKPI();renderTbl();renderComp();renderProg();renderSummary();updCharts();
 }
 
 function renderKPI(){
@@ -775,6 +811,52 @@ function toggleTheme(){
   }
 }
 // 저장된 테마 복원
+
+
+// ── 총평 + 프로그램 분석 표시 ──
+function renderSummary(){
+  const dayData=D.days[curDate]||{};
+  const summary=dayData.summary||{};
+  const programs=dayData.programs||{};
+
+  function setText(id,text){
+    const el=document.getElementById(id);
+    if(!el)return;
+    if(!text||!text.trim()){el.innerHTML='<span class="analysis-empty">데이터 없음</span>';return;}
+    el.innerHTML=text.split('|').map(function(s){return '<div style="margin-bottom:4px">'+s.trim()+'</div>';}).join('');
+  }
+  setText('summaryBaduk',summary.badukTV||'');
+  setText('summaryKbaduk',summary.kbaduk||'');
+
+  const liveEl=document.getElementById('analysisLive');
+  const rerunEl=document.getElementById('analysisRerun');
+  if(!liveEl||!rerunEl)return;
+  let liveHtml='',rerunHtml='';
+
+  Object.keys(programs).forEach(function(channel){
+    const isK=channel.includes('K바둑');
+    const color=isK?'var(--accent2)':'var(--accent)';
+    (programs[channel]||[]).forEach(function(p){
+      if(!p.analysis||!p.analysis.length)return;
+      const pname=(p.program||'').replace(/<생>/g,'').replace(/<재>/g,'').trim();
+      const players=p.players?' '+p.players:'';
+      const analysisHtml=p.analysis.map(function(a){
+        return '<div style="margin-bottom:3px;padding-left:8px;border-left:2px solid var(--border)">'+a+'</div>';
+      }).join('');
+      const block='<div style="margin-bottom:10px"><div style="font-size:12px;font-weight:600;color:'+color+';margin-bottom:4px">'+pname+players+'</div>'+analysisHtml+'</div>';
+      if(p.is_live) liveHtml+=block;
+      else rerunHtml+=block;
+    });
+  });
+
+  if(summary.etc&&summary.etc.trim()){
+    rerunHtml+='<div style="margin-top:8px;padding-top:8px;border-top:1px solid var(--border);font-size:12px;color:var(--muted)">기타: '+summary.etc+'</div>';
+  }
+
+  liveEl.innerHTML=liveHtml||'<span class="analysis-empty">데이터 없음</span>';
+  rerunEl.innerHTML=rerunHtml||'<span class="analysis-empty">데이터 없음</span>';
+}
+
 
 
 function closeModal(e){
