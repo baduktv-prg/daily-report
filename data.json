@@ -5791,7 +5791,11 @@
             "end": "종료시간\\",
             "rating": null,
             "share": null,
-            "viewers": null
+            "viewers": null,
+            "players": "",
+            "analysis": [],
+            "target_rating": null,
+            "achievement": null
           },
           {
             "program": "쏘팔코사놀세계최고기사결정전<재>",
@@ -5799,7 +5803,11 @@
             "end": "05:21",
             "rating": 0.088,
             "share": 1.97,
-            "viewers": 19815
+            "viewers": 19815,
+            "players": "",
+            "analysis": [],
+            "target_rating": null,
+            "achievement": null
           },
           {
             "program": "농심신라면배세계바둑최강전<재>",
@@ -5807,7 +5815,11 @@
             "end": "09:14",
             "rating": 0.059,
             "share": 0.654,
-            "viewers": 13181
+            "viewers": 13181,
+            "players": "",
+            "analysis": [],
+            "target_rating": null,
+            "achievement": null
           },
           {
             "program": "란커배세계바둑오픈전하이라이트<재>",
@@ -5815,7 +5827,11 @@
             "end": "10:52",
             "rating": 0.079,
             "share": 0.69,
-            "viewers": 17727
+            "viewers": 17727,
+            "players": "",
+            "analysis": [],
+            "target_rating": null,
+            "achievement": null
           },
           {
             "program": "맥심커피배입신최강전<재>",
@@ -5823,7 +5839,11 @@
             "end": "12:53",
             "rating": 0.06,
             "share": 0.516,
-            "viewers": 13491
+            "viewers": 13491,
+            "players": "",
+            "analysis": [],
+            "target_rating": null,
+            "achievement": null
           },
           {
             "program": "몽백합배세계바둑오픈",
@@ -5831,7 +5851,11 @@
             "end": "14:12",
             "rating": 0.205,
             "share": 1.781,
-            "viewers": 46045
+            "viewers": 46045,
+            "players": "",
+            "analysis": [],
+            "target_rating": null,
+            "achievement": null
           },
           {
             "program": "몽백합배세계바둑오픈",
@@ -5839,7 +5863,11 @@
             "end": "19:17",
             "rating": 0.31,
             "share": 2.402,
-            "viewers": 69859
+            "viewers": 69859,
+            "players": "",
+            "analysis": [],
+            "target_rating": null,
+            "achievement": null
           },
           {
             "program": "EASYGO초점국",
@@ -5847,7 +5875,11 @@
             "end": "21:46",
             "rating": 0.091,
             "share": 0.369,
-            "viewers": 20456
+            "viewers": 20456,
+            "players": "",
+            "analysis": [],
+            "target_rating": null,
+            "achievement": null
           },
           {
             "program": "몽백합배세계바둑오픈<재>",
@@ -5855,7 +5887,11 @@
             "end": "25:59",
             "rating": 0.091,
             "share": 0.643,
-            "viewers": 20527
+            "viewers": 20527,
+            "players": "",
+            "analysis": [],
+            "target_rating": null,
+            "achievement": null
           }
         ],
         "K바둑": [
@@ -5865,7 +5901,11 @@
             "end": "종료시간\\",
             "rating": null,
             "share": null,
-            "viewers": null
+            "viewers": null,
+            "players": "",
+            "analysis": [],
+            "target_rating": null,
+            "achievement": null
           },
           {
             "program": "KBADUK투데이명승부",
@@ -5873,7 +5913,11 @@
             "end": "04:31",
             "rating": 0.043,
             "share": 0.962,
-            "viewers": 9623
+            "viewers": 9623,
+            "players": "",
+            "analysis": [],
+            "target_rating": null,
+            "achievement": null
           },
           {
             "program": "굿초이스K바둑초점국4",
@@ -5881,7 +5925,11 @@
             "end": "06:37",
             "rating": 0.032,
             "share": 0.545,
-            "viewers": 7169
+            "viewers": 7169,
+            "players": "",
+            "analysis": [],
+            "target_rating": null,
+            "achievement": null
           },
           {
             "program": "이상헌의끝내기도감",
@@ -5889,7 +5937,11 @@
             "end": "07:27",
             "rating": 0.029,
             "share": 0.323,
-            "viewers": 6511
+            "viewers": 6511,
+            "players": "",
+            "analysis": [],
+            "target_rating": null,
+            "achievement": null
           },
           {
             "program": "이상헌의끝내기도감",
@@ -5897,7 +5949,11 @@
             "end": "08:07",
             "rating": 0,
             "share": 0,
-            "viewers": 0
+            "viewers": 0,
+            "players": "",
+            "analysis": [],
+            "target_rating": null,
+            "achievement": null
           },
           {
             "program": "기보탐구",
@@ -5905,7 +5961,11 @@
             "end": "09:46",
             "rating": 0.02,
             "share": 0.185,
-            "viewers": 4474
+            "viewers": 4474,
+            "players": "",
+            "analysis": [],
+            "target_rating": null,
+            "achievement": null
           },
           {
             "program": "TV한판승부",
@@ -5913,7 +5973,11 @@
             "end": "10:25",
             "rating": 0.01,
             "share": 0.093,
-            "viewers": 2332
+            "viewers": 2332,
+            "players": "",
+            "analysis": [],
+            "target_rating": null,
+            "achievement": null
           },
           {
             "program": "KBADUKLIVE다이제스트",
@@ -5921,7 +5985,11 @@
             "end": "11:04",
             "rating": 0.013,
             "share": 0.109,
-            "viewers": 2822
+            "viewers": 2822,
+            "players": "",
+            "analysis": [],
+            "target_rating": null,
+            "achievement": null
           },
           {
             "program": "NEW바둑비타민V",
@@ -5929,7 +5997,11 @@
             "end": "12:59",
             "rating": 0.033,
             "share": 0.285,
-            "viewers": 7456
+            "viewers": 7456,
+            "players": "",
+            "analysis": [],
+            "target_rating": null,
+            "achievement": null
           },
           {
             "program": "KBADUKLIVE몽백합배세계바둑오픈전",
@@ -5937,7 +6009,11 @@
             "end": "14:17",
             "rating": 0.055,
             "share": 0.48,
-            "viewers": 12475
+            "viewers": 12475,
+            "players": "",
+            "analysis": [],
+            "target_rating": null,
+            "achievement": null
           },
           {
             "program": "KBADUKLIVE몽백합배세계바둑오픈전",
@@ -5945,7 +6021,11 @@
             "end": "18:48",
             "rating": 0.1,
             "share": 0.808,
-            "viewers": 22576
+            "viewers": 22576,
+            "players": "",
+            "analysis": [],
+            "target_rating": null,
+            "achievement": null
           },
           {
             "program": "KBADUKLIVE몽백합배세계바둑오픈전",
@@ -5953,7 +6033,11 @@
             "end": "21:03",
             "rating": 0.065,
             "share": 0.303,
-            "viewers": 14700
+            "viewers": 14700,
+            "players": "",
+            "analysis": [],
+            "target_rating": null,
+            "achievement": null
           },
           {
             "program": "KBADUKLIVE몽백합배세계바둑오픈전",
@@ -5961,7 +6045,11 @@
             "end": "24:30",
             "rating": 0.133,
             "share": 0.669,
-            "viewers": 29840
+            "viewers": 29840,
+            "players": "",
+            "analysis": [],
+            "target_rating": null,
+            "achievement": null
           },
           {
             "program": "KBADUKLIVE다이제스트",
@@ -5969,7 +6057,11 @@
             "end": "25:44",
             "rating": 0.02,
             "share": 0.253,
-            "viewers": 4549
+            "viewers": 4549,
+            "players": "",
+            "analysis": [],
+            "target_rating": null,
+            "achievement": null
           },
           {
             "program": "KBADUK투데이명승부",
@@ -5977,7 +6069,11 @@
             "end": "25:59",
             "rating": 0.018,
             "share": 0.306,
-            "viewers": 4084
+            "viewers": 4084,
+            "players": "",
+            "analysis": [],
+            "target_rating": null,
+            "achievement": null
           }
         ]
       },
