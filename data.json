@@ -1,5 +1,6 @@
 {
   "dates": [
+    "2026-01-01",
     "2026-02-25",
     "2026-02-26",
     "2026-02-28"
@@ -17443,6 +17444,5821 @@
         "target": 0.095,
         "cumulative": 0.0967,
         "achievement": 101.8
+      },
+      "summary": {
+        "badukTV": "",
+        "kbaduk": "",
+        "etc": ""
+      }
+    },
+    "2026-01-01": {
+      "date": "2026-01-01",
+      "rankings": {
+        "종합": [
+          {
+            "rank": 1,
+            "channel": "YTN",
+            "rating": 0.977,
+            "share": 7.718,
+            "viewers": 217670
+          },
+          {
+            "rank": 2,
+            "channel": "tvN",
+            "rating": 0.903,
+            "share": 7.133,
+            "viewers": 201186
+          },
+          {
+            "rank": 3,
+            "channel": "연합뉴스TV",
+            "rating": 0.741,
+            "share": 5.856,
+            "viewers": 165170
+          },
+          {
+            "rank": 4,
+            "channel": "ENA",
+            "rating": 0.355,
+            "share": 2.802,
+            "viewers": 79026
+          },
+          {
+            "rank": 5,
+            "channel": "OCN Movies",
+            "rating": 0.302,
+            "share": 2.387,
+            "viewers": 67335
+          },
+          {
+            "rank": 6,
+            "channel": "SBS Plus",
+            "rating": 0.257,
+            "share": 2.03,
+            "viewers": 57262
+          },
+          {
+            "rank": 7,
+            "channel": "tvN STORY",
+            "rating": 0.249,
+            "share": 1.97,
+            "viewers": 55570
+          },
+          {
+            "rank": 8,
+            "channel": "KBS JOY",
+            "rating": 0.246,
+            "share": 1.945,
+            "viewers": 54860
+          },
+          {
+            "rank": 9,
+            "channel": "KBS드라마",
+            "rating": 0.246,
+            "share": 1.94,
+            "viewers": 54725
+          },
+          {
+            "rank": 10,
+            "channel": "MBC every1",
+            "rating": 0.234,
+            "share": 1.852,
+            "viewers": 52235
+          },
+          {
+            "rank": 11,
+            "channel": "OCN",
+            "rating": 0.226,
+            "share": 1.784,
+            "viewers": 50327
+          },
+          {
+            "rank": 12,
+            "channel": "JTBC2",
+            "rating": 0.208,
+            "share": 1.647,
+            "viewers": 46448
+          },
+          {
+            "rank": 13,
+            "channel": "DRAMAcube",
+            "rating": 0.203,
+            "share": 1.606,
+            "viewers": 45298
+          },
+          {
+            "rank": 14,
+            "channel": "채널S",
+            "rating": 0.203,
+            "share": 1.605,
+            "viewers": 45273
+          },
+          {
+            "rank": 15,
+            "channel": "ENA DRAMA",
+            "rating": 0.174,
+            "share": 1.373,
+            "viewers": 38721
+          },
+          {
+            "rank": 16,
+            "channel": "SBS funE",
+            "rating": 0.173,
+            "share": 1.367,
+            "viewers": 38546
+          },
+          {
+            "rank": 17,
+            "channel": "MBC드라마넷",
+            "rating": 0.163,
+            "share": 1.29,
+            "viewers": 36381
+          },
+          {
+            "rank": 18,
+            "channel": "SBS Sports",
+            "rating": 0.163,
+            "share": 1.289,
+            "viewers": 36361
+          },
+          {
+            "rank": 19,
+            "channel": "tvN DRAMA",
+            "rating": 0.159,
+            "share": 1.256,
+            "viewers": 35430
+          },
+          {
+            "rank": 20,
+            "channel": "theLIFE",
+            "rating": 0.154,
+            "share": 1.217,
+            "viewers": 34319
+          },
+          {
+            "rank": 21,
+            "channel": "TV CHOSUN2",
+            "rating": 0.151,
+            "share": 1.195,
+            "viewers": 33702
+          },
+          {
+            "rank": 22,
+            "channel": "CNTV",
+            "rating": 0.145,
+            "share": 1.144,
+            "viewers": 32271
+          },
+          {
+            "rank": 23,
+            "channel": "FUN TV",
+            "rating": 0.142,
+            "share": 1.12,
+            "viewers": 31580
+          },
+          {
+            "rank": 24,
+            "channel": "CMCTV",
+            "rating": 0.138,
+            "share": 1.09,
+            "viewers": 30737
+          },
+          {
+            "rank": 25,
+            "channel": "KBSN스포츠",
+            "rating": 0.13,
+            "share": 1.027,
+            "viewers": 28967
+          },
+          {
+            "rank": 26,
+            "channel": "GTV",
+            "rating": 0.128,
+            "share": 1.013,
+            "viewers": 28565
+          },
+          {
+            "rank": 27,
+            "channel": "D-ONE",
+            "rating": 0.123,
+            "share": 0.971,
+            "viewers": 27393
+          },
+          {
+            "rank": 28,
+            "channel": "Dramax",
+            "rating": 0.122,
+            "share": 0.964,
+            "viewers": 27189
+          },
+          {
+            "rank": 29,
+            "channel": "MBC ON",
+            "rating": 0.116,
+            "share": 0.917,
+            "viewers": 25850
+          },
+          {
+            "rank": 30,
+            "channel": "채널이엠",
+            "rating": 0.111,
+            "share": 0.876,
+            "viewers": 24694
+          },
+          {
+            "rank": 31,
+            "channel": "K STAR",
+            "rating": 0.107,
+            "share": 0.844,
+            "viewers": 23801
+          },
+          {
+            "rank": 32,
+            "channel": "OLIFE",
+            "rating": 0.105,
+            "share": 0.832,
+            "viewers": 23459
+          },
+          {
+            "rank": 33,
+            "channel": "E채널",
+            "rating": 0.103,
+            "share": 0.816,
+            "viewers": 23013
+          },
+          {
+            "rank": 34,
+            "channel": "SCREEN",
+            "rating": 0.103,
+            "share": 0.812,
+            "viewers": 22905
+          },
+          {
+            "rank": 35,
+            "channel": "하이라이트TV",
+            "rating": 0.1,
+            "share": 0.787,
+            "viewers": 22207
+          },
+          {
+            "rank": 36,
+            "channel": "EDGETV",
+            "rating": 0.095,
+            "share": 0.753,
+            "viewers": 21252
+          },
+          {
+            "rank": 37,
+            "channel": "tvN SHOW",
+            "rating": 0.092,
+            "share": 0.725,
+            "viewers": 20453
+          },
+          {
+            "rank": 38,
+            "channel": "씨네트리",
+            "rating": 0.092,
+            "share": 0.724,
+            "viewers": 20424
+          },
+          {
+            "rank": 39,
+            "channel": "코미디TV",
+            "rating": 0.091,
+            "share": 0.719,
+            "viewers": 20283
+          },
+          {
+            "rank": 40,
+            "channel": "THE MOVIE",
+            "rating": 0.091,
+            "share": 0.717,
+            "viewers": 20221
+          },
+          {
+            "rank": 41,
+            "channel": "ENA PLAY",
+            "rating": 0.089,
+            "share": 0.706,
+            "viewers": 19912
+          },
+          {
+            "rank": 42,
+            "channel": "엠플렉스",
+            "rating": 0.087,
+            "share": 0.684,
+            "viewers": 19304
+          },
+          {
+            "rank": 43,
+            "channel": "SBS Biz",
+            "rating": 0.086,
+            "share": 0.678,
+            "viewers": 19127
+          },
+          {
+            "rank": 44,
+            "channel": "OCN Movies2",
+            "rating": 0.086,
+            "share": 0.677,
+            "viewers": 19101
+          },
+          {
+            "rank": 45,
+            "channel": "브레인TV(BrainTV)",
+            "rating": 0.079,
+            "share": 0.623,
+            "viewers": 17583
+          },
+          {
+            "rank": 46,
+            "channel": "MBN플러스",
+            "rating": 0.077,
+            "share": 0.609,
+            "viewers": 17178
+          },
+          {
+            "rank": 47,
+            "channel": "라이프타임",
+            "rating": 0.075,
+            "share": 0.589,
+            "viewers": 16622
+          },
+          {
+            "rank": 48,
+            "channel": "국회방송",
+            "rating": 0.074,
+            "share": 0.587,
+            "viewers": 16549
+          },
+          {
+            "rank": 49,
+            "channel": "SBS Life",
+            "rating": 0.072,
+            "share": 0.565,
+            "viewers": 15940
+          },
+          {
+            "rank": 50,
+            "channel": "Channel J",
+            "rating": 0.069,
+            "share": 0.545,
+            "viewers": 15385
+          },
+          {
+            "rank": 51,
+            "channel": "Asia M",
+            "rating": 0.069,
+            "share": 0.544,
+            "viewers": 15344
+          },
+          {
+            "rank": 52,
+            "channel": "시네마천국",
+            "rating": 0.067,
+            "share": 0.532,
+            "viewers": 14996
+          },
+          {
+            "rank": 53,
+            "channel": "CH view",
+            "rating": 0.067,
+            "share": 0.526,
+            "viewers": 14826
+          },
+          {
+            "rank": 54,
+            "channel": "KTV",
+            "rating": 0.066,
+            "share": 0.518,
+            "viewers": 14603
+          },
+          {
+            "rank": 55,
+            "channel": "HQ+",
+            "rating": 0.064,
+            "share": 0.504,
+            "viewers": 14205
+          },
+          {
+            "rank": 56,
+            "channel": "KBS Story",
+            "rating": 0.063,
+            "share": 0.497,
+            "viewers": 14025
+          },
+          {
+            "rank": 57,
+            "channel": "GOLF & PBA",
+            "rating": 0.062,
+            "share": 0.491,
+            "viewers": 13851
+          },
+          {
+            "rank": 58,
+            "channel": "월드클래식무비",
+            "rating": 0.06,
+            "share": 0.477,
+            "viewers": 13442
+          },
+          {
+            "rank": 59,
+            "channel": "바둑TV",
+            "rating": 0.059,
+            "share": 0.465,
+            "viewers": 13112
+          },
+          {
+            "rank": 60,
+            "channel": "JTBC4",
+            "rating": 0.059,
+            "share": 0.464,
+            "viewers": 13092
+          },
+          {
+            "rank": 61,
+            "channel": "채널A플러스",
+            "rating": 0.058,
+            "share": 0.457,
+            "viewers": 12891
+          },
+          {
+            "rank": 62,
+            "channel": "채널액션(Channel Action)",
+            "rating": 0.056,
+            "share": 0.439,
+            "viewers": 12385
+          },
+          {
+            "rank": 63,
+            "channel": "SPOTV",
+            "rating": 0.055,
+            "share": 0.438,
+            "viewers": 12359
+          },
+          {
+            "rank": 64,
+            "channel": "EDGE ON",
+            "rating": 0.055,
+            "share": 0.432,
+            "viewers": 12174
+          },
+          {
+            "rank": 65,
+            "channel": "Asia N",
+            "rating": 0.05,
+            "share": 0.395,
+            "viewers": 11155
+          },
+          {
+            "rank": 66,
+            "channel": "MBC SPORTS+",
+            "rating": 0.05,
+            "share": 0.394,
+            "viewers": 11103
+          },
+          {
+            "rank": 67,
+            "channel": "채널차이나",
+            "rating": 0.047,
+            "share": 0.369,
+            "viewers": 10397
+          },
+          {
+            "rank": 68,
+            "channel": "tvN SPORTS",
+            "rating": 0.045,
+            "share": 0.359,
+            "viewers": 10133
+          },
+          {
+            "rank": 69,
+            "channel": "채널나우",
+            "rating": 0.045,
+            "share": 0.355,
+            "viewers": 10004
+          },
+          {
+            "rank": 70,
+            "channel": "cineF",
+            "rating": 0.042,
+            "share": 0.334,
+            "viewers": 9409
+          },
+          {
+            "rank": 71,
+            "channel": "SPOTV2",
+            "rating": 0.041,
+            "share": 0.326,
+            "viewers": 9184
+          },
+          {
+            "rank": 72,
+            "channel": "ONCE",
+            "rating": 0.04,
+            "share": 0.317,
+            "viewers": 8953
+          },
+          {
+            "rank": 73,
+            "channel": "엔터TV",
+            "rating": 0.04,
+            "share": 0.313,
+            "viewers": 8819
+          },
+          {
+            "rank": 74,
+            "channel": "채널S플러스",
+            "rating": 0.039,
+            "share": 0.308,
+            "viewers": 8677
+          },
+          {
+            "rank": 75,
+            "channel": "한국경제TV",
+            "rating": 0.038,
+            "share": 0.297,
+            "viewers": 8379
+          },
+          {
+            "rank": 76,
+            "channel": "JTBC SPORTS",
+            "rating": 0.037,
+            "share": 0.295,
+            "viewers": 8325
+          },
+          {
+            "rank": 77,
+            "channel": "IB SPORTS",
+            "rating": 0.037,
+            "share": 0.295,
+            "viewers": 8312
+          },
+          {
+            "rank": 78,
+            "channel": "현대홈쇼핑",
+            "rating": 0.036,
+            "share": 0.287,
+            "viewers": 8093
+          },
+          {
+            "rank": 79,
+            "channel": "롯데홈쇼핑",
+            "rating": 0.036,
+            "share": 0.282,
+            "viewers": 7957
+          },
+          {
+            "rank": 80,
+            "channel": "CJ ONSTYLE",
+            "rating": 0.036,
+            "share": 0.281,
+            "viewers": 7913
+          },
+          {
+            "rank": 81,
+            "channel": "Smile TV Plus",
+            "rating": 0.035,
+            "share": 0.279,
+            "viewers": 7883
+          },
+          {
+            "rank": 82,
+            "channel": "NXT",
+            "rating": 0.035,
+            "share": 0.277,
+            "viewers": 7823
+          },
+          {
+            "rank": 83,
+            "channel": "Mnet",
+            "rating": 0.035,
+            "share": 0.275,
+            "viewers": 7759
+          },
+          {
+            "rank": 84,
+            "channel": "E LIKE",
+            "rating": 0.034,
+            "share": 0.271,
+            "viewers": 7649
+          },
+          {
+            "rank": 85,
+            "channel": "K바둑",
+            "rating": 0.034,
+            "share": 0.269,
+            "viewers": 7581
+          },
+          {
+            "rank": 86,
+            "channel": "ENA SPORTS",
+            "rating": 0.033,
+            "share": 0.262,
+            "viewers": 7397
+          },
+          {
+            "rank": 87,
+            "channel": "아이넷방송",
+            "rating": 0.033,
+            "share": 0.262,
+            "viewers": 7380
+          },
+          {
+            "rank": 88,
+            "channel": "MTN 머니투데이방송",
+            "rating": 0.033,
+            "share": 0.262,
+            "viewers": 7378
+          },
+          {
+            "rank": 89,
+            "channel": "Aple Drama",
+            "rating": 0.032,
+            "share": 0.256,
+            "viewers": 7219
+          },
+          {
+            "rank": 90,
+            "channel": "공영쇼핑",
+            "rating": 0.032,
+            "share": 0.25,
+            "viewers": 7055
+          },
+          {
+            "rank": 91,
+            "channel": "토마토증권통",
+            "rating": 0.032,
+            "share": 0.25,
+            "viewers": 7050
+          },
+          {
+            "rank": 92,
+            "channel": "ENA STORY",
+            "rating": 0.03,
+            "share": 0.24,
+            "viewers": 6767
+          },
+          {
+            "rank": 93,
+            "channel": "ONT",
+            "rating": 0.03,
+            "share": 0.24,
+            "viewers": 6760
+          },
+          {
+            "rank": 94,
+            "channel": "NS홈쇼핑",
+            "rating": 0.029,
+            "share": 0.233,
+            "viewers": 6567
+          },
+          {
+            "rank": 95,
+            "channel": "Tooniverse",
+            "rating": 0.029,
+            "share": 0.231,
+            "viewers": 6521
+          },
+          {
+            "rank": 96,
+            "channel": "GMTV",
+            "rating": 0.029,
+            "share": 0.226,
+            "viewers": 6385
+          },
+          {
+            "rank": 97,
+            "channel": "빌리어즈TV",
+            "rating": 0.028,
+            "share": 0.222,
+            "viewers": 6267
+          },
+          {
+            "rank": 98,
+            "channel": "SBS Golf",
+            "rating": 0.027,
+            "share": 0.216,
+            "viewers": 6106
+          },
+          {
+            "rank": 99,
+            "channel": "MX",
+            "rating": 0.026,
+            "share": 0.209,
+            "viewers": 5904
+          },
+          {
+            "rank": 100,
+            "channel": "뉴트로TV",
+            "rating": 0.026,
+            "share": 0.209,
+            "viewers": 5899
+          },
+          {
+            "rank": 101,
+            "channel": "신세계쇼핑",
+            "rating": 0.026,
+            "share": 0.205,
+            "viewers": 5788
+          },
+          {
+            "rank": 102,
+            "channel": "이벤트TV",
+            "rating": 0.026,
+            "share": 0.204,
+            "viewers": 5745
+          },
+          {
+            "rank": 103,
+            "channel": "마운틴TV",
+            "rating": 0.026,
+            "share": 0.203,
+            "viewers": 5722
+          },
+          {
+            "rank": 104,
+            "channel": "EBS2",
+            "rating": 0.025,
+            "share": 0.195,
+            "viewers": 5500
+          },
+          {
+            "rank": 105,
+            "channel": "THE M",
+            "rating": 0.025,
+            "share": 0.194,
+            "viewers": 5471
+          },
+          {
+            "rank": 106,
+            "channel": "홈&쇼핑",
+            "rating": 0.024,
+            "share": 0.193,
+            "viewers": 5440
+          },
+          {
+            "rank": 107,
+            "channel": "채널유",
+            "rating": 0.022,
+            "share": 0.176,
+            "viewers": 4970
+          },
+          {
+            "rank": 108,
+            "channel": "엑스원",
+            "rating": 0.021,
+            "share": 0.17,
+            "viewers": 4789
+          },
+          {
+            "rank": 109,
+            "channel": "매일경제TV",
+            "rating": 0.021,
+            "share": 0.169,
+            "viewers": 4764
+          },
+          {
+            "rank": 110,
+            "channel": "StoryTV",
+            "rating": 0.021,
+            "share": 0.165,
+            "viewers": 4655
+          },
+          {
+            "rank": 111,
+            "channel": "MBC M",
+            "rating": 0.021,
+            "share": 0.163,
+            "viewers": 4610
+          },
+          {
+            "rank": 112,
+            "channel": "Anibox",
+            "rating": 0.02,
+            "share": 0.16,
+            "viewers": 4522
+          },
+          {
+            "rank": 113,
+            "channel": "애니플러스",
+            "rating": 0.019,
+            "share": 0.153,
+            "viewers": 4302
+          },
+          {
+            "rank": 114,
+            "channel": "헬스메디TV",
+            "rating": 0.019,
+            "share": 0.149,
+            "viewers": 4215
+          },
+          {
+            "rank": 115,
+            "channel": "GS SHOP",
+            "rating": 0.019,
+            "share": 0.149,
+            "viewers": 4214
+          },
+          {
+            "rank": 116,
+            "channel": "UXN",
+            "rating": 0.018,
+            "share": 0.146,
+            "viewers": 4112
+          },
+          {
+            "rank": 117,
+            "channel": "Animax",
+            "rating": 0.018,
+            "share": 0.145,
+            "viewers": 4104
+          },
+          {
+            "rank": 118,
+            "channel": "다문화TV",
+            "rating": 0.017,
+            "share": 0.137,
+            "viewers": 3866
+          },
+          {
+            "rank": 119,
+            "channel": "현대홈쇼핑+Shop",
+            "rating": 0.017,
+            "share": 0.136,
+            "viewers": 3835
+          },
+          {
+            "rank": 120,
+            "channel": "i show",
+            "rating": 0.017,
+            "share": 0.134,
+            "viewers": 3786
+          },
+          {
+            "rank": 121,
+            "channel": "SBS Golf2",
+            "rating": 0.017,
+            "share": 0.133,
+            "viewers": 3759
+          },
+          {
+            "rank": 122,
+            "channel": "쇼핑엔티",
+            "rating": 0.017,
+            "share": 0.131,
+            "viewers": 3698
+          },
+          {
+            "rank": 123,
+            "channel": "중화TV",
+            "rating": 0.016,
+            "share": 0.13,
+            "viewers": 3677
+          },
+          {
+            "rank": 124,
+            "channel": "애니원",
+            "rating": 0.016,
+            "share": 0.127,
+            "viewers": 3592
+          },
+          {
+            "rank": 125,
+            "channel": "뽀요TV",
+            "rating": 0.016,
+            "share": 0.126,
+            "viewers": 3553
+          },
+          {
+            "rank": 126,
+            "channel": "K쇼핑",
+            "rating": 0.016,
+            "share": 0.125,
+            "viewers": 3531
+          },
+          {
+            "rank": 127,
+            "channel": "KFN",
+            "rating": 0.016,
+            "share": 0.125,
+            "viewers": 3524
+          },
+          {
+            "rank": 128,
+            "channel": "JTBC GOLF",
+            "rating": 0.016,
+            "share": 0.123,
+            "viewers": 3476
+          },
+          {
+            "rank": 129,
+            "channel": "NBS한국농업방송",
+            "rating": 0.015,
+            "share": 0.117,
+            "viewers": 3302
+          },
+          {
+            "rank": 130,
+            "channel": "가톨릭평화방송",
+            "rating": 0.014,
+            "share": 0.114,
+            "viewers": 3211
+          },
+          {
+            "rank": 131,
+            "channel": "텔레노벨라",
+            "rating": 0.014,
+            "share": 0.114,
+            "viewers": 3204
+          },
+          {
+            "rank": 132,
+            "channel": "생활체육TV",
+            "rating": 0.014,
+            "share": 0.114,
+            "viewers": 3202
+          },
+          {
+            "rank": 133,
+            "channel": "theLIFE2",
+            "rating": 0.014,
+            "share": 0.113,
+            "viewers": 3185
+          },
+          {
+            "rank": 134,
+            "channel": "GS MY SHOP",
+            "rating": 0.014,
+            "share": 0.11,
+            "viewers": 3097
+          },
+          {
+            "rank": 135,
+            "channel": "SK스토아",
+            "rating": 0.014,
+            "share": 0.109,
+            "viewers": 3080
+          },
+          {
+            "rank": 136,
+            "channel": "W쇼핑",
+            "rating": 0.013,
+            "share": 0.104,
+            "viewers": 2945
+          },
+          {
+            "rank": 137,
+            "channel": "CJ ONSTYLE+",
+            "rating": 0.013,
+            "share": 0.102,
+            "viewers": 2874
+          },
+          {
+            "rank": 138,
+            "channel": "위라이크(WeLike)",
+            "rating": 0.013,
+            "share": 0.101,
+            "viewers": 2836
+          },
+          {
+            "rank": 139,
+            "channel": "서울경제TV",
+            "rating": 0.013,
+            "share": 0.1,
+            "viewers": 2816
+          },
+          {
+            "rank": 140,
+            "channel": "리얼TV",
+            "rating": 0.012,
+            "share": 0.096,
+            "viewers": 2718
+          },
+          {
+            "rank": 141,
+            "channel": "OBS W",
+            "rating": 0.012,
+            "share": 0.096,
+            "viewers": 2712
+          },
+          {
+            "rank": 142,
+            "channel": "JEI재능TV",
+            "rating": 0.012,
+            "share": 0.095,
+            "viewers": 2679
+          },
+          {
+            "rank": 143,
+            "channel": "KBS Kids",
+            "rating": 0.012,
+            "share": 0.095,
+            "viewers": 2671
+          },
+          {
+            "rank": 144,
+            "channel": "KBS LIFE",
+            "rating": 0.012,
+            "share": 0.094,
+            "viewers": 2660
+          },
+          {
+            "rank": 145,
+            "channel": "TV CHOSUN3",
+            "rating": 0.012,
+            "share": 0.094,
+            "viewers": 2641
+          },
+          {
+            "rank": 146,
+            "channel": "SOOP",
+            "rating": 0.012,
+            "share": 0.091,
+            "viewers": 2564
+          },
+          {
+            "rank": 147,
+            "channel": "CTS",
+            "rating": 0.011,
+            "share": 0.089,
+            "viewers": 2499
+          },
+          {
+            "rank": 148,
+            "channel": "Lotte One TV",
+            "rating": 0.011,
+            "share": 0.085,
+            "viewers": 2385
+          },
+          {
+            "rank": 149,
+            "channel": "TV asia Plus",
+            "rating": 0.011,
+            "share": 0.084,
+            "viewers": 2368
+          },
+          {
+            "rank": 150,
+            "channel": "OGN",
+            "rating": 0.01,
+            "share": 0.081,
+            "viewers": 2291
+          },
+          {
+            "rank": 151,
+            "channel": "EBS Kids",
+            "rating": 0.01,
+            "share": 0.08,
+            "viewers": 2258
+          },
+          {
+            "rank": 152,
+            "channel": "BOOMTV",
+            "rating": 0.01,
+            "share": 0.079,
+            "viewers": 2226
+          },
+          {
+            "rank": 153,
+            "channel": "NS SHOP플러스",
+            "rating": 0.01,
+            "share": 0.076,
+            "viewers": 2151
+          },
+          {
+            "rank": 154,
+            "channel": "CBS",
+            "rating": 0.01,
+            "share": 0.076,
+            "viewers": 2146
+          },
+          {
+            "rank": 155,
+            "channel": "채널i",
+            "rating": 0.009,
+            "share": 0.072,
+            "viewers": 2024
+          },
+          {
+            "rank": 156,
+            "channel": "플레이런TV",
+            "rating": 0.009,
+            "share": 0.07,
+            "viewers": 1974
+          },
+          {
+            "rank": 157,
+            "channel": "BBS불교방송",
+            "rating": 0.009,
+            "share": 0.068,
+            "viewers": 1929
+          },
+          {
+            "rank": 158,
+            "channel": "i play",
+            "rating": 0.009,
+            "share": 0.068,
+            "viewers": 1910
+          },
+          {
+            "rank": 159,
+            "channel": "히스토리",
+            "rating": 0.008,
+            "share": 0.064,
+            "viewers": 1794
+          },
+          {
+            "rank": 160,
+            "channel": "카툰네트워크",
+            "rating": 0.008,
+            "share": 0.061,
+            "viewers": 1723
+          },
+          {
+            "rank": 161,
+            "channel": "FTV",
+            "rating": 0.008,
+            "share": 0.061,
+            "viewers": 1714
+          },
+          {
+            "rank": 162,
+            "channel": "이데일리TV",
+            "rating": 0.008,
+            "share": 0.059,
+            "viewers": 1676
+          },
+          {
+            "rank": 163,
+            "channel": "시니어TV",
+            "rating": 0.007,
+            "share": 0.059,
+            "viewers": 1660
+          },
+          {
+            "rank": 164,
+            "channel": "SPOTV Golf & Health",
+            "rating": 0.007,
+            "share": 0.057,
+            "viewers": 1602
+          },
+          {
+            "rank": 165,
+            "channel": "BTN불교TV",
+            "rating": 0.007,
+            "share": 0.057,
+            "viewers": 1598
+          },
+          {
+            "rank": 166,
+            "channel": "채널W",
+            "rating": 0.007,
+            "share": 0.057,
+            "viewers": 1596
+          },
+          {
+            "rank": 167,
+            "channel": "어린이TV",
+            "rating": 0.007,
+            "share": 0.056,
+            "viewers": 1588
+          },
+          {
+            "rank": 168,
+            "channel": "CGN",
+            "rating": 0.007,
+            "share": 0.055,
+            "viewers": 1555
+          },
+          {
+            "rank": 169,
+            "channel": "SPOTV PLUS",
+            "rating": 0.007,
+            "share": 0.054,
+            "viewers": 1523
+          },
+          {
+            "rank": 170,
+            "channel": "UMAX",
+            "rating": 0.007,
+            "share": 0.053,
+            "viewers": 1489
+          },
+          {
+            "rank": 171,
+            "channel": "리빙TV",
+            "rating": 0.006,
+            "share": 0.05,
+            "viewers": 1413
+          },
+          {
+            "rank": 172,
+            "channel": "MAXPORTS",
+            "rating": 0.006,
+            "share": 0.047,
+            "viewers": 1335
+          },
+          {
+            "rank": 173,
+            "channel": "아이넷라이프",
+            "rating": 0.006,
+            "share": 0.046,
+            "viewers": 1299
+          },
+          {
+            "rank": 174,
+            "channel": "CHING(채널ING)",
+            "rating": 0.006,
+            "share": 0.045,
+            "viewers": 1276
+          },
+          {
+            "rank": 175,
+            "channel": "bravokids",
+            "rating": 0.005,
+            "share": 0.043,
+            "viewers": 1219
+          },
+          {
+            "rank": 176,
+            "channel": "쿠키건강TV",
+            "rating": 0.005,
+            "share": 0.041,
+            "viewers": 1153
+          },
+          {
+            "rank": 177,
+            "channel": "동아TV",
+            "rating": 0.005,
+            "share": 0.04,
+            "viewers": 1132
+          },
+          {
+            "rank": 178,
+            "channel": "SkyGuide",
+            "rating": 0.005,
+            "share": 0.04,
+            "viewers": 1126
+          },
+          {
+            "rank": 179,
+            "channel": "채널에버",
+            "rating": 0.005,
+            "share": 0.037,
+            "viewers": 1030
+          },
+          {
+            "rank": 180,
+            "channel": "캐리TV",
+            "rating": 0.005,
+            "share": 0.036,
+            "viewers": 1021
+          },
+          {
+            "rank": 181,
+            "channel": "스크린골프존",
+            "rating": 0.004,
+            "share": 0.035,
+            "viewers": 981
+          },
+          {
+            "rank": 182,
+            "channel": "GOODTV",
+            "rating": 0.004,
+            "share": 0.034,
+            "viewers": 948
+          },
+          {
+            "rank": 183,
+            "channel": "SPOTV Prime+",
+            "rating": 0.004,
+            "share": 0.032,
+            "viewers": 907
+          },
+          {
+            "rank": 184,
+            "channel": "MBC NET",
+            "rating": 0.004,
+            "share": 0.029,
+            "viewers": 810
+          },
+          {
+            "rank": 185,
+            "channel": "SBS FIL UHD",
+            "rating": 0.003,
+            "share": 0.025,
+            "viewers": 708
+          },
+          {
+            "rank": 186,
+            "channel": "EURO MOVIE",
+            "rating": 0.003,
+            "share": 0.023,
+            "viewers": 650
+          },
+          {
+            "rank": 187,
+            "channel": "슬로우TV",
+            "rating": 0.003,
+            "share": 0.022,
+            "viewers": 614
+          },
+          {
+            "rank": 188,
+            "channel": "폴라리스TV",
+            "rating": 0.003,
+            "share": 0.022,
+            "viewers": 608
+          },
+          {
+            "rank": 189,
+            "channel": "Discovery",
+            "rating": 0.003,
+            "share": 0.021,
+            "viewers": 593
+          },
+          {
+            "rank": 190,
+            "channel": "대교 뉴이프Plus",
+            "rating": 0.003,
+            "share": 0.02,
+            "viewers": 567
+          },
+          {
+            "rank": 191,
+            "channel": "SPOTV Prime2",
+            "rating": 0.002,
+            "share": 0.019,
+            "viewers": 550
+          },
+          {
+            "rank": 192,
+            "channel": "ETN연예TV",
+            "rating": 0.002,
+            "share": 0.019,
+            "viewers": 545
+          },
+          {
+            "rank": 193,
+            "channel": "SkyUHD",
+            "rating": 0.002,
+            "share": 0.018,
+            "viewers": 506
+          },
+          {
+            "rank": 194,
+            "channel": "Asia UHD",
+            "rating": 0.002,
+            "share": 0.017,
+            "viewers": 486
+          },
+          {
+            "rank": 195,
+            "channel": "WeeTV",
+            "rating": 0.002,
+            "share": 0.013,
+            "viewers": 380
+          },
+          {
+            "rank": 196,
+            "channel": "Ball TV",
+            "rating": 0.002,
+            "share": 0.013,
+            "viewers": 371
+          },
+          {
+            "rank": 197,
+            "channel": "SPOTV Prime",
+            "rating": 0.002,
+            "share": 0.013,
+            "viewers": 363
+          },
+          {
+            "rank": 198,
+            "channel": "UHD Dream TV",
+            "rating": 0.001,
+            "share": 0.01,
+            "viewers": 289
+          },
+          {
+            "rank": 199,
+            "channel": "C채널",
+            "rating": 0.001,
+            "share": 0.009,
+            "viewers": 240
+          },
+          {
+            "rank": 200,
+            "channel": "메디컬TV",
+            "rating": 0.001,
+            "share": 0.008,
+            "viewers": 213
+          },
+          {
+            "rank": 201,
+            "channel": "JEI English TV",
+            "rating": 0.001,
+            "share": 0.006,
+            "viewers": 171
+          },
+          {
+            "rank": 202,
+            "channel": "STB 상생방송",
+            "rating": 0.001,
+            "share": 0.004,
+            "viewers": 114
+          },
+          {
+            "rank": 203,
+            "channel": "연합뉴스경제TV",
+            "rating": 0,
+            "share": 0.003,
+            "viewers": 88
+          },
+          {
+            "rank": 204,
+            "channel": "국악방송",
+            "rating": 0,
+            "share": 0.003,
+            "viewers": 87
+          },
+          {
+            "rank": 205,
+            "channel": "법률방송",
+            "rating": 0,
+            "share": 0.002,
+            "viewers": 64
+          },
+          {
+            "rank": 206,
+            "channel": "WBS원음방송",
+            "rating": 0,
+            "share": 0.001,
+            "viewers": 28
+          }
+        ],
+        "IPTV": [
+          {
+            "rank": 1,
+            "channel": "tvN",
+            "rating": 0.89,
+            "share": 7.742,
+            "viewers": 132789
+          },
+          {
+            "rank": 2,
+            "channel": "YTN",
+            "rating": 0.855,
+            "share": 7.443,
+            "viewers": 127657
+          },
+          {
+            "rank": 3,
+            "channel": "연합뉴스TV",
+            "rating": 0.607,
+            "share": 5.279,
+            "viewers": 90544
+          },
+          {
+            "rank": 4,
+            "channel": "ENA",
+            "rating": 0.398,
+            "share": 3.461,
+            "viewers": 59369
+          },
+          {
+            "rank": 5,
+            "channel": "OCN Movies",
+            "rating": 0.298,
+            "share": 2.59,
+            "viewers": 44417
+          },
+          {
+            "rank": 6,
+            "channel": "SBS Plus",
+            "rating": 0.292,
+            "share": 2.54,
+            "viewers": 43573
+          },
+          {
+            "rank": 7,
+            "channel": "tvN STORY",
+            "rating": 0.284,
+            "share": 2.47,
+            "viewers": 42372
+          },
+          {
+            "rank": 8,
+            "channel": "DRAMAcube",
+            "rating": 0.255,
+            "share": 2.218,
+            "viewers": 38044
+          },
+          {
+            "rank": 9,
+            "channel": "KBS드라마",
+            "rating": 0.246,
+            "share": 2.141,
+            "viewers": 36728
+          },
+          {
+            "rank": 10,
+            "channel": "채널S",
+            "rating": 0.241,
+            "share": 2.1,
+            "viewers": 36012
+          },
+          {
+            "rank": 11,
+            "channel": "JTBC2",
+            "rating": 0.235,
+            "share": 2.045,
+            "viewers": 35068
+          },
+          {
+            "rank": 12,
+            "channel": "MBC every1",
+            "rating": 0.216,
+            "share": 1.876,
+            "viewers": 32185
+          },
+          {
+            "rank": 13,
+            "channel": "KBS JOY",
+            "rating": 0.213,
+            "share": 1.852,
+            "viewers": 31764
+          },
+          {
+            "rank": 14,
+            "channel": "OCN",
+            "rating": 0.194,
+            "share": 1.691,
+            "viewers": 29010
+          },
+          {
+            "rank": 15,
+            "channel": "SBS funE",
+            "rating": 0.179,
+            "share": 1.556,
+            "viewers": 26689
+          },
+          {
+            "rank": 16,
+            "channel": "theLIFE",
+            "rating": 0.177,
+            "share": 1.539,
+            "viewers": 26390
+          },
+          {
+            "rank": 17,
+            "channel": "MBC드라마넷",
+            "rating": 0.171,
+            "share": 1.487,
+            "viewers": 25507
+          },
+          {
+            "rank": 18,
+            "channel": "ENA DRAMA",
+            "rating": 0.156,
+            "share": 1.361,
+            "viewers": 23344
+          },
+          {
+            "rank": 19,
+            "channel": "tvN DRAMA",
+            "rating": 0.154,
+            "share": 1.34,
+            "viewers": 22990
+          },
+          {
+            "rank": 20,
+            "channel": "SBS Sports",
+            "rating": 0.142,
+            "share": 1.236,
+            "viewers": 21204
+          },
+          {
+            "rank": 21,
+            "channel": "FUN TV",
+            "rating": 0.131,
+            "share": 1.141,
+            "viewers": 19568
+          },
+          {
+            "rank": 22,
+            "channel": "TV CHOSUN2",
+            "rating": 0.125,
+            "share": 1.087,
+            "viewers": 18638
+          },
+          {
+            "rank": 23,
+            "channel": "Dramax",
+            "rating": 0.123,
+            "share": 1.075,
+            "viewers": 18435
+          },
+          {
+            "rank": 24,
+            "channel": "KBSN스포츠",
+            "rating": 0.115,
+            "share": 1.004,
+            "viewers": 17220
+          },
+          {
+            "rank": 25,
+            "channel": "D-ONE",
+            "rating": 0.108,
+            "share": 0.94,
+            "viewers": 16129
+          },
+          {
+            "rank": 26,
+            "channel": "SBS Biz",
+            "rating": 0.105,
+            "share": 0.913,
+            "viewers": 15655
+          },
+          {
+            "rank": 27,
+            "channel": "SCREEN",
+            "rating": 0.1,
+            "share": 0.868,
+            "viewers": 14890
+          },
+          {
+            "rank": 28,
+            "channel": "E채널",
+            "rating": 0.1,
+            "share": 0.867,
+            "viewers": 14865
+          },
+          {
+            "rank": 29,
+            "channel": "ENA PLAY",
+            "rating": 0.097,
+            "share": 0.847,
+            "viewers": 14524
+          },
+          {
+            "rank": 30,
+            "channel": "브레인TV(BrainTV)",
+            "rating": 0.097,
+            "share": 0.841,
+            "viewers": 14417
+          },
+          {
+            "rank": 31,
+            "channel": "GTV",
+            "rating": 0.093,
+            "share": 0.812,
+            "viewers": 13927
+          },
+          {
+            "rank": 32,
+            "channel": "tvN SHOW",
+            "rating": 0.093,
+            "share": 0.811,
+            "viewers": 13909
+          },
+          {
+            "rank": 33,
+            "channel": "THE MOVIE",
+            "rating": 0.084,
+            "share": 0.735,
+            "viewers": 12602
+          },
+          {
+            "rank": 34,
+            "channel": "엠플렉스",
+            "rating": 0.084,
+            "share": 0.734,
+            "viewers": 12591
+          },
+          {
+            "rank": 35,
+            "channel": "OCN Movies2",
+            "rating": 0.084,
+            "share": 0.733,
+            "viewers": 12576
+          },
+          {
+            "rank": 36,
+            "channel": "EDGETV",
+            "rating": 0.084,
+            "share": 0.733,
+            "viewers": 12568
+          },
+          {
+            "rank": 37,
+            "channel": "채널이엠",
+            "rating": 0.084,
+            "share": 0.729,
+            "viewers": 12496
+          },
+          {
+            "rank": 38,
+            "channel": "KTV",
+            "rating": 0.084,
+            "share": 0.728,
+            "viewers": 12479
+          },
+          {
+            "rank": 39,
+            "channel": "하이라이트TV",
+            "rating": 0.082,
+            "share": 0.712,
+            "viewers": 12220
+          },
+          {
+            "rank": 40,
+            "channel": "OLIFE",
+            "rating": 0.081,
+            "share": 0.705,
+            "viewers": 12100
+          },
+          {
+            "rank": 41,
+            "channel": "국회방송",
+            "rating": 0.08,
+            "share": 0.7,
+            "viewers": 12011
+          },
+          {
+            "rank": 42,
+            "channel": "시네마천국",
+            "rating": 0.08,
+            "share": 0.697,
+            "viewers": 11957
+          },
+          {
+            "rank": 43,
+            "channel": "CMCTV",
+            "rating": 0.08,
+            "share": 0.697,
+            "viewers": 11956
+          },
+          {
+            "rank": 44,
+            "channel": "라이프타임",
+            "rating": 0.079,
+            "share": 0.687,
+            "viewers": 11775
+          },
+          {
+            "rank": 45,
+            "channel": "MBC ON",
+            "rating": 0.078,
+            "share": 0.682,
+            "viewers": 11703
+          },
+          {
+            "rank": 46,
+            "channel": "CNTV",
+            "rating": 0.073,
+            "share": 0.632,
+            "viewers": 10834
+          },
+          {
+            "rank": 47,
+            "channel": "씨네트리",
+            "rating": 0.07,
+            "share": 0.609,
+            "viewers": 10452
+          },
+          {
+            "rank": 48,
+            "channel": "K STAR",
+            "rating": 0.069,
+            "share": 0.603,
+            "viewers": 10349
+          },
+          {
+            "rank": 49,
+            "channel": "GOLF & PBA",
+            "rating": 0.067,
+            "share": 0.582,
+            "viewers": 9974
+          },
+          {
+            "rank": 50,
+            "channel": "SBS Life",
+            "rating": 0.064,
+            "share": 0.56,
+            "viewers": 9605
+          },
+          {
+            "rank": 51,
+            "channel": "코미디TV",
+            "rating": 0.061,
+            "share": 0.534,
+            "viewers": 9158
+          },
+          {
+            "rank": 52,
+            "channel": "채널A플러스",
+            "rating": 0.058,
+            "share": 0.502,
+            "viewers": 8615
+          },
+          {
+            "rank": 53,
+            "channel": "HQ+",
+            "rating": 0.058,
+            "share": 0.502,
+            "viewers": 8611
+          },
+          {
+            "rank": 54,
+            "channel": "Asia M",
+            "rating": 0.057,
+            "share": 0.497,
+            "viewers": 8525
+          },
+          {
+            "rank": 55,
+            "channel": "SPOTV",
+            "rating": 0.053,
+            "share": 0.463,
+            "viewers": 7941
+          },
+          {
+            "rank": 56,
+            "channel": "MBN플러스",
+            "rating": 0.051,
+            "share": 0.442,
+            "viewers": 7579
+          },
+          {
+            "rank": 57,
+            "channel": "월드클래식무비",
+            "rating": 0.051,
+            "share": 0.441,
+            "viewers": 7563
+          },
+          {
+            "rank": 58,
+            "channel": "채널S플러스",
+            "rating": 0.047,
+            "share": 0.413,
+            "viewers": 7083
+          },
+          {
+            "rank": 59,
+            "channel": "IB SPORTS",
+            "rating": 0.047,
+            "share": 0.409,
+            "viewers": 7018
+          },
+          {
+            "rank": 60,
+            "channel": "바둑TV",
+            "rating": 0.044,
+            "share": 0.385,
+            "viewers": 6603
+          },
+          {
+            "rank": 61,
+            "channel": "tvN SPORTS",
+            "rating": 0.044,
+            "share": 0.381,
+            "viewers": 6526
+          },
+          {
+            "rank": 62,
+            "channel": "JTBC4",
+            "rating": 0.043,
+            "share": 0.377,
+            "viewers": 6460
+          },
+          {
+            "rank": 63,
+            "channel": "Mnet",
+            "rating": 0.041,
+            "share": 0.356,
+            "viewers": 6109
+          },
+          {
+            "rank": 64,
+            "channel": "JTBC SPORTS",
+            "rating": 0.04,
+            "share": 0.346,
+            "viewers": 5942
+          },
+          {
+            "rank": 65,
+            "channel": "KBS Story",
+            "rating": 0.039,
+            "share": 0.342,
+            "viewers": 5874
+          },
+          {
+            "rank": 66,
+            "channel": "EDGE ON",
+            "rating": 0.039,
+            "share": 0.34,
+            "viewers": 5835
+          },
+          {
+            "rank": 67,
+            "channel": "CJ ONSTYLE",
+            "rating": 0.038,
+            "share": 0.33,
+            "viewers": 5668
+          },
+          {
+            "rank": 68,
+            "channel": "E LIKE",
+            "rating": 0.038,
+            "share": 0.327,
+            "viewers": 5615
+          },
+          {
+            "rank": 69,
+            "channel": "Asia N",
+            "rating": 0.037,
+            "share": 0.322,
+            "viewers": 5520
+          },
+          {
+            "rank": 70,
+            "channel": "롯데홈쇼핑",
+            "rating": 0.037,
+            "share": 0.321,
+            "viewers": 5506
+          },
+          {
+            "rank": 71,
+            "channel": "cineF",
+            "rating": 0.036,
+            "share": 0.316,
+            "viewers": 5427
+          },
+          {
+            "rank": 72,
+            "channel": "채널차이나",
+            "rating": 0.036,
+            "share": 0.316,
+            "viewers": 5413
+          },
+          {
+            "rank": 73,
+            "channel": "Channel J",
+            "rating": 0.036,
+            "share": 0.312,
+            "viewers": 5349
+          },
+          {
+            "rank": 74,
+            "channel": "MBC SPORTS+",
+            "rating": 0.035,
+            "share": 0.306,
+            "viewers": 5249
+          },
+          {
+            "rank": 75,
+            "channel": "현대홈쇼핑",
+            "rating": 0.035,
+            "share": 0.304,
+            "viewers": 5215
+          },
+          {
+            "rank": 76,
+            "channel": "SPOTV2",
+            "rating": 0.034,
+            "share": 0.296,
+            "viewers": 5083
+          },
+          {
+            "rank": 77,
+            "channel": "K바둑",
+            "rating": 0.033,
+            "share": 0.29,
+            "viewers": 4972
+          },
+          {
+            "rank": 78,
+            "channel": "Tooniverse",
+            "rating": 0.033,
+            "share": 0.288,
+            "viewers": 4939
+          },
+          {
+            "rank": 79,
+            "channel": "ENA SPORTS",
+            "rating": 0.033,
+            "share": 0.287,
+            "viewers": 4930
+          },
+          {
+            "rank": 80,
+            "channel": "빌리어즈TV",
+            "rating": 0.031,
+            "share": 0.272,
+            "viewers": 4672
+          },
+          {
+            "rank": 81,
+            "channel": "마운틴TV",
+            "rating": 0.03,
+            "share": 0.262,
+            "viewers": 4492
+          },
+          {
+            "rank": 82,
+            "channel": "채널액션(Channel Action)",
+            "rating": 0.03,
+            "share": 0.259,
+            "viewers": 4436
+          },
+          {
+            "rank": 83,
+            "channel": "엔터TV",
+            "rating": 0.029,
+            "share": 0.252,
+            "viewers": 4330
+          },
+          {
+            "rank": 84,
+            "channel": "UXN",
+            "rating": 0.027,
+            "share": 0.239,
+            "viewers": 4091
+          },
+          {
+            "rank": 85,
+            "channel": "SBS Golf",
+            "rating": 0.026,
+            "share": 0.223,
+            "viewers": 3824
+          },
+          {
+            "rank": 86,
+            "channel": "홈&쇼핑",
+            "rating": 0.026,
+            "share": 0.222,
+            "viewers": 3807
+          },
+          {
+            "rank": 87,
+            "channel": "NS홈쇼핑",
+            "rating": 0.025,
+            "share": 0.22,
+            "viewers": 3778
+          },
+          {
+            "rank": 88,
+            "channel": "Anibox",
+            "rating": 0.025,
+            "share": 0.216,
+            "viewers": 3701
+          },
+          {
+            "rank": 89,
+            "channel": "채널유",
+            "rating": 0.025,
+            "share": 0.214,
+            "viewers": 3668
+          },
+          {
+            "rank": 90,
+            "channel": "CH view",
+            "rating": 0.024,
+            "share": 0.213,
+            "viewers": 3653
+          },
+          {
+            "rank": 91,
+            "channel": "NXT",
+            "rating": 0.024,
+            "share": 0.211,
+            "viewers": 3616
+          },
+          {
+            "rank": 92,
+            "channel": "ENA STORY",
+            "rating": 0.024,
+            "share": 0.208,
+            "viewers": 3564
+          },
+          {
+            "rank": 93,
+            "channel": "뽀요TV",
+            "rating": 0.024,
+            "share": 0.207,
+            "viewers": 3549
+          },
+          {
+            "rank": 94,
+            "channel": "한국경제TV",
+            "rating": 0.022,
+            "share": 0.193,
+            "viewers": 3302
+          },
+          {
+            "rank": 95,
+            "channel": "K쇼핑",
+            "rating": 0.021,
+            "share": 0.182,
+            "viewers": 3121
+          },
+          {
+            "rank": 96,
+            "channel": "애니플러스",
+            "rating": 0.021,
+            "share": 0.182,
+            "viewers": 3121
+          },
+          {
+            "rank": 97,
+            "channel": "GS SHOP",
+            "rating": 0.021,
+            "share": 0.179,
+            "viewers": 3071
+          },
+          {
+            "rank": 98,
+            "channel": "KFN",
+            "rating": 0.02,
+            "share": 0.178,
+            "viewers": 3057
+          },
+          {
+            "rank": 99,
+            "channel": "Aple Drama",
+            "rating": 0.02,
+            "share": 0.177,
+            "viewers": 3031
+          },
+          {
+            "rank": 100,
+            "channel": "StoryTV",
+            "rating": 0.02,
+            "share": 0.175,
+            "viewers": 3000
+          },
+          {
+            "rank": 101,
+            "channel": "Animax",
+            "rating": 0.019,
+            "share": 0.169,
+            "viewers": 2891
+          },
+          {
+            "rank": 102,
+            "channel": "NBS한국농업방송",
+            "rating": 0.019,
+            "share": 0.167,
+            "viewers": 2861
+          },
+          {
+            "rank": 103,
+            "channel": "다문화TV",
+            "rating": 0.019,
+            "share": 0.164,
+            "viewers": 2811
+          },
+          {
+            "rank": 104,
+            "channel": "현대홈쇼핑+Shop",
+            "rating": 0.019,
+            "share": 0.163,
+            "viewers": 2787
+          },
+          {
+            "rank": 105,
+            "channel": "JTBC GOLF",
+            "rating": 0.018,
+            "share": 0.158,
+            "viewers": 2713
+          },
+          {
+            "rank": 106,
+            "channel": "애니원",
+            "rating": 0.018,
+            "share": 0.155,
+            "viewers": 2666
+          },
+          {
+            "rank": 107,
+            "channel": "이벤트TV",
+            "rating": 0.018,
+            "share": 0.153,
+            "viewers": 2632
+          },
+          {
+            "rank": 108,
+            "channel": "채널나우",
+            "rating": 0.017,
+            "share": 0.15,
+            "viewers": 2578
+          },
+          {
+            "rank": 109,
+            "channel": "MTN 머니투데이방송",
+            "rating": 0.017,
+            "share": 0.15,
+            "viewers": 2567
+          },
+          {
+            "rank": 110,
+            "channel": "매일경제TV",
+            "rating": 0.017,
+            "share": 0.149,
+            "viewers": 2556
+          },
+          {
+            "rank": 111,
+            "channel": "SOOP",
+            "rating": 0.017,
+            "share": 0.149,
+            "viewers": 2553
+          },
+          {
+            "rank": 112,
+            "channel": "ONCE",
+            "rating": 0.016,
+            "share": 0.143,
+            "viewers": 2449
+          },
+          {
+            "rank": 113,
+            "channel": "theLIFE2",
+            "rating": 0.016,
+            "share": 0.143,
+            "viewers": 2446
+          },
+          {
+            "rank": 114,
+            "channel": "신세계쇼핑",
+            "rating": 0.016,
+            "share": 0.137,
+            "viewers": 2342
+          },
+          {
+            "rank": 115,
+            "channel": "GS MY SHOP",
+            "rating": 0.015,
+            "share": 0.134,
+            "viewers": 2306
+          },
+          {
+            "rank": 116,
+            "channel": "OGN",
+            "rating": 0.015,
+            "share": 0.132,
+            "viewers": 2262
+          },
+          {
+            "rank": 117,
+            "channel": "텔레노벨라",
+            "rating": 0.015,
+            "share": 0.13,
+            "viewers": 2235
+          },
+          {
+            "rank": 118,
+            "channel": "MBC M",
+            "rating": 0.015,
+            "share": 0.13,
+            "viewers": 2222
+          },
+          {
+            "rank": 119,
+            "channel": "생활체육TV",
+            "rating": 0.015,
+            "share": 0.129,
+            "viewers": 2215
+          },
+          {
+            "rank": 120,
+            "channel": "SBS Golf2",
+            "rating": 0.015,
+            "share": 0.129,
+            "viewers": 2204
+          },
+          {
+            "rank": 121,
+            "channel": "SK스토아",
+            "rating": 0.014,
+            "share": 0.126,
+            "viewers": 2155
+          },
+          {
+            "rank": 122,
+            "channel": "공영쇼핑",
+            "rating": 0.014,
+            "share": 0.125,
+            "viewers": 2150
+          },
+          {
+            "rank": 123,
+            "channel": "CJ ONSTYLE+",
+            "rating": 0.014,
+            "share": 0.124,
+            "viewers": 2134
+          },
+          {
+            "rank": 124,
+            "channel": "토마토증권통",
+            "rating": 0.014,
+            "share": 0.121,
+            "viewers": 2071
+          },
+          {
+            "rank": 125,
+            "channel": "OBS W",
+            "rating": 0.013,
+            "share": 0.117,
+            "viewers": 2006
+          },
+          {
+            "rank": 126,
+            "channel": "쇼핑엔티",
+            "rating": 0.013,
+            "share": 0.116,
+            "viewers": 1993
+          },
+          {
+            "rank": 127,
+            "channel": "BOOMTV",
+            "rating": 0.013,
+            "share": 0.112,
+            "viewers": 1928
+          },
+          {
+            "rank": 128,
+            "channel": "MX",
+            "rating": 0.012,
+            "share": 0.108,
+            "viewers": 1858
+          },
+          {
+            "rank": 129,
+            "channel": "Lotte One TV",
+            "rating": 0.012,
+            "share": 0.103,
+            "viewers": 1765
+          },
+          {
+            "rank": 130,
+            "channel": "KBS Kids",
+            "rating": 0.011,
+            "share": 0.1,
+            "viewers": 1711
+          },
+          {
+            "rank": 131,
+            "channel": "EBS Kids",
+            "rating": 0.011,
+            "share": 0.096,
+            "viewers": 1647
+          },
+          {
+            "rank": 132,
+            "channel": "플레이런TV",
+            "rating": 0.011,
+            "share": 0.095,
+            "viewers": 1630
+          },
+          {
+            "rank": 133,
+            "channel": "시니어TV",
+            "rating": 0.011,
+            "share": 0.094,
+            "viewers": 1616
+          },
+          {
+            "rank": 134,
+            "channel": "채널i",
+            "rating": 0.011,
+            "share": 0.092,
+            "viewers": 1580
+          },
+          {
+            "rank": 135,
+            "channel": "CGN",
+            "rating": 0.01,
+            "share": 0.091,
+            "viewers": 1555
+          },
+          {
+            "rank": 136,
+            "channel": "NS SHOP플러스",
+            "rating": 0.01,
+            "share": 0.087,
+            "viewers": 1495
+          },
+          {
+            "rank": 137,
+            "channel": "BBS불교방송",
+            "rating": 0.01,
+            "share": 0.086,
+            "viewers": 1476
+          },
+          {
+            "rank": 138,
+            "channel": "어린이TV",
+            "rating": 0.01,
+            "share": 0.085,
+            "viewers": 1451
+          },
+          {
+            "rank": 139,
+            "channel": "CBS",
+            "rating": 0.01,
+            "share": 0.084,
+            "viewers": 1447
+          },
+          {
+            "rank": 140,
+            "channel": "EBS2",
+            "rating": 0.01,
+            "share": 0.083,
+            "viewers": 1431
+          },
+          {
+            "rank": 141,
+            "channel": "ONT",
+            "rating": 0.009,
+            "share": 0.082,
+            "viewers": 1401
+          },
+          {
+            "rank": 142,
+            "channel": "헬스메디TV",
+            "rating": 0.009,
+            "share": 0.081,
+            "viewers": 1392
+          },
+          {
+            "rank": 143,
+            "channel": "GMTV",
+            "rating": 0.009,
+            "share": 0.08,
+            "viewers": 1371
+          },
+          {
+            "rank": 144,
+            "channel": "엑스원",
+            "rating": 0.009,
+            "share": 0.078,
+            "viewers": 1345
+          },
+          {
+            "rank": 145,
+            "channel": "카툰네트워크",
+            "rating": 0.009,
+            "share": 0.077,
+            "viewers": 1320
+          },
+          {
+            "rank": 146,
+            "channel": "FTV",
+            "rating": 0.009,
+            "share": 0.076,
+            "viewers": 1310
+          },
+          {
+            "rank": 147,
+            "channel": "서울경제TV",
+            "rating": 0.008,
+            "share": 0.074,
+            "viewers": 1265
+          },
+          {
+            "rank": 148,
+            "channel": "bravokids",
+            "rating": 0.008,
+            "share": 0.071,
+            "viewers": 1219
+          },
+          {
+            "rank": 149,
+            "channel": "SPOTV Golf & Health",
+            "rating": 0.008,
+            "share": 0.071,
+            "viewers": 1213
+          },
+          {
+            "rank": 150,
+            "channel": "KBS LIFE",
+            "rating": 0.008,
+            "share": 0.07,
+            "viewers": 1197
+          },
+          {
+            "rank": 151,
+            "channel": "MAXPORTS",
+            "rating": 0.008,
+            "share": 0.066,
+            "viewers": 1139
+          },
+          {
+            "rank": 152,
+            "channel": "JEI재능TV",
+            "rating": 0.007,
+            "share": 0.065,
+            "viewers": 1112
+          },
+          {
+            "rank": 153,
+            "channel": "히스토리",
+            "rating": 0.007,
+            "share": 0.064,
+            "viewers": 1102
+          },
+          {
+            "rank": 154,
+            "channel": "Smile TV Plus",
+            "rating": 0.007,
+            "share": 0.064,
+            "viewers": 1099
+          },
+          {
+            "rank": 155,
+            "channel": "동아TV",
+            "rating": 0.007,
+            "share": 0.064,
+            "viewers": 1099
+          },
+          {
+            "rank": 156,
+            "channel": "UMAX",
+            "rating": 0.007,
+            "share": 0.062,
+            "viewers": 1057
+          },
+          {
+            "rank": 157,
+            "channel": "BTN불교TV",
+            "rating": 0.007,
+            "share": 0.058,
+            "viewers": 995
+          },
+          {
+            "rank": 158,
+            "channel": "가톨릭평화방송",
+            "rating": 0.007,
+            "share": 0.058,
+            "viewers": 990
+          },
+          {
+            "rank": 159,
+            "channel": "W쇼핑",
+            "rating": 0.007,
+            "share": 0.057,
+            "viewers": 981
+          },
+          {
+            "rank": 160,
+            "channel": "SPOTV PLUS",
+            "rating": 0.006,
+            "share": 0.056,
+            "viewers": 953
+          },
+          {
+            "rank": 161,
+            "channel": "채널W",
+            "rating": 0.006,
+            "share": 0.055,
+            "viewers": 935
+          },
+          {
+            "rank": 162,
+            "channel": "위라이크(WeLike)",
+            "rating": 0.006,
+            "share": 0.054,
+            "viewers": 922
+          },
+          {
+            "rank": 163,
+            "channel": "SPOTV Prime+",
+            "rating": 0.006,
+            "share": 0.053,
+            "viewers": 903
+          },
+          {
+            "rank": 164,
+            "channel": "캐리TV",
+            "rating": 0.006,
+            "share": 0.05,
+            "viewers": 863
+          },
+          {
+            "rank": 165,
+            "channel": "스크린골프존",
+            "rating": 0.005,
+            "share": 0.047,
+            "viewers": 811
+          },
+          {
+            "rank": 166,
+            "channel": "CTS",
+            "rating": 0.005,
+            "share": 0.046,
+            "viewers": 794
+          },
+          {
+            "rank": 167,
+            "channel": "THE M",
+            "rating": 0.005,
+            "share": 0.045,
+            "viewers": 771
+          },
+          {
+            "rank": 168,
+            "channel": "GOODTV",
+            "rating": 0.005,
+            "share": 0.043,
+            "viewers": 738
+          },
+          {
+            "rank": 169,
+            "channel": "뉴트로TV",
+            "rating": 0.005,
+            "share": 0.041,
+            "viewers": 712
+          },
+          {
+            "rank": 170,
+            "channel": "아이넷방송",
+            "rating": 0.005,
+            "share": 0.04,
+            "viewers": 691
+          },
+          {
+            "rank": 171,
+            "channel": "SBS FIL UHD",
+            "rating": 0.004,
+            "share": 0.039,
+            "viewers": 670
+          },
+          {
+            "rank": 172,
+            "channel": "TV CHOSUN3",
+            "rating": 0.004,
+            "share": 0.039,
+            "viewers": 665
+          },
+          {
+            "rank": 173,
+            "channel": "중화TV",
+            "rating": 0.004,
+            "share": 0.038,
+            "viewers": 655
+          },
+          {
+            "rank": 174,
+            "channel": "Asia UHD",
+            "rating": 0.003,
+            "share": 0.028,
+            "viewers": 476
+          },
+          {
+            "rank": 175,
+            "channel": "아이넷라이프",
+            "rating": 0.003,
+            "share": 0.027,
+            "viewers": 464
+          },
+          {
+            "rank": 176,
+            "channel": "리얼TV",
+            "rating": 0.003,
+            "share": 0.027,
+            "viewers": 456
+          },
+          {
+            "rank": 177,
+            "channel": "ETN연예TV",
+            "rating": 0.003,
+            "share": 0.026,
+            "viewers": 438
+          },
+          {
+            "rank": 178,
+            "channel": "i play",
+            "rating": 0.003,
+            "share": 0.023,
+            "viewers": 395
+          },
+          {
+            "rank": 179,
+            "channel": "이데일리TV",
+            "rating": 0.003,
+            "share": 0.022,
+            "viewers": 386
+          },
+          {
+            "rank": 180,
+            "channel": "Discovery",
+            "rating": 0.002,
+            "share": 0.02,
+            "viewers": 334
+          },
+          {
+            "rank": 181,
+            "channel": "SPOTV Prime",
+            "rating": 0.002,
+            "share": 0.019,
+            "viewers": 330
+          },
+          {
+            "rank": 182,
+            "channel": "Ball TV",
+            "rating": 0.002,
+            "share": 0.019,
+            "viewers": 318
+          },
+          {
+            "rank": 183,
+            "channel": "SkyUHD",
+            "rating": 0.002,
+            "share": 0.018,
+            "viewers": 307
+          },
+          {
+            "rank": 184,
+            "channel": "폴라리스TV",
+            "rating": 0.002,
+            "share": 0.016,
+            "viewers": 280
+          },
+          {
+            "rank": 185,
+            "channel": "쿠키건강TV",
+            "rating": 0.002,
+            "share": 0.016,
+            "viewers": 278
+          },
+          {
+            "rank": 186,
+            "channel": "채널에버",
+            "rating": 0.002,
+            "share": 0.016,
+            "viewers": 278
+          },
+          {
+            "rank": 187,
+            "channel": "대교 뉴이프Plus",
+            "rating": 0.002,
+            "share": 0.016,
+            "viewers": 272
+          },
+          {
+            "rank": 188,
+            "channel": "C채널",
+            "rating": 0.002,
+            "share": 0.014,
+            "viewers": 240
+          },
+          {
+            "rank": 189,
+            "channel": "리빙TV",
+            "rating": 0.002,
+            "share": 0.014,
+            "viewers": 239
+          },
+          {
+            "rank": 190,
+            "channel": "MBC NET",
+            "rating": 0.001,
+            "share": 0.011,
+            "viewers": 195
+          },
+          {
+            "rank": 191,
+            "channel": "JEI English TV",
+            "rating": 0.001,
+            "share": 0.01,
+            "viewers": 171
+          },
+          {
+            "rank": 192,
+            "channel": "UHD Dream TV",
+            "rating": 0.001,
+            "share": 0.009,
+            "viewers": 151
+          },
+          {
+            "rank": 193,
+            "channel": "슬로우TV",
+            "rating": 0.001,
+            "share": 0.006,
+            "viewers": 103
+          },
+          {
+            "rank": 194,
+            "channel": "SPOTV Prime2",
+            "rating": 0.001,
+            "share": 0.005,
+            "viewers": 89
+          },
+          {
+            "rank": 195,
+            "channel": "메디컬TV",
+            "rating": 0.001,
+            "share": 0.005,
+            "viewers": 88
+          },
+          {
+            "rank": 196,
+            "channel": "i show",
+            "rating": 0.001,
+            "share": 0.005,
+            "viewers": 79
+          },
+          {
+            "rank": 197,
+            "channel": "국악방송",
+            "rating": 0,
+            "share": 0.004,
+            "viewers": 74
+          },
+          {
+            "rank": 198,
+            "channel": "TV asia Plus",
+            "rating": 0,
+            "share": 0.004,
+            "viewers": 67
+          },
+          {
+            "rank": 199,
+            "channel": "법률방송",
+            "rating": 0,
+            "share": 0.004,
+            "viewers": 64
+          },
+          {
+            "rank": 200,
+            "channel": "연합뉴스경제TV",
+            "rating": 0,
+            "share": 0.004,
+            "viewers": 62
+          },
+          {
+            "rank": 201,
+            "channel": "CHING(채널ING)",
+            "rating": 0,
+            "share": 0.003,
+            "viewers": 55
+          },
+          {
+            "rank": 202,
+            "channel": "WeeTV",
+            "rating": 0,
+            "share": 0.002,
+            "viewers": 37
+          },
+          {
+            "rank": 203,
+            "channel": "SkyGuide",
+            "rating": 0,
+            "share": 0.001,
+            "viewers": 25
+          },
+          {
+            "rank": 204,
+            "channel": "WBS원음방송",
+            "rating": 0,
+            "share": 0.001,
+            "viewers": 18
+          },
+          {
+            "rank": 205,
+            "channel": "STB 상생방송",
+            "rating": 0,
+            "share": 0,
+            "viewers": 7
+          },
+          {
+            "rank": 206,
+            "channel": "EURO MOVIE",
+            "rating": 0,
+            "share": 0,
+            "viewers": 2
+          }
+        ],
+        "Cable": [
+          {
+            "rank": 1,
+            "channel": "YTN",
+            "rating": 1.179,
+            "share": 8.13,
+            "viewers": 85341
+          },
+          {
+            "rank": 2,
+            "channel": "tvN",
+            "rating": 0.939,
+            "share": 6.474,
+            "viewers": 67954
+          },
+          {
+            "rank": 3,
+            "channel": "연합뉴스TV",
+            "rating": 0.922,
+            "share": 6.355,
+            "viewers": 66712
+          },
+          {
+            "rank": 4,
+            "channel": "OCN Movies",
+            "rating": 0.322,
+            "share": 2.221,
+            "viewers": 23309
+          },
+          {
+            "rank": 5,
+            "channel": "KBS JOY",
+            "rating": 0.307,
+            "share": 2.118,
+            "viewers": 22235
+          },
+          {
+            "rank": 6,
+            "channel": "CMCTV",
+            "rating": 0.285,
+            "share": 1.967,
+            "viewers": 20648
+          },
+          {
+            "rank": 7,
+            "channel": "OCN",
+            "rating": 0.275,
+            "share": 1.897,
+            "viewers": 19915
+          },
+          {
+            "rank": 8,
+            "channel": "CNTV",
+            "rating": 0.272,
+            "share": 1.873,
+            "viewers": 19657
+          },
+          {
+            "rank": 9,
+            "channel": "MBC every1",
+            "rating": 0.268,
+            "share": 1.847,
+            "viewers": 19386
+          },
+          {
+            "rank": 10,
+            "channel": "KBS드라마",
+            "rating": 0.256,
+            "share": 1.763,
+            "viewers": 18502
+          },
+          {
+            "rank": 11,
+            "channel": "ENA",
+            "rating": 0.253,
+            "share": 1.746,
+            "viewers": 18328
+          },
+          {
+            "rank": 12,
+            "channel": "SBS Sports",
+            "rating": 0.216,
+            "share": 1.493,
+            "viewers": 15672
+          },
+          {
+            "rank": 13,
+            "channel": "TV CHOSUN2",
+            "rating": 0.214,
+            "share": 1.478,
+            "viewers": 15518
+          },
+          {
+            "rank": 14,
+            "channel": "SBS Plus",
+            "rating": 0.192,
+            "share": 1.326,
+            "viewers": 13921
+          },
+          {
+            "rank": 15,
+            "channel": "tvN STORY",
+            "rating": 0.191,
+            "share": 1.319,
+            "viewers": 13846
+          },
+          {
+            "rank": 16,
+            "channel": "ENA DRAMA",
+            "rating": 0.191,
+            "share": 1.318,
+            "viewers": 13835
+          },
+          {
+            "rank": 17,
+            "channel": "K STAR",
+            "rating": 0.184,
+            "share": 1.27,
+            "viewers": 13329
+          },
+          {
+            "rank": 18,
+            "channel": "GTV",
+            "rating": 0.18,
+            "share": 1.242,
+            "viewers": 13042
+          },
+          {
+            "rank": 19,
+            "channel": "KBSN스포츠",
+            "rating": 0.175,
+            "share": 1.207,
+            "viewers": 12671
+          },
+          {
+            "rank": 20,
+            "channel": "tvN DRAMA",
+            "rating": 0.166,
+            "share": 1.146,
+            "viewers": 12027
+          },
+          {
+            "rank": 21,
+            "channel": "FUN TV",
+            "rating": 0.165,
+            "share": 1.14,
+            "viewers": 11964
+          },
+          {
+            "rank": 22,
+            "channel": "JTBC2",
+            "rating": 0.154,
+            "share": 1.064,
+            "viewers": 11163
+          },
+          {
+            "rank": 23,
+            "channel": "MBC ON",
+            "rating": 0.152,
+            "share": 1.046,
+            "viewers": 10980
+          },
+          {
+            "rank": 24,
+            "channel": "코미디TV",
+            "rating": 0.147,
+            "share": 1.014,
+            "viewers": 10642
+          },
+          {
+            "rank": 25,
+            "channel": "MBC드라마넷",
+            "rating": 0.147,
+            "share": 1.011,
+            "viewers": 10612
+          },
+          {
+            "rank": 26,
+            "channel": "SBS funE",
+            "rating": 0.144,
+            "share": 0.994,
+            "viewers": 10435
+          },
+          {
+            "rank": 27,
+            "channel": "CH view",
+            "rating": 0.14,
+            "share": 0.968,
+            "viewers": 10165
+          },
+          {
+            "rank": 28,
+            "channel": "채널S",
+            "rating": 0.139,
+            "share": 0.957,
+            "viewers": 10049
+          },
+          {
+            "rank": 29,
+            "channel": "Channel J",
+            "rating": 0.136,
+            "share": 0.94,
+            "viewers": 9868
+          },
+          {
+            "rank": 30,
+            "channel": "Dramax",
+            "rating": 0.128,
+            "share": 0.884,
+            "viewers": 9281
+          },
+          {
+            "rank": 31,
+            "channel": "MBN플러스",
+            "rating": 0.126,
+            "share": 0.87,
+            "viewers": 9130
+          },
+          {
+            "rank": 32,
+            "channel": "채널이엠",
+            "rating": 0.124,
+            "share": 0.854,
+            "viewers": 8965
+          },
+          {
+            "rank": 33,
+            "channel": "씨네트리",
+            "rating": 0.123,
+            "share": 0.851,
+            "viewers": 8931
+          },
+          {
+            "rank": 34,
+            "channel": "D-ONE",
+            "rating": 0.123,
+            "share": 0.849,
+            "viewers": 8907
+          },
+          {
+            "rank": 35,
+            "channel": "theLIFE",
+            "rating": 0.117,
+            "share": 0.804,
+            "viewers": 8442
+          },
+          {
+            "rank": 36,
+            "channel": "E채널",
+            "rating": 0.113,
+            "share": 0.78,
+            "viewers": 8187
+          },
+          {
+            "rank": 37,
+            "channel": "KBS Story",
+            "rating": 0.112,
+            "share": 0.771,
+            "viewers": 8089
+          },
+          {
+            "rank": 38,
+            "channel": "DRAMAcube",
+            "rating": 0.11,
+            "share": 0.76,
+            "viewers": 7978
+          },
+          {
+            "rank": 39,
+            "channel": "SCREEN",
+            "rating": 0.11,
+            "share": 0.759,
+            "viewers": 7971
+          },
+          {
+            "rank": 40,
+            "channel": "THE MOVIE",
+            "rating": 0.109,
+            "share": 0.751,
+            "viewers": 7882
+          },
+          {
+            "rank": 41,
+            "channel": "EDGE ON",
+            "rating": 0.108,
+            "share": 0.746,
+            "viewers": 7833
+          },
+          {
+            "rank": 42,
+            "channel": "하이라이트TV",
+            "rating": 0.105,
+            "share": 0.726,
+            "viewers": 7619
+          },
+          {
+            "rank": 43,
+            "channel": "채널나우",
+            "rating": 0.102,
+            "share": 0.706,
+            "viewers": 7413
+          },
+          {
+            "rank": 44,
+            "channel": "채널액션(Channel Action)",
+            "rating": 0.102,
+            "share": 0.705,
+            "viewers": 7404
+          },
+          {
+            "rank": 45,
+            "channel": "EDGETV",
+            "rating": 0.1,
+            "share": 0.689,
+            "viewers": 7234
+          },
+          {
+            "rank": 46,
+            "channel": "Asia M",
+            "rating": 0.095,
+            "share": 0.654,
+            "viewers": 6865
+          },
+          {
+            "rank": 47,
+            "channel": "엠플렉스",
+            "rating": 0.092,
+            "share": 0.637,
+            "viewers": 6684
+          },
+          {
+            "rank": 48,
+            "channel": "Smile TV Plus",
+            "rating": 0.092,
+            "share": 0.632,
+            "viewers": 6634
+          },
+          {
+            "rank": 49,
+            "channel": "아이넷방송",
+            "rating": 0.091,
+            "share": 0.63,
+            "viewers": 6613
+          },
+          {
+            "rank": 50,
+            "channel": "JTBC4",
+            "rating": 0.09,
+            "share": 0.619,
+            "viewers": 6497
+          },
+          {
+            "rank": 51,
+            "channel": "OLIFE",
+            "rating": 0.087,
+            "share": 0.599,
+            "viewers": 6286
+          },
+          {
+            "rank": 52,
+            "channel": "OCN Movies2",
+            "rating": 0.086,
+            "share": 0.595,
+            "viewers": 6251
+          },
+          {
+            "rank": 53,
+            "channel": "SBS Life",
+            "rating": 0.086,
+            "share": 0.594,
+            "viewers": 6234
+          },
+          {
+            "rank": 54,
+            "channel": "월드클래식무비",
+            "rating": 0.084,
+            "share": 0.582,
+            "viewers": 6112
+          },
+          {
+            "rank": 55,
+            "channel": "tvN SHOW",
+            "rating": 0.081,
+            "share": 0.56,
+            "viewers": 5876
+          },
+          {
+            "rank": 56,
+            "channel": "MBC SPORTS+",
+            "rating": 0.08,
+            "share": 0.554,
+            "viewers": 5820
+          },
+          {
+            "rank": 57,
+            "channel": "HQ+",
+            "rating": 0.075,
+            "share": 0.518,
+            "viewers": 5432
+          },
+          {
+            "rank": 58,
+            "channel": "뉴트로TV",
+            "rating": 0.072,
+            "share": 0.495,
+            "viewers": 5198
+          },
+          {
+            "rank": 59,
+            "channel": "한국경제TV",
+            "rating": 0.072,
+            "share": 0.493,
+            "viewers": 5177
+          },
+          {
+            "rank": 60,
+            "channel": "GMTV",
+            "rating": 0.069,
+            "share": 0.478,
+            "viewers": 5014
+          },
+          {
+            "rank": 61,
+            "channel": "ONT",
+            "rating": 0.069,
+            "share": 0.474,
+            "viewers": 4980
+          },
+          {
+            "rank": 62,
+            "channel": "토마토증권통",
+            "rating": 0.069,
+            "share": 0.474,
+            "viewers": 4979
+          },
+          {
+            "rank": 63,
+            "channel": "공영쇼핑",
+            "rating": 0.069,
+            "share": 0.473,
+            "viewers": 4967
+          },
+          {
+            "rank": 64,
+            "channel": "국회방송",
+            "rating": 0.067,
+            "share": 0.464,
+            "viewers": 4872
+          },
+          {
+            "rank": 65,
+            "channel": "MTN 머니투데이방송",
+            "rating": 0.066,
+            "share": 0.458,
+            "viewers": 4811
+          },
+          {
+            "rank": 66,
+            "channel": "ENA PLAY",
+            "rating": 0.066,
+            "share": 0.454,
+            "viewers": 4763
+          },
+          {
+            "rank": 67,
+            "channel": "GOLF & PBA",
+            "rating": 0.065,
+            "share": 0.449,
+            "viewers": 4718
+          },
+          {
+            "rank": 68,
+            "channel": "SPOTV",
+            "rating": 0.065,
+            "share": 0.446,
+            "viewers": 4677
+          },
+          {
+            "rank": 69,
+            "channel": "채널차이나",
+            "rating": 0.064,
+            "share": 0.444,
+            "viewers": 4660
+          },
+          {
+            "rank": 70,
+            "channel": "엔터TV",
+            "rating": 0.062,
+            "share": 0.43,
+            "viewers": 4514
+          },
+          {
+            "rank": 71,
+            "channel": "Aple Drama",
+            "rating": 0.058,
+            "share": 0.402,
+            "viewers": 4215
+          },
+          {
+            "rank": 72,
+            "channel": "NXT",
+            "rating": 0.058,
+            "share": 0.399,
+            "viewers": 4189
+          },
+          {
+            "rank": 73,
+            "channel": "라이프타임",
+            "rating": 0.058,
+            "share": 0.399,
+            "viewers": 4185
+          },
+          {
+            "rank": 74,
+            "channel": "바둑TV",
+            "rating": 0.057,
+            "share": 0.393,
+            "viewers": 4123
+          },
+          {
+            "rank": 75,
+            "channel": "채널A플러스",
+            "rating": 0.057,
+            "share": 0.392,
+            "viewers": 4119
+          },
+          {
+            "rank": 76,
+            "channel": "EBS2",
+            "rating": 0.056,
+            "share": 0.39,
+            "viewers": 4089
+          },
+          {
+            "rank": 77,
+            "channel": "SPOTV2",
+            "rating": 0.056,
+            "share": 0.388,
+            "viewers": 4071
+          },
+          {
+            "rank": 78,
+            "channel": "THE M",
+            "rating": 0.055,
+            "share": 0.379,
+            "viewers": 3979
+          },
+          {
+            "rank": 79,
+            "channel": "MX",
+            "rating": 0.055,
+            "share": 0.376,
+            "viewers": 3946
+          },
+          {
+            "rank": 80,
+            "channel": "시네마천국",
+            "rating": 0.052,
+            "share": 0.361,
+            "viewers": 3793
+          },
+          {
+            "rank": 81,
+            "channel": "i show",
+            "rating": 0.052,
+            "share": 0.359,
+            "viewers": 3772
+          },
+          {
+            "rank": 82,
+            "channel": "cineF",
+            "rating": 0.049,
+            "share": 0.338,
+            "viewers": 3550
+          },
+          {
+            "rank": 83,
+            "channel": "ONCE",
+            "rating": 0.047,
+            "share": 0.326,
+            "viewers": 3425
+          },
+          {
+            "rank": 84,
+            "channel": "Asia N",
+            "rating": 0.046,
+            "share": 0.32,
+            "viewers": 3358
+          },
+          {
+            "rank": 85,
+            "channel": "tvN SPORTS",
+            "rating": 0.046,
+            "share": 0.316,
+            "viewers": 3318
+          },
+          {
+            "rank": 86,
+            "channel": "엑스원",
+            "rating": 0.046,
+            "share": 0.315,
+            "viewers": 3312
+          },
+          {
+            "rank": 87,
+            "channel": "신세계쇼핑",
+            "rating": 0.045,
+            "share": 0.31,
+            "viewers": 3258
+          },
+          {
+            "rank": 88,
+            "channel": "ENA STORY",
+            "rating": 0.041,
+            "share": 0.281,
+            "viewers": 2948
+          },
+          {
+            "rank": 89,
+            "channel": "NS홈쇼핑",
+            "rating": 0.04,
+            "share": 0.275,
+            "viewers": 2891
+          },
+          {
+            "rank": 90,
+            "channel": "이벤트TV",
+            "rating": 0.04,
+            "share": 0.273,
+            "viewers": 2865
+          },
+          {
+            "rank": 91,
+            "channel": "중화TV",
+            "rating": 0.04,
+            "share": 0.273,
+            "viewers": 2864
+          },
+          {
+            "rank": 92,
+            "channel": "헬스메디TV",
+            "rating": 0.039,
+            "share": 0.269,
+            "viewers": 2827
+          },
+          {
+            "rank": 93,
+            "channel": "현대홈쇼핑",
+            "rating": 0.039,
+            "share": 0.269,
+            "viewers": 2823
+          },
+          {
+            "rank": 94,
+            "channel": "JTBC SPORTS",
+            "rating": 0.039,
+            "share": 0.268,
+            "viewers": 2809
+          },
+          {
+            "rank": 95,
+            "channel": "브레인TV(BrainTV)",
+            "rating": 0.037,
+            "share": 0.258,
+            "viewers": 2712
+          },
+          {
+            "rank": 96,
+            "channel": "SBS Biz",
+            "rating": 0.034,
+            "share": 0.237,
+            "viewers": 2486
+          },
+          {
+            "rank": 97,
+            "channel": "ENA SPORTS",
+            "rating": 0.034,
+            "share": 0.235,
+            "viewers": 2464
+          },
+          {
+            "rank": 98,
+            "channel": "TV asia Plus",
+            "rating": 0.033,
+            "share": 0.224,
+            "viewers": 2356
+          },
+          {
+            "rank": 99,
+            "channel": "K바둑",
+            "rating": 0.032,
+            "share": 0.222,
+            "viewers": 2330
+          },
+          {
+            "rank": 100,
+            "channel": "KTV",
+            "rating": 0.032,
+            "share": 0.222,
+            "viewers": 2327
+          },
+          {
+            "rank": 101,
+            "channel": "MBC M",
+            "rating": 0.032,
+            "share": 0.221,
+            "viewers": 2318
+          },
+          {
+            "rank": 102,
+            "channel": "롯데홈쇼핑",
+            "rating": 0.031,
+            "share": 0.212,
+            "viewers": 2223
+          },
+          {
+            "rank": 103,
+            "channel": "매일경제TV",
+            "rating": 0.03,
+            "share": 0.21,
+            "viewers": 2208
+          },
+          {
+            "rank": 104,
+            "channel": "SBS Golf",
+            "rating": 0.03,
+            "share": 0.205,
+            "viewers": 2150
+          },
+          {
+            "rank": 105,
+            "channel": "가톨릭평화방송",
+            "rating": 0.029,
+            "share": 0.203,
+            "viewers": 2130
+          },
+          {
+            "rank": 106,
+            "channel": "CJ ONSTYLE",
+            "rating": 0.029,
+            "share": 0.202,
+            "viewers": 2118
+          },
+          {
+            "rank": 107,
+            "channel": "리얼TV",
+            "rating": 0.029,
+            "share": 0.198,
+            "viewers": 2082
+          },
+          {
+            "rank": 108,
+            "channel": "TV CHOSUN3",
+            "rating": 0.029,
+            "share": 0.198,
+            "viewers": 2076
+          },
+          {
+            "rank": 109,
+            "channel": "W쇼핑",
+            "rating": 0.027,
+            "share": 0.185,
+            "viewers": 1945
+          },
+          {
+            "rank": 110,
+            "channel": "Mnet",
+            "rating": 0.025,
+            "share": 0.17,
+            "viewers": 1786
+          },
+          {
+            "rank": 111,
+            "channel": "위라이크(WeLike)",
+            "rating": 0.024,
+            "share": 0.168,
+            "viewers": 1758
+          },
+          {
+            "rank": 112,
+            "channel": "Animax",
+            "rating": 0.024,
+            "share": 0.162,
+            "viewers": 1704
+          },
+          {
+            "rank": 113,
+            "channel": "StoryTV",
+            "rating": 0.023,
+            "share": 0.158,
+            "viewers": 1659
+          },
+          {
+            "rank": 114,
+            "channel": "Tooniverse",
+            "rating": 0.023,
+            "share": 0.156,
+            "viewers": 1640
+          },
+          {
+            "rank": 115,
+            "channel": "채널S플러스",
+            "rating": 0.022,
+            "share": 0.152,
+            "viewers": 1600
+          },
+          {
+            "rank": 116,
+            "channel": "CTS",
+            "rating": 0.022,
+            "share": 0.151,
+            "viewers": 1584
+          },
+          {
+            "rank": 117,
+            "channel": "JEI재능TV",
+            "rating": 0.022,
+            "share": 0.149,
+            "viewers": 1562
+          },
+          {
+            "rank": 118,
+            "channel": "서울경제TV",
+            "rating": 0.021,
+            "share": 0.148,
+            "viewers": 1552
+          },
+          {
+            "rank": 119,
+            "channel": "SBS Golf2",
+            "rating": 0.021,
+            "share": 0.148,
+            "viewers": 1550
+          },
+          {
+            "rank": 120,
+            "channel": "홈&쇼핑",
+            "rating": 0.021,
+            "share": 0.147,
+            "viewers": 1548
+          },
+          {
+            "rank": 121,
+            "channel": "i play",
+            "rating": 0.021,
+            "share": 0.144,
+            "viewers": 1515
+          },
+          {
+            "rank": 122,
+            "channel": "쇼핑엔티",
+            "rating": 0.021,
+            "share": 0.143,
+            "viewers": 1498
+          },
+          {
+            "rank": 123,
+            "channel": "이데일리TV",
+            "rating": 0.018,
+            "share": 0.123,
+            "viewers": 1290
+          },
+          {
+            "rank": 124,
+            "channel": "생활체육TV",
+            "rating": 0.017,
+            "share": 0.118,
+            "viewers": 1244
+          },
+          {
+            "rank": 125,
+            "channel": "채널유",
+            "rating": 0.017,
+            "share": 0.118,
+            "viewers": 1234
+          },
+          {
+            "rank": 126,
+            "channel": "GS SHOP",
+            "rating": 0.017,
+            "share": 0.116,
+            "viewers": 1218
+          },
+          {
+            "rank": 127,
+            "channel": "CHING(채널ING)",
+            "rating": 0.017,
+            "share": 0.116,
+            "viewers": 1217
+          },
+          {
+            "rank": 128,
+            "channel": "애니플러스",
+            "rating": 0.016,
+            "share": 0.112,
+            "viewers": 1177
+          },
+          {
+            "rank": 129,
+            "channel": "리빙TV",
+            "rating": 0.016,
+            "share": 0.112,
+            "viewers": 1174
+          },
+          {
+            "rank": 130,
+            "channel": "E LIKE",
+            "rating": 0.015,
+            "share": 0.105,
+            "viewers": 1099
+          },
+          {
+            "rank": 131,
+            "channel": "빌리어즈TV",
+            "rating": 0.015,
+            "share": 0.103,
+            "viewers": 1083
+          },
+          {
+            "rank": 132,
+            "channel": "애니원",
+            "rating": 0.015,
+            "share": 0.103,
+            "viewers": 1082
+          },
+          {
+            "rank": 133,
+            "channel": "KBS LIFE",
+            "rating": 0.014,
+            "share": 0.096,
+            "viewers": 1005
+          },
+          {
+            "rank": 134,
+            "channel": "현대홈쇼핑+Shop",
+            "rating": 0.013,
+            "share": 0.092,
+            "viewers": 971
+          },
+          {
+            "rank": 135,
+            "channel": "IB SPORTS",
+            "rating": 0.013,
+            "share": 0.091,
+            "viewers": 958
+          },
+          {
+            "rank": 136,
+            "channel": "KBS Kids",
+            "rating": 0.013,
+            "share": 0.091,
+            "viewers": 956
+          },
+          {
+            "rank": 137,
+            "channel": "다문화TV",
+            "rating": 0.013,
+            "share": 0.091,
+            "viewers": 956
+          },
+          {
+            "rank": 138,
+            "channel": "쿠키건강TV",
+            "rating": 0.013,
+            "share": 0.089,
+            "viewers": 939
+          },
+          {
+            "rank": 139,
+            "channel": "SK스토아",
+            "rating": 0.012,
+            "share": 0.083,
+            "viewers": 876
+          },
+          {
+            "rank": 140,
+            "channel": "아이넷라이프",
+            "rating": 0.012,
+            "share": 0.08,
+            "viewers": 835
+          },
+          {
+            "rank": 141,
+            "channel": "JTBC GOLF",
+            "rating": 0.01,
+            "share": 0.072,
+            "viewers": 752
+          },
+          {
+            "rank": 142,
+            "channel": "채널에버",
+            "rating": 0.01,
+            "share": 0.072,
+            "viewers": 752
+          },
+          {
+            "rank": 143,
+            "channel": "theLIFE2",
+            "rating": 0.01,
+            "share": 0.071,
+            "viewers": 743
+          },
+          {
+            "rank": 144,
+            "channel": "Anibox",
+            "rating": 0.01,
+            "share": 0.068,
+            "viewers": 718
+          },
+          {
+            "rank": 145,
+            "channel": "텔레노벨라",
+            "rating": 0.01,
+            "share": 0.068,
+            "viewers": 712
+          },
+          {
+            "rank": 146,
+            "channel": "Lotte One TV",
+            "rating": 0.01,
+            "share": 0.066,
+            "viewers": 697
+          },
+          {
+            "rank": 147,
+            "channel": "CJ ONSTYLE+",
+            "rating": 0.009,
+            "share": 0.063,
+            "viewers": 664
+          },
+          {
+            "rank": 148,
+            "channel": "히스토리",
+            "rating": 0.009,
+            "share": 0.062,
+            "viewers": 653
+          },
+          {
+            "rank": 149,
+            "channel": "EURO MOVIE",
+            "rating": 0.009,
+            "share": 0.061,
+            "viewers": 636
+          },
+          {
+            "rank": 150,
+            "channel": "MBC NET",
+            "rating": 0.008,
+            "share": 0.059,
+            "viewers": 615
+          },
+          {
+            "rank": 151,
+            "channel": "채널W",
+            "rating": 0.008,
+            "share": 0.059,
+            "viewers": 615
+          },
+          {
+            "rank": 152,
+            "channel": "EBS Kids",
+            "rating": 0.008,
+            "share": 0.058,
+            "viewers": 611
+          },
+          {
+            "rank": 153,
+            "channel": "CBS",
+            "rating": 0.008,
+            "share": 0.055,
+            "viewers": 576
+          },
+          {
+            "rank": 154,
+            "channel": "GS MY SHOP",
+            "rating": 0.008,
+            "share": 0.055,
+            "viewers": 575
+          },
+          {
+            "rank": 155,
+            "channel": "SPOTV PLUS",
+            "rating": 0.008,
+            "share": 0.054,
+            "viewers": 570
+          },
+          {
+            "rank": 156,
+            "channel": "슬로우TV",
+            "rating": 0.007,
+            "share": 0.049,
+            "viewers": 511
+          },
+          {
+            "rank": 157,
+            "channel": "마운틴TV",
+            "rating": 0.007,
+            "share": 0.047,
+            "viewers": 490
+          },
+          {
+            "rank": 158,
+            "channel": "KFN",
+            "rating": 0.007,
+            "share": 0.045,
+            "viewers": 473
+          },
+          {
+            "rank": 159,
+            "channel": "SPOTV Prime2",
+            "rating": 0.006,
+            "share": 0.044,
+            "viewers": 461
+          },
+          {
+            "rank": 160,
+            "channel": "채널i",
+            "rating": 0.006,
+            "share": 0.042,
+            "viewers": 444
+          },
+          {
+            "rank": 161,
+            "channel": "BTN불교TV",
+            "rating": 0.006,
+            "share": 0.042,
+            "viewers": 440
+          },
+          {
+            "rank": 162,
+            "channel": "BBS불교방송",
+            "rating": 0.006,
+            "share": 0.042,
+            "viewers": 439
+          },
+          {
+            "rank": 163,
+            "channel": "UMAX",
+            "rating": 0.006,
+            "share": 0.041,
+            "viewers": 427
+          },
+          {
+            "rank": 164,
+            "channel": "카툰네트워크",
+            "rating": 0.005,
+            "share": 0.038,
+            "viewers": 398
+          },
+          {
+            "rank": 165,
+            "channel": "K쇼핑",
+            "rating": 0.005,
+            "share": 0.038,
+            "viewers": 397
+          },
+          {
+            "rank": 166,
+            "channel": "SBS FIL UHD",
+            "rating": 0.005,
+            "share": 0.037,
+            "viewers": 389
+          },
+          {
+            "rank": 167,
+            "channel": "SPOTV Golf & Health",
+            "rating": 0.005,
+            "share": 0.037,
+            "viewers": 389
+          },
+          {
+            "rank": 168,
+            "channel": "NS SHOP플러스",
+            "rating": 0.005,
+            "share": 0.037,
+            "viewers": 385
+          },
+          {
+            "rank": 169,
+            "channel": "FTV",
+            "rating": 0.005,
+            "share": 0.036,
+            "viewers": 379
+          },
+          {
+            "rank": 170,
+            "channel": "WeeTV",
+            "rating": 0.005,
+            "share": 0.035,
+            "viewers": 372
+          },
+          {
+            "rank": 171,
+            "channel": "플레이런TV",
+            "rating": 0.005,
+            "share": 0.033,
+            "viewers": 344
+          },
+          {
+            "rank": 172,
+            "channel": "폴라리스TV",
+            "rating": 0.005,
+            "share": 0.031,
+            "viewers": 328
+          },
+          {
+            "rank": 173,
+            "channel": "BOOMTV",
+            "rating": 0.004,
+            "share": 0.029,
+            "viewers": 304
+          },
+          {
+            "rank": 174,
+            "channel": "MAXPORTS",
+            "rating": 0.003,
+            "share": 0.019,
+            "viewers": 205
+          },
+          {
+            "rank": 175,
+            "channel": "SOOP",
+            "rating": 0.003,
+            "share": 0.018,
+            "viewers": 194
+          },
+          {
+            "rank": 176,
+            "channel": "OBS W",
+            "rating": 0.002,
+            "share": 0.017,
+            "viewers": 175
+          },
+          {
+            "rank": 177,
+            "channel": "스크린골프존",
+            "rating": 0.002,
+            "share": 0.016,
+            "viewers": 171
+          },
+          {
+            "rank": 178,
+            "channel": "캐리TV",
+            "rating": 0.002,
+            "share": 0.015,
+            "viewers": 158
+          },
+          {
+            "rank": 179,
+            "channel": "대교 뉴이프Plus",
+            "rating": 0.002,
+            "share": 0.014,
+            "viewers": 150
+          },
+          {
+            "rank": 180,
+            "channel": "어린이TV",
+            "rating": 0.002,
+            "share": 0.013,
+            "viewers": 137
+          },
+          {
+            "rank": 181,
+            "channel": "메디컬TV",
+            "rating": 0.002,
+            "share": 0.011,
+            "viewers": 112
+          },
+          {
+            "rank": 182,
+            "channel": "ETN연예TV",
+            "rating": 0.001,
+            "share": 0.01,
+            "viewers": 107
+          },
+          {
+            "rank": 183,
+            "channel": "GOODTV",
+            "rating": 0.001,
+            "share": 0.006,
+            "viewers": 63
+          },
+          {
+            "rank": 184,
+            "channel": "Ball TV",
+            "rating": 0.001,
+            "share": 0.005,
+            "viewers": 53
+          },
+          {
+            "rank": 185,
+            "channel": "NBS한국농업방송",
+            "rating": 0.001,
+            "share": 0.005,
+            "viewers": 48
+          },
+          {
+            "rank": 186,
+            "channel": "시니어TV",
+            "rating": 0.001,
+            "share": 0.004,
+            "viewers": 44
+          },
+          {
+            "rank": 187,
+            "channel": "SkyGuide",
+            "rating": 0.001,
+            "share": 0.004,
+            "viewers": 44
+          },
+          {
+            "rank": 188,
+            "channel": "STB 상생방송",
+            "rating": 0.001,
+            "share": 0.004,
+            "viewers": 43
+          },
+          {
+            "rank": 189,
+            "channel": "동아TV",
+            "rating": 0,
+            "share": 0.003,
+            "viewers": 34
+          },
+          {
+            "rank": 190,
+            "channel": "SPOTV Prime",
+            "rating": 0,
+            "share": 0.003,
+            "viewers": 34
+          },
+          {
+            "rank": 191,
+            "channel": "OGN",
+            "rating": 0,
+            "share": 0.003,
+            "viewers": 33
+          },
+          {
+            "rank": 192,
+            "channel": "연합뉴스경제TV",
+            "rating": 0,
+            "share": 0.003,
+            "viewers": 28
+          },
+          {
+            "rank": 193,
+            "channel": "국악방송",
+            "rating": 0,
+            "share": 0.001,
+            "viewers": 13
+          },
+          {
+            "rank": 194,
+            "channel": "WBS원음방송",
+            "rating": 0,
+            "share": 0.001,
+            "viewers": 9
+          },
+          {
+            "rank": 195,
+            "channel": "SPOTV Prime+",
+            "rating": 0,
+            "share": 0.001,
+            "viewers": 6
+          },
+          {
+            "rank": 196,
+            "channel": "UXN",
+            "rating": 0,
+            "share": 0,
+            "viewers": 5
+          },
+          {
+            "rank": 197,
+            "channel": "Discovery",
+            "rating": 0,
+            "share": 0,
+            "viewers": 4
+          },
+          {
+            "rank": 198,
+            "channel": "법률방송",
+            "rating": 0,
+            "share": 0,
+            "viewers": 0
+          },
+          {
+            "rank": 199,
+            "channel": "뽀요TV",
+            "rating": 0,
+            "share": 0,
+            "viewers": 0
+          },
+          {
+            "rank": 200,
+            "channel": "Asia UHD",
+            "rating": 0,
+            "share": 0,
+            "viewers": 0
+          },
+          {
+            "rank": 201,
+            "channel": "bravokids",
+            "rating": 0,
+            "share": 0,
+            "viewers": 0
+          },
+          {
+            "rank": 202,
+            "channel": "CGN",
+            "rating": 0,
+            "share": 0,
+            "viewers": 0
+          },
+          {
+            "rank": 203,
+            "channel": "C채널",
+            "rating": 0,
+            "share": 0,
+            "viewers": 0
+          },
+          {
+            "rank": 204,
+            "channel": "JEI English TV",
+            "rating": 0,
+            "share": 0,
+            "viewers": 0
+          },
+          {
+            "rank": 205,
+            "channel": "SkyUHD",
+            "rating": 0,
+            "share": 0,
+            "viewers": 0
+          },
+          {
+            "rank": 206,
+            "channel": "UHD Dream TV",
+            "rating": 0,
+            "share": 0,
+            "viewers": 0
+          }
+        ],
+        "Skylife": [
+          {
+            "rank": 1,
+            "channel": "연합뉴스TV",
+            "rating": 1.545,
+            "share": 8.316,
+            "viewers": 13512
+          },
+          {
+            "rank": 2,
+            "channel": "YTN",
+            "rating": 1.266,
+            "share": 6.814,
+            "viewers": 11071
+          },
+          {
+            "rank": 3,
+            "channel": "tvN",
+            "rating": 0.854,
+            "share": 4.593,
+            "viewers": 7463
+          },
+          {
+            "rank": 4,
+            "channel": "ENA",
+            "rating": 0.799,
+            "share": 4.299,
+            "viewers": 6986
+          },
+          {
+            "rank": 5,
+            "channel": "OLIFE",
+            "rating": 0.679,
+            "share": 3.654,
+            "viewers": 5937
+          },
+          {
+            "rank": 6,
+            "channel": "채널이엠",
+            "rating": 0.579,
+            "share": 3.114,
+            "viewers": 5060
+          },
+          {
+            "rank": 7,
+            "channel": "tvN DRAMA",
+            "rating": 0.462,
+            "share": 2.488,
+            "viewers": 4043
+          },
+          {
+            "rank": 8,
+            "channel": "GTV",
+            "rating": 0.428,
+            "share": 2.301,
+            "viewers": 3738
+          },
+          {
+            "rank": 9,
+            "channel": "MBC ON",
+            "rating": 0.427,
+            "share": 2.296,
+            "viewers": 3731
+          },
+          {
+            "rank": 10,
+            "channel": "OCN Movies",
+            "rating": 0.41,
+            "share": 2.205,
+            "viewers": 3583
+          },
+          {
+            "rank": 11,
+            "channel": "SBS funE",
+            "rating": 0.409,
+            "share": 2.198,
+            "viewers": 3572
+          },
+          {
+            "rank": 12,
+            "channel": "ONCE",
+            "rating": 0.358,
+            "share": 1.929,
+            "viewers": 3134
+          },
+          {
+            "rank": 13,
+            "channel": "D-ONE",
+            "rating": 0.352,
+            "share": 1.897,
+            "viewers": 3082
+          },
+          {
+            "rank": 14,
+            "channel": "Asia N",
+            "rating": 0.351,
+            "share": 1.89,
+            "viewers": 3071
+          },
+          {
+            "rank": 15,
+            "channel": "ENA DRAMA",
+            "rating": 0.332,
+            "share": 1.785,
+            "viewers": 2901
+          },
+          {
+            "rank": 16,
+            "channel": "바둑TV",
+            "rating": 0.318,
+            "share": 1.713,
+            "viewers": 2784
+          },
+          {
+            "rank": 17,
+            "channel": "OCN",
+            "rating": 0.318,
+            "share": 1.712,
+            "viewers": 2782
+          },
+          {
+            "rank": 18,
+            "channel": "하이라이트TV",
+            "rating": 0.298,
+            "share": 1.601,
+            "viewers": 2602
+          },
+          {
+            "rank": 19,
+            "channel": "MBC every1",
+            "rating": 0.267,
+            "share": 1.438,
+            "viewers": 2337
+          },
+          {
+            "rank": 20,
+            "channel": "KBS JOY",
+            "rating": 0.264,
+            "share": 1.422,
+            "viewers": 2311
+          },
+          {
+            "rank": 21,
+            "channel": "SBS Biz",
+            "rating": 0.255,
+            "share": 1.374,
+            "viewers": 2233
+          },
+          {
+            "rank": 22,
+            "channel": "CNTV",
+            "rating": 0.251,
+            "share": 1.351,
+            "viewers": 2196
+          },
+          {
+            "rank": 23,
+            "channel": "tvN SHOW",
+            "rating": 0.234,
+            "share": 1.26,
+            "viewers": 2047
+          },
+          {
+            "rank": 24,
+            "channel": "ENA PLAY",
+            "rating": 0.232,
+            "share": 1.248,
+            "viewers": 2028
+          },
+          {
+            "rank": 25,
+            "channel": "tvN STORY",
+            "rating": 0.231,
+            "share": 1.241,
+            "viewers": 2016
+          },
+          {
+            "rank": 26,
+            "channel": "JTBC2",
+            "rating": 0.21,
+            "share": 1.129,
+            "viewers": 1834
+          },
+          {
+            "rank": 27,
+            "channel": "KBS드라마",
+            "rating": 0.2,
+            "share": 1.074,
+            "viewers": 1745
+          },
+          {
+            "rank": 28,
+            "channel": "EDGETV",
+            "rating": 0.199,
+            "share": 1.07,
+            "viewers": 1739
+          },
+          {
+            "rank": 29,
+            "channel": "DRAMAcube",
+            "rating": 0.193,
+            "share": 1.041,
+            "viewers": 1691
+          },
+          {
+            "rank": 30,
+            "channel": "씨네트리",
+            "rating": 0.186,
+            "share": 0.998,
+            "viewers": 1622
+          },
+          {
+            "rank": 31,
+            "channel": "SBS Plus",
+            "rating": 0.181,
+            "share": 0.976,
+            "viewers": 1585
+          },
+          {
+            "rank": 32,
+            "channel": "CH view",
+            "rating": 0.178,
+            "share": 0.959,
+            "viewers": 1558
+          },
+          {
+            "rank": 33,
+            "channel": "MBC드라마넷",
+            "rating": 0.175,
+            "share": 0.941,
+            "viewers": 1529
+          },
+          {
+            "rank": 34,
+            "channel": "SBS Sports",
+            "rating": 0.157,
+            "share": 0.845,
+            "viewers": 1373
+          },
+          {
+            "rank": 35,
+            "channel": "OCN Movies2",
+            "rating": 0.153,
+            "share": 0.823,
+            "viewers": 1337
+          },
+          {
+            "rank": 36,
+            "channel": "채널차이나",
+            "rating": 0.131,
+            "share": 0.703,
+            "viewers": 1142
+          },
+          {
+            "rank": 37,
+            "channel": "Dramax",
+            "rating": 0.131,
+            "share": 0.702,
+            "viewers": 1141
+          },
+          {
+            "rank": 38,
+            "channel": "SkyGuide",
+            "rating": 0.129,
+            "share": 0.693,
+            "viewers": 1126
+          },
+          {
+            "rank": 39,
+            "channel": "마운틴TV",
+            "rating": 0.111,
+            "share": 0.598,
+            "viewers": 972
+          },
+          {
+            "rank": 40,
+            "channel": "코미디TV",
+            "rating": 0.11,
+            "share": 0.59,
+            "viewers": 959
+          },
+          {
+            "rank": 41,
+            "channel": "K STAR",
+            "rating": 0.109,
+            "share": 0.585,
+            "viewers": 950
+          },
+          {
+            "rank": 42,
+            "channel": "E LIKE",
+            "rating": 0.108,
+            "share": 0.579,
+            "viewers": 941
+          },
+          {
+            "rank": 43,
+            "channel": "브레인TV(BrainTV)",
+            "rating": 0.089,
+            "share": 0.478,
+            "viewers": 776
+          },
+          {
+            "rank": 44,
+            "channel": "THE M",
+            "rating": 0.087,
+            "share": 0.471,
+            "viewers": 765
+          },
+          {
+            "rank": 45,
+            "channel": "SCREEN",
+            "rating": 0.087,
+            "share": 0.47,
+            "viewers": 764
+          },
+          {
+            "rank": 46,
+            "channel": "시네마천국",
+            "rating": 0.085,
+            "share": 0.46,
+            "viewers": 747
+          },
+          {
+            "rank": 47,
+            "channel": "TV CHOSUN2",
+            "rating": 0.084,
+            "share": 0.452,
+            "viewers": 734
+          },
+          {
+            "rank": 48,
+            "channel": "KBS LIFE",
+            "rating": 0.084,
+            "share": 0.451,
+            "viewers": 733
+          },
+          {
+            "rank": 49,
+            "channel": "cineF",
+            "rating": 0.081,
+            "share": 0.434,
+            "viewers": 705
+          },
+          {
+            "rank": 50,
+            "channel": "라이프타임",
+            "rating": 0.08,
+            "share": 0.432,
+            "viewers": 702
+          },
+          {
+            "rank": 51,
+            "channel": "E채널",
+            "rating": 0.079,
+            "share": 0.426,
+            "viewers": 692
+          },
+          {
+            "rank": 52,
+            "channel": "EDGE ON",
+            "rating": 0.078,
+            "share": 0.421,
+            "viewers": 685
+          },
+          {
+            "rank": 53,
+            "channel": "KBSN스포츠",
+            "rating": 0.078,
+            "share": 0.419,
+            "viewers": 680
+          },
+          {
+            "rank": 54,
+            "channel": "Tooniverse",
+            "rating": 0.076,
+            "share": 0.41,
+            "viewers": 666
+          },
+          {
+            "rank": 55,
+            "channel": "CMCTV",
+            "rating": 0.075,
+            "share": 0.404,
+            "viewers": 656
+          },
+          {
+            "rank": 56,
+            "channel": "이벤트TV",
+            "rating": 0.074,
+            "share": 0.397,
+            "viewers": 646
+          },
+          {
+            "rank": 57,
+            "channel": "히스토리",
+            "rating": 0.071,
+            "share": 0.382,
+            "viewers": 621
+          },
+          {
+            "rank": 58,
+            "channel": "애니원",
+            "rating": 0.07,
+            "share": 0.378,
+            "viewers": 614
+          },
+          {
+            "rank": 59,
+            "channel": "OBS W",
+            "rating": 0.07,
+            "share": 0.376,
+            "viewers": 611
+          },
+          {
+            "rank": 60,
+            "channel": "MBN플러스",
+            "rating": 0.068,
+            "share": 0.365,
+            "viewers": 594
+          },
+          {
+            "rank": 61,
+            "channel": "채널액션(Channel Action)",
+            "rating": 0.066,
+            "share": 0.358,
+            "viewers": 581
+          },
+          {
+            "rank": 62,
+            "channel": "ONT",
+            "rating": 0.065,
+            "share": 0.35,
+            "viewers": 569
+          },
+          {
+            "rank": 63,
+            "channel": "IB SPORTS",
+            "rating": 0.065,
+            "share": 0.348,
+            "viewers": 566
+          },
+          {
+            "rank": 64,
+            "channel": "빌리어즈TV",
+            "rating": 0.063,
+            "share": 0.337,
+            "viewers": 548
+          },
+          {
+            "rank": 65,
+            "channel": "NBS한국농업방송",
+            "rating": 0.061,
+            "share": 0.328,
+            "viewers": 533
+          },
+          {
+            "rank": 66,
+            "channel": "ENA STORY",
+            "rating": 0.059,
+            "share": 0.32,
+            "viewers": 520
+          },
+          {
+            "rank": 67,
+            "channel": "HQ+",
+            "rating": 0.056,
+            "share": 0.301,
+            "viewers": 489
+          },
+          {
+            "rank": 68,
+            "channel": "한국경제TV",
+            "rating": 0.056,
+            "share": 0.301,
+            "viewers": 489
+          },
+          {
+            "rank": 69,
+            "channel": "GS MY SHOP",
+            "rating": 0.055,
+            "share": 0.296,
+            "viewers": 481
+          },
+          {
+            "rank": 70,
+            "channel": "롯데홈쇼핑",
+            "rating": 0.053,
+            "share": 0.284,
+            "viewers": 461
+          },
+          {
+            "rank": 71,
+            "channel": "FUN TV",
+            "rating": 0.052,
+            "share": 0.28,
+            "viewers": 456
+          },
+          {
+            "rank": 72,
+            "channel": "엑스원",
+            "rating": 0.051,
+            "share": 0.277,
+            "viewers": 450
+          },
+          {
+            "rank": 73,
+            "channel": "tvN SPORTS",
+            "rating": 0.051,
+            "share": 0.274,
+            "viewers": 445
+          },
+          {
+            "rank": 74,
+            "channel": "SPOTV2",
+            "rating": 0.051,
+            "share": 0.274,
+            "viewers": 445
+          },
+          {
+            "rank": 75,
+            "channel": "신세계쇼핑",
+            "rating": 0.05,
+            "share": 0.271,
+            "viewers": 440
+          },
+          {
+            "rank": 76,
+            "channel": "SBS Life",
+            "rating": 0.047,
+            "share": 0.254,
+            "viewers": 413
+          },
+          {
+            "rank": 77,
+            "channel": "CJ ONSTYLE",
+            "rating": 0.047,
+            "share": 0.252,
+            "viewers": 410
+          },
+          {
+            "rank": 78,
+            "channel": "K바둑",
+            "rating": 0.046,
+            "share": 0.249,
+            "viewers": 405
+          },
+          {
+            "rank": 79,
+            "channel": "홈&쇼핑",
+            "rating": 0.045,
+            "share": 0.243,
+            "viewers": 395
+          },
+          {
+            "rank": 80,
+            "channel": "Channel J",
+            "rating": 0.043,
+            "share": 0.234,
+            "viewers": 380
+          },
+          {
+            "rank": 81,
+            "channel": "Asia M",
+            "rating": 0.043,
+            "share": 0.233,
+            "viewers": 379
+          },
+          {
+            "rank": 82,
+            "channel": "텔레노벨라",
+            "rating": 0.043,
+            "share": 0.233,
+            "viewers": 378
+          },
+          {
+            "rank": 83,
+            "channel": "쇼핑엔티",
+            "rating": 0.043,
+            "share": 0.23,
+            "viewers": 374
+          },
+          {
+            "rank": 84,
+            "channel": "NS SHOP플러스",
+            "rating": 0.04,
+            "share": 0.215,
+            "viewers": 349
+          },
+          {
+            "rank": 85,
+            "channel": "Anibox",
+            "rating": 0.04,
+            "share": 0.213,
+            "viewers": 346
+          },
+          {
+            "rank": 86,
+            "channel": "채널A플러스",
+            "rating": 0.039,
+            "share": 0.21,
+            "viewers": 341
+          },
+          {
+            "rank": 87,
+            "channel": "현대홈쇼핑",
+            "rating": 0.036,
+            "share": 0.194,
+            "viewers": 316
+          },
+          {
+            "rank": 88,
+            "channel": "채널나우",
+            "rating": 0.036,
+            "share": 0.194,
+            "viewers": 314
+          },
+          {
+            "rank": 89,
+            "channel": "SPOTV",
+            "rating": 0.036,
+            "share": 0.193,
+            "viewers": 314
+          },
+          {
+            "rank": 90,
+            "channel": "대교 뉴이프Plus",
+            "rating": 0.035,
+            "share": 0.186,
+            "viewers": 302
+          },
+          {
+            "rank": 91,
+            "channel": "이데일리TV",
+            "rating": 0.033,
+            "share": 0.18,
+            "viewers": 292
+          },
+          {
+            "rank": 92,
+            "channel": "채널S",
+            "rating": 0.033,
+            "share": 0.179,
+            "viewers": 291
+          },
+          {
+            "rank": 93,
+            "channel": "뽀요TV",
+            "rating": 0.033,
+            "share": 0.178,
+            "viewers": 289
+          },
+          {
+            "rank": 94,
+            "channel": "SkyUHD",
+            "rating": 0.033,
+            "share": 0.177,
+            "viewers": 288
+          },
+          {
+            "rank": 95,
+            "channel": "폴라리스TV",
+            "rating": 0.03,
+            "share": 0.163,
+            "viewers": 265
+          },
+          {
+            "rank": 96,
+            "channel": "JTBC4",
+            "rating": 0.03,
+            "share": 0.161,
+            "viewers": 261
+          },
+          {
+            "rank": 97,
+            "channel": "Discovery",
+            "rating": 0.029,
+            "share": 0.158,
+            "viewers": 256
+          },
+          {
+            "rank": 98,
+            "channel": "MBC SPORTS+",
+            "rating": 0.028,
+            "share": 0.15,
+            "viewers": 243
+          },
+          {
+            "rank": 99,
+            "channel": "채널유",
+            "rating": 0.027,
+            "share": 0.146,
+            "viewers": 238
+          },
+          {
+            "rank": 100,
+            "channel": "월드클래식무비",
+            "rating": 0.027,
+            "share": 0.146,
+            "viewers": 237
+          },
+          {
+            "rank": 101,
+            "channel": "NXT",
+            "rating": 0.027,
+            "share": 0.145,
+            "viewers": 236
+          },
+          {
+            "rank": 102,
+            "channel": "Mnet",
+            "rating": 0.025,
+            "share": 0.136,
+            "viewers": 222
+          },
+          {
+            "rank": 103,
+            "channel": "GS SHOP",
+            "rating": 0.025,
+            "share": 0.132,
+            "viewers": 214
+          },
+          {
+            "rank": 104,
+            "channel": "SPOTV Prime",
+            "rating": 0.024,
+            "share": 0.127,
+            "viewers": 206
+          },
+          {
+            "rank": 105,
+            "channel": "CJ ONSTYLE+",
+            "rating": 0.023,
+            "share": 0.124,
+            "viewers": 202
+          },
+          {
+            "rank": 106,
+            "channel": "KBS Story",
+            "rating": 0.022,
+            "share": 0.118,
+            "viewers": 192
+          },
+          {
+            "rank": 107,
+            "channel": "Smile TV Plus",
+            "rating": 0.022,
+            "share": 0.118,
+            "viewers": 192
+          },
+          {
+            "rank": 108,
+            "channel": "현대홈쇼핑+Shop",
+            "rating": 0.022,
+            "share": 0.118,
+            "viewers": 191
+          },
+          {
+            "rank": 109,
+            "channel": "FTV",
+            "rating": 0.022,
+            "share": 0.116,
+            "viewers": 189
+          },
+          {
+            "rank": 110,
+            "channel": "리얼TV",
+            "rating": 0.022,
+            "share": 0.116,
+            "viewers": 188
+          },
+          {
+            "rank": 111,
+            "channel": "카툰네트워크",
+            "rating": 0.021,
+            "share": 0.115,
+            "viewers": 187
+          },
+          {
+            "rank": 112,
+            "channel": "bravokids",
+            "rating": 0.02,
+            "share": 0.11,
+            "viewers": 179
+          },
+          {
+            "rank": 113,
+            "channel": "동아TV",
+            "rating": 0.02,
+            "share": 0.11,
+            "viewers": 178
+          },
+          {
+            "rank": 114,
+            "channel": "위라이크(WeLike)",
+            "rating": 0.02,
+            "share": 0.11,
+            "viewers": 178
+          },
+          {
+            "rank": 115,
+            "channel": "중화TV",
+            "rating": 0.02,
+            "share": 0.109,
+            "viewers": 177
+          },
+          {
+            "rank": 116,
+            "channel": "SBS Golf",
+            "rating": 0.02,
+            "share": 0.107,
+            "viewers": 174
+          },
+          {
+            "rank": 117,
+            "channel": "CBS",
+            "rating": 0.019,
+            "share": 0.103,
+            "viewers": 167
+          },
+          {
+            "rank": 118,
+            "channel": "BTN불교TV",
+            "rating": 0.019,
+            "share": 0.1,
+            "viewers": 162
+          },
+          {
+            "rank": 119,
+            "channel": "UHD Dream TV",
+            "rating": 0.018,
+            "share": 0.098,
+            "viewers": 159
+          },
+          {
+            "rank": 120,
+            "channel": "애니플러스",
+            "rating": 0.018,
+            "share": 0.098,
+            "viewers": 159
+          },
+          {
+            "rank": 121,
+            "channel": "theLIFE",
+            "rating": 0.017,
+            "share": 0.091,
+            "viewers": 148
+          },
+          {
+            "rank": 122,
+            "channel": "GOODTV",
+            "rating": 0.017,
+            "share": 0.091,
+            "viewers": 148
+          },
+          {
+            "rank": 123,
+            "channel": "NS홈쇼핑",
+            "rating": 0.017,
+            "share": 0.089,
+            "viewers": 145
+          },
+          {
+            "rank": 124,
+            "channel": "엠플렉스",
+            "rating": 0.016,
+            "share": 0.085,
+            "viewers": 138
+          },
+          {
+            "rank": 125,
+            "channel": "공영쇼핑",
+            "rating": 0.015,
+            "share": 0.082,
+            "viewers": 134
+          },
+          {
+            "rank": 126,
+            "channel": "CTS",
+            "rating": 0.015,
+            "share": 0.079,
+            "viewers": 128
+          },
+          {
+            "rank": 127,
+            "channel": "THE MOVIE",
+            "rating": 0.014,
+            "share": 0.076,
+            "viewers": 124
+          },
+          {
+            "rank": 128,
+            "channel": "SK스토아",
+            "rating": 0.014,
+            "share": 0.073,
+            "viewers": 118
+          },
+          {
+            "rank": 129,
+            "channel": "다문화TV",
+            "rating": 0.013,
+            "share": 0.071,
+            "viewers": 116
+          },
+          {
+            "rank": 130,
+            "channel": "가톨릭평화방송",
+            "rating": 0.013,
+            "share": 0.07,
+            "viewers": 113
+          },
+          {
+            "rank": 131,
+            "channel": "MX",
+            "rating": 0.013,
+            "share": 0.069,
+            "viewers": 112
+          },
+          {
+            "rank": 132,
+            "channel": "토마토증권통",
+            "rating": 0.012,
+            "share": 0.067,
+            "viewers": 109
+          },
+          {
+            "rank": 133,
+            "channel": "K쇼핑",
+            "rating": 0.012,
+            "share": 0.065,
+            "viewers": 106
+          },
+          {
+            "rank": 134,
+            "channel": "MBC M",
+            "rating": 0.012,
+            "share": 0.064,
+            "viewers": 103
+          },
+          {
+            "rank": 135,
+            "channel": "아이넷방송",
+            "rating": 0.012,
+            "share": 0.063,
+            "viewers": 103
+          },
+          {
+            "rank": 136,
+            "channel": "Animax",
+            "rating": 0.011,
+            "share": 0.061,
+            "viewers": 99
+          },
+          {
+            "rank": 137,
+            "channel": "KBS Kids",
+            "rating": 0.011,
+            "share": 0.057,
+            "viewers": 92
+          },
+          {
+            "rank": 138,
+            "channel": "JTBC SPORTS",
+            "rating": 0.01,
+            "share": 0.056,
+            "viewers": 91
+          },
+          {
+            "rank": 139,
+            "channel": "메디컬TV",
+            "rating": 0.01,
+            "share": 0.053,
+            "viewers": 86
+          },
+          {
+            "rank": 140,
+            "channel": "Lotte One TV",
+            "rating": 0.009,
+            "share": 0.05,
+            "viewers": 82
+          },
+          {
+            "rank": 141,
+            "channel": "어린이TV",
+            "rating": 0.009,
+            "share": 0.048,
+            "viewers": 78
+          },
+          {
+            "rank": 142,
+            "channel": "W쇼핑",
+            "rating": 0.008,
+            "share": 0.043,
+            "viewers": 69
+          },
+          {
+            "rank": 143,
+            "channel": "UXN",
+            "rating": 0.008,
+            "share": 0.041,
+            "viewers": 67
+          },
+          {
+            "rank": 144,
+            "channel": "국회방송",
+            "rating": 0.007,
+            "share": 0.04,
+            "viewers": 66
+          },
+          {
+            "rank": 145,
+            "channel": "STB 상생방송",
+            "rating": 0.007,
+            "share": 0.039,
+            "viewers": 64
+          },
+          {
+            "rank": 146,
+            "channel": "EBS2",
+            "rating": 0.007,
+            "share": 0.039,
+            "viewers": 63
+          },
+          {
+            "rank": 147,
+            "channel": "채널S플러스",
+            "rating": 0.007,
+            "share": 0.038,
+            "viewers": 61
+          },
+          {
+            "rank": 148,
+            "channel": "GOLF & PBA",
+            "rating": 0.007,
+            "share": 0.036,
+            "viewers": 58
+          },
+          {
+            "rank": 149,
+            "channel": "생활체육TV",
+            "rating": 0.006,
+            "share": 0.034,
+            "viewers": 56
+          },
+          {
+            "rank": 150,
+            "channel": "서울경제TV",
+            "rating": 0.006,
+            "share": 0.033,
+            "viewers": 54
+          },
+          {
+            "rank": 151,
+            "channel": "쿠키건강TV",
+            "rating": 0.006,
+            "share": 0.033,
+            "viewers": 54
+          },
+          {
+            "rank": 152,
+            "channel": "채널W",
+            "rating": 0.006,
+            "share": 0.032,
+            "viewers": 52
+          },
+          {
+            "rank": 153,
+            "channel": "ENA SPORTS",
+            "rating": 0.003,
+            "share": 0.019,
+            "viewers": 30
+          },
+          {
+            "rank": 154,
+            "channel": "JTBC GOLF",
+            "rating": 0.003,
+            "share": 0.016,
+            "viewers": 25
+          },
+          {
+            "rank": 155,
+            "channel": "Asia UHD",
+            "rating": 0.003,
+            "share": 0.015,
+            "viewers": 24
+          },
+          {
+            "rank": 156,
+            "channel": "캐리TV",
+            "rating": 0.003,
+            "share": 0.014,
+            "viewers": 22
+          },
+          {
+            "rank": 157,
+            "channel": "헬스메디TV",
+            "rating": 0.002,
+            "share": 0.013,
+            "viewers": 21
+          },
+          {
+            "rank": 158,
+            "channel": "SBS Golf2",
+            "rating": 0.002,
+            "share": 0.011,
+            "viewers": 17
+          },
+          {
+            "rank": 159,
+            "channel": "BBS불교방송",
+            "rating": 0.002,
+            "share": 0.01,
+            "viewers": 16
+          },
+          {
+            "rank": 160,
+            "channel": "Aple Drama",
+            "rating": 0.002,
+            "share": 0.01,
+            "viewers": 16
+          },
+          {
+            "rank": 161,
+            "channel": "EURO MOVIE",
+            "rating": 0.002,
+            "share": 0.008,
+            "viewers": 13
+          },
+          {
+            "rank": 162,
+            "channel": "SBS FIL UHD",
+            "rating": 0.001,
+            "share": 0.007,
+            "viewers": 12
+          },
+          {
+            "rank": 163,
+            "channel": "SPOTV PLUS",
+            "rating": 0.001,
+            "share": 0.007,
+            "viewers": 12
+          },
+          {
+            "rank": 164,
+            "channel": "TV CHOSUN3",
+            "rating": 0.001,
+            "share": 0.007,
+            "viewers": 11
+          },
+          {
+            "rank": 165,
+            "channel": "MAXPORTS",
+            "rating": 0.001,
+            "share": 0.006,
+            "viewers": 10
+          },
+          {
+            "rank": 166,
+            "channel": "C채널",
+            "rating": 0.001,
+            "share": 0.006,
+            "viewers": 9
+          },
+          {
+            "rank": 167,
+            "channel": "CHING(채널ING)",
+            "rating": 0.001,
+            "share": 0.004,
+            "viewers": 7
+          },
+          {
+            "rank": 168,
+            "channel": "엔터TV",
+            "rating": 0.001,
+            "share": 0.003,
+            "viewers": 6
+          },
+          {
+            "rank": 169,
+            "channel": "채널i",
+            "rating": 0.001,
+            "share": 0.003,
+            "viewers": 6
+          },
+          {
+            "rank": 170,
+            "channel": "KTV",
+            "rating": 0.001,
+            "share": 0.003,
+            "viewers": 5
+          },
+          {
+            "rank": 171,
+            "channel": "리빙TV",
+            "rating": 0.001,
+            "share": 0.003,
+            "viewers": 5
+          },
+          {
+            "rank": 172,
+            "channel": "UMAX",
+            "rating": 0.001,
+            "share": 0.003,
+            "viewers": 5
+          },
+          {
+            "rank": 173,
+            "channel": "JEI재능TV",
+            "rating": 0.001,
+            "share": 0.003,
+            "viewers": 4
+          },
+          {
+            "rank": 174,
+            "channel": "매일경제TV",
+            "rating": 0.001,
+            "share": 0.003,
+            "viewers": 4
+          },
+          {
+            "rank": 175,
+            "channel": "MBC NET",
+            "rating": 0,
+            "share": 0.002,
+            "viewers": 3
+          },
+          {
+            "rank": 176,
+            "channel": "GMTV",
+            "rating": 0,
+            "share": 0.002,
+            "viewers": 3
+          },
+          {
+            "rank": 177,
+            "channel": "TV asia Plus",
+            "rating": 0,
+            "share": 0.001,
+            "viewers": 2
+          },
+          {
+            "rank": 178,
+            "channel": "국악방송",
+            "rating": 0,
+            "share": 0,
+            "viewers": 0
+          },
+          {
+            "rank": 179,
+            "channel": "뉴트로TV",
+            "rating": 0,
+            "share": 0,
+            "viewers": 0
+          },
+          {
+            "rank": 180,
+            "channel": "법률방송",
+            "rating": 0,
+            "share": 0,
+            "viewers": 0
+          },
+          {
+            "rank": 181,
+            "channel": "스크린골프존",
+            "rating": 0,
+            "share": 0,
+            "viewers": 0
+          },
+          {
+            "rank": 182,
+            "channel": "슬로우TV",
+            "rating": 0,
+            "share": 0,
+            "viewers": 0
+          },
+          {
+            "rank": 183,
+            "channel": "시니어TV",
+            "rating": 0,
+            "share": 0,
+            "viewers": 0
+          },
+          {
+            "rank": 184,
+            "channel": "아이넷라이프",
+            "rating": 0,
+            "share": 0,
+            "viewers": 0
+          },
+          {
+            "rank": 185,
+            "channel": "연합뉴스경제TV",
+            "rating": 0,
+            "share": 0,
+            "viewers": 0
+          },
+          {
+            "rank": 186,
+            "channel": "채널에버",
+            "rating": 0,
+            "share": 0,
+            "viewers": 0
+          },
+          {
+            "rank": 187,
+            "channel": "플레이런TV",
+            "rating": 0,
+            "share": 0,
+            "viewers": 0
+          },
+          {
+            "rank": 188,
+            "channel": "Ball TV",
+            "rating": 0,
+            "share": 0,
+            "viewers": 0
+          },
+          {
+            "rank": 189,
+            "channel": "BOOMTV",
+            "rating": 0,
+            "share": 0,
+            "viewers": 0
+          },
+          {
+            "rank": 190,
+            "channel": "CGN",
+            "rating": 0,
+            "share": 0,
+            "viewers": 0
+          },
+          {
+            "rank": 191,
+            "channel": "EBS Kids",
+            "rating": 0,
+            "share": 0,
+            "viewers": 0
+          },
+          {
+            "rank": 192,
+            "channel": "ETN연예TV",
+            "rating": 0,
+            "share": 0,
+            "viewers": 0
+          },
+          {
+            "rank": 193,
+            "channel": "i play",
+            "rating": 0,
+            "share": 0,
+            "viewers": 0
+          },
+          {
+            "rank": 194,
+            "channel": "i show",
+            "rating": 0,
+            "share": 0,
+            "viewers": 0
+          },
+          {
+            "rank": 195,
+            "channel": "JEI English TV",
+            "rating": 0,
+            "share": 0,
+            "viewers": 0
+          },
+          {
+            "rank": 196,
+            "channel": "KFN",
+            "rating": 0,
+            "share": 0,
+            "viewers": 0
+          },
+          {
+            "rank": 197,
+            "channel": "MTN 머니투데이방송",
+            "rating": 0,
+            "share": 0,
+            "viewers": 0
+          },
+          {
+            "rank": 198,
+            "channel": "OGN",
+            "rating": 0,
+            "share": 0,
+            "viewers": 0
+          },
+          {
+            "rank": 199,
+            "channel": "SOOP",
+            "rating": 0,
+            "share": 0,
+            "viewers": 0
+          },
+          {
+            "rank": 200,
+            "channel": "SPOTV Golf & Health",
+            "rating": 0,
+            "share": 0,
+            "viewers": 0
+          },
+          {
+            "rank": 201,
+            "channel": "SPOTV Prime2",
+            "rating": 0,
+            "share": 0,
+            "viewers": 0
+          },
+          {
+            "rank": 202,
+            "channel": "SPOTV Prime+",
+            "rating": 0,
+            "share": 0,
+            "viewers": 0
+          },
+          {
+            "rank": 203,
+            "channel": "StoryTV",
+            "rating": 0,
+            "share": 0,
+            "viewers": 0
+          },
+          {
+            "rank": 204,
+            "channel": "theLIFE2",
+            "rating": 0,
+            "share": 0,
+            "viewers": 0
+          },
+          {
+            "rank": 205,
+            "channel": "WBS원음방송",
+            "rating": 0,
+            "share": 0,
+            "viewers": 0
+          },
+          {
+            "rank": 206,
+            "channel": "WeeTV",
+            "rating": 0,
+            "share": 0,
+            "viewers": 0
+          }
+        ]
+      },
+      "programs": {},
+      "age_ratings": {},
+      "competitors": {
+        "브레인TV(BrainTV)": {
+          "rating": 0.079,
+          "ratio": 134
+        },
+        "GOLF & PBA": {
+          "rating": 0.062,
+          "ratio": 105
+        },
+        "K바둑": {
+          "rating": 0.034,
+          "ratio": 58
+        },
+        "빌리어즈TV": {
+          "rating": 0.028,
+          "ratio": 47
+        },
+        "JTBC GOLF": {
+          "rating": 0.016,
+          "ratio": 27
+        }
+      },
+      "monthly": {
+        "target": 0.081,
+        "cumulative": 0.059,
+        "achievement": 72.8
       },
       "summary": {
         "badukTV": "",
