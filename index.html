@@ -471,7 +471,9 @@ function renderCal(){
   for(let d=1;d<=dm;d++){
     const e=document.createElement('div');
     const dw=new Date(calY,calM-1,d).getDay();
-    const k=`${calM}월${d}일 (${dn[dw]})`;
+    const mm=String(calM).padStart(2,'0');
+    const dd=String(d).padStart(2,'0');
+    const k=`${calY}-${mm}-${dd}`;
     const hd=DATES_SET.has(k);
     e.className='cal-day'+(hd?' has-data':'')+(k===curDate?' active':'');
     e.textContent=d;
@@ -489,8 +491,9 @@ function selPlat(p){
 
 function selDate(date){
   curDate=date;
-  const m=date.match(/(\d+)월/);if(m){calM=parseInt(m[1]);renderCal();}
-  document.getElementById('calLabel').textContent=date;
+  const dp2=date.split('-');if(dp2.length===3){calY=parseInt(dp2[0]);calM=parseInt(dp2[1]);renderCal();}
+  const dp=date.split('-');
+  document.getElementById('calLabel').textContent=dp[1]+'월'+parseInt(dp[2])+'일';
   renderKPI();renderTbl();renderComp();renderProg();renderSummary();updCharts();
 }
 
