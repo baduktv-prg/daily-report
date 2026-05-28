@@ -875,6 +875,50 @@ function updCharts(){
   yoyC.update('none');
 }
 
+// ── 총평 + 프로그램 분석 표시 ──
+function renderSummary(){
+  const dayData=D.days[curDate]||{};
+  const summary=dayData.summary||{};
+  const programs=dayData.programs||{};
+
+  function setText(id,text){
+    const el=document.getElementById(id);
+    if(!el)return;
+    if(!text||!text.trim()){el.innerHTML='<span class="analysis-empty">데이터 없음</span>';return;}
+    el.innerHTML=text.split('|').map(function(s){return '<div style="margin-bottom:4px">'+s.trim()+'</div>';}).join('');
+  }
+  setText('summaryBaduk',summary.badukTV||'');
+  setText('summaryKbaduk',summary.kbaduk||'');
+
+  const liveEl=document.getElementById('analysisLive');
+  const rerunEl=document.getElementById('analysisRerun');
+  if(!liveEl||!rerunEl)return;
+  let liveHtml='',rerunHtml='';
+
+  Object.keys(programs).forEach(function(channel){
+    const isK=channel.includes('K바둑');
+    const color=isK?'var(--accent2)':'var(--accent)';
+    (programs[channel]||[]).forEach(function(p){
+      if(!p.analysis||!p.analysis.length)return;
+      const pname=(p.program||'').replace(/<생>/g,'').replace(/<재>/g,'').trim();
+      const players=p.players?' '+p.players:'';
+      const analysisHtml=p.analysis.map(function(a){
+        return '<div style="margin-bottom:3px;padding-left:8px;border-left:2px solid var(--border)">'+a+'</div>';
+      }).join('');
+      const block='<div style="margin-bottom:10px"><div style="font-size:12px;font-weight:600;color:'+color+';margin-bottom:4px">'+pname+players+'</div>'+analysisHtml+'</div>';
+      if(p.is_live) liveHtml+=block;
+      else rerunHtml+=block;
+    });
+  });
+
+  if(summary.etc&&summary.etc.trim()){
+    rerunHtml+='<div style="margin-top:8px;padding-top:8px;border-top:1px solid var(--border);font-size:12px;color:var(--muted)">기타: '+summary.etc+'</div>';
+  }
+
+  liveEl.innerHTML=liveHtml||'<span class="analysis-empty">데이터 없음</span>';
+  rerunEl.innerHTML=rerunHtml||'<span class="analysis-empty">데이터 없음</span>';
+}
+
 function closeModal(e){
   if(e.target===document.getElementById('progModal'))
     document.getElementById('progModal').classList.add('hidden');
