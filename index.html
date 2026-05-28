@@ -265,7 +265,7 @@ footer{text-align:center;padding:20px;color:var(--muted);font-family:'Noto Sans 
 /* ── 랭킹 섹션 좌우 분할 ── */
 .ranking-section{align-items:start}
 .ranking-right .card{display:flex;flex-direction:column}
-.ranking-right .card canvas{display:block}
+.ranking-right .card{overflow:hidden}.ranking-right .card canvas{display:block;max-height:380px}
 
 .ranking-section{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:0}
 .ranking-left{min-width:0}
