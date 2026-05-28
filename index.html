@@ -296,6 +296,11 @@ footer{text-align:center;padding:20px;color:var(--muted);font-family:'Noto Sans 
 
 .stats-bar{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:28px;margin-bottom:20px}
 .stats-bar .card{margin:0}
+
+.date-nav-wrap{display:flex;align-items:center;gap:8px}
+.date-nav-btn{background:none;border:1px solid var(--border);color:var(--muted);width:28px;height:28px;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;transition:all .15s;flex-shrink:0}
+.date-nav-btn:hover{border-color:var(--accent);color:var(--accent)}
+.date-nav-btn:disabled{opacity:0.3;cursor:default}
 </style>
 </head>
 <body>
@@ -328,9 +333,13 @@ footer{text-align:center;padding:20px;color:var(--muted);font-family:'Noto Sans 
 <div class="toolbar">
   <span class="toolbar-label">DATE</span>
   <div class="cal-wrap" id="calWrap">
+    <div class="date-nav-wrap">
+    <button class="date-nav-btn" id="prevDateBtn" onclick="moveDate(-1)">‹</button>
     <button class="cal-trigger" id="calTrigger" onclick="toggleCal(event)">
       📅 <span id="calLabel">날짜 선택</span>
     </button>
+    <button class="date-nav-btn" id="nextDateBtn" onclick="moveDate(1)">›</button>
+  </div>
     <div class="cal-dropdown hidden" id="calDrop">
       <div class="cal-header">
         <button class="cal-nav" onclick="calNav(-1)">‹</button>
@@ -429,6 +438,20 @@ footer{text-align:center;padding:20px;color:var(--muted);font-family:'Noto Sans 
 <footer>AGB 닐슨 · 전국 전플랫폼 (유료가구) · 206개 채널 기준 · 종편채널제외</footer>
 
 <script>
+// ── 전일/후일 이동 ──
+function moveDate(dir){
+  const dates=D.dates;
+  const idx=dates.indexOf(curDate);
+  const newIdx=idx+dir;
+  if(newIdx<0||newIdx>=dates.length)return;
+  selDate(dates[newIdx]);
+  document.getElementById('calDrop').classList.add('hidden');
+  // 버튼 비활성화 상태 업데이트
+  document.getElementById('prevDateBtn').disabled=(newIdx<=0);
+  document.getElementById('nextDateBtn').disabled=(newIdx>=dates.length-1);
+}
+
+
 
 let D=null, curDate=null, curPlat='종합', calY=2026, calM=4, tC=null, rC=null;
 const DATES_SET=new Set();
@@ -490,6 +513,12 @@ function selPlat(p){
 }
 
 function selDate(date){
+  // 전일/후일 버튼 상태 업데이트
+  const _idx=D.dates.indexOf(date);
+  const _prev=document.getElementById('prevDateBtn');
+  const _next=document.getElementById('nextDateBtn');
+  if(_prev)_prev.disabled=(_idx<=0);
+  if(_next)_next.disabled=(_idx>=D.dates.length-1);
   curDate=date;
   const dp2=date.split('-');if(dp2.length===3){calY=parseInt(dp2[0]);calM=parseInt(dp2[1]);renderCal();}
   const dp=date.split('-');
