@@ -453,7 +453,7 @@ function moveDate(dir){
 
 
 
-let D=null, curDate=null, curPlat='종합', calY=2026, calM=4, tC=null, rC=null;
+let D=null, curDate=null, curPlat='종합', calY=2026, calM=4, tC=null, rC=null, yoyC=null;
 const DATES_SET=new Set();
 
 function init(){
@@ -787,109 +787,93 @@ function renderProg(){
 }
 
 function initCharts(){
-  const dates=D.dates;
-  const labels=dates.map(d=>{const m=d.match(/(\d+)월(\d+)일/);return m?m[1]+'/'+m[2]:d;});
-  const bRat=dates.map(d=>{const r=(((D.days[d]||{}).rankings||{})['종합']||[]).find(x=>x.channel==='바둑TV');return r?+(r.rating).toFixed(4):null;});
-  const kRat=dates.map(d=>{const r=(((D.days[d]||{}).rankings||{})['종합']||[]).find(x=>x.channel==='K바둑');return r?+(r.rating).toFixed(4):null;});
-  const bRnk=dates.map(d=>{const r=(((D.days[d]||{}).rankings||{})['종합']||[]).find(x=>x.channel==='바둑TV');return r?r.rank:null;});
-  const kRnk=dates.map(d=>{const r=(((D.days[d]||{}).rankings||{})['종합']||[]).find(x=>x.channel==='K바둑');return r?r.rank:null;});
-  const co={responsive:true,animation:{duration:300},plugins:{legend:{display:false},tooltip:{backgroundColor:'var(--bg2)',borderColor:'var(--border)',borderWidth:1,titleFont:{family:'IBM Plex Mono',size:10},bodyFont:{family:'IBM Plex Mono',size:10}}},scales:{x:{ticks:{color:'#64748b',font:{family:'IBM Plex Mono',size:8}},grid:{color:'rgba(30,45,69,.5)'}},y:{ticks:{color:'#64748b',font:{family:'IBM Plex Mono',size:8}},grid:{color:'rgba(30,45,69,.5)'}}}};
-  tC=new Chart(document.getElementById('trendC'),{type:'line',data:{labels,datasets:[
-    {label:'바둑TV',data:bRat,borderColor:'#00d4ff',backgroundColor:'rgba(0,212,255,.07)',fill:false,tension:.4,pointBackgroundColor:'#00d4ff',pointRadius:4,pointHoverRadius:6},
-    {label:'K바둑',data:kRat,borderColor:'#ff6b35',backgroundColor:'rgba(255,107,53,.07)',fill:false,tension:.4,pointBackgroundColor:'#ff6b35',pointRadius:4,pointHoverRadius:6,}
+  const co={responsive:true,animation:{duration:300},plugins:{legend:{display:false},tooltip:{backgroundColor:'var(--bg2)',borderColor:'var(--border)',borderWidth:1,titleFont:{family:'Noto Sans KR',size:10},bodyFont:{family:'Noto Sans KR',size:10}}},scales:{x:{ticks:{color:'#64748b',font:{family:'Noto Sans KR',size:8}},grid:{color:'rgba(30,45,69,.5)'}},y:{ticks:{color:'#64748b',font:{family:'Noto Sans KR',size:8}},grid:{color:'rgba(30,45,69,.5)'}}}}; 
+
+  // 시청률 추이 (빈 데이터로 초기화, updCharts에서 업데이트)
+  tC=new Chart(document.getElementById('trendC'),{type:'line',data:{labels:[],datasets:[
+    {label:'바둑TV',data:[],borderColor:'#00d4ff',backgroundColor:'rgba(0,212,255,.07)',fill:false,tension:.4,pointBackgroundColor:'#00d4ff',pointRadius:4,pointHoverRadius:6},
+    {label:'K바둑',data:[],borderColor:'#ff6b35',backgroundColor:'rgba(255,107,53,.07)',fill:false,tension:.4,pointBackgroundColor:'#ff6b35',pointRadius:4,pointHoverRadius:6}
   ]},options:{...co,plugins:{...co.plugins,legend:{display:true,position:'bottom',labels:{usePointStyle:true,boxWidth:8,color:'#64748b',font:{size:10}}}},scales:{...co.scales,y:{...co.scales.y,title:{display:true,text:'시청률(%)',color:'#64748b',font:{size:8}}}}}});
-  rC=new Chart(document.getElementById('rankC'),{type:'line',data:{labels,datasets:[
-    {label:'바둑TV',data:bRnk,borderColor:'#00d4ff',backgroundColor:'rgba(0,212,255,.07)',fill:false,tension:.4,pointBackgroundColor:'#00d4ff',pointRadius:4,pointHoverRadius:6},
-    {label:'K바둑',data:kRnk,borderColor:'#ff6b35',backgroundColor:'rgba(255,107,53,.07)',fill:false,tension:.4,pointBackgroundColor:'#ff6b35',pointRadius:4,pointHoverRadius:6}
+
+  // 순위 추이
+  rC=new Chart(document.getElementById('rankC'),{type:'line',data:{labels:[],datasets:[
+    {label:'바둑TV',data:[],borderColor:'#00d4ff',backgroundColor:'rgba(0,212,255,.07)',fill:false,tension:.4,pointBackgroundColor:'#00d4ff',pointRadius:4,pointHoverRadius:6},
+    {label:'K바둑',data:[],borderColor:'#ff6b35',backgroundColor:'rgba(255,107,53,.07)',fill:false,tension:.4,pointBackgroundColor:'#ff6b35',pointRadius:4,pointHoverRadius:6}
   ]},options:{...co,plugins:{...co.plugins,legend:{display:true,position:'bottom',labels:{usePointStyle:true,boxWidth:8,color:'#64748b',font:{size:10}}}},scales:{...co.scales,y:{...co.scales.y,reverse:true,title:{display:true,text:'순위',color:'#64748b',font:{size:8}}}}}});
 
-  // 전년 동기 대비 추이: 올해 vs 전년 바둑TV 시청률
-  const thisYearRat=dates.map(d=>{const r=(((D.days[d]||{}).rankings||{})['종합']||[]).find(x=>x.channel==='바둑TV');return r?+r.rating.toFixed(4):null;});
-  const lastYearRat=dates.map(d=>{const p=D.days[d]||{};return p.yoy_rating!=null?+parseFloat(p.yoy_rating).toFixed(4):null;});
-  new Chart(document.getElementById('yoyC'),{type:'line',data:{labels,datasets:[
-    {label:'올해',data:thisYearRat,borderColor:'#00d4ff',backgroundColor:'transparent',fill:false,tension:.4,pointBackgroundColor:'#00d4ff',pointRadius:4,pointHoverRadius:6},
-    {label:'전년',data:lastYearRat,borderColor:'#64748b',backgroundColor:'transparent',fill:false,tension:.4,pointBackgroundColor:'#64748b',pointRadius:4,pointHoverRadius:6,borderDash:[5,3]}
+  // 전년 동기 대비 추이
+  yoyC=new Chart(document.getElementById('yoyC'),{type:'line',data:{labels:[],datasets:[
+    {label:'올해',data:[],borderColor:'#00d4ff',backgroundColor:'transparent',fill:false,tension:.4,pointBackgroundColor:'#00d4ff',pointRadius:4,pointHoverRadius:6},
+    {label:'전년',data:[],borderColor:'#64748b',backgroundColor:'transparent',fill:false,tension:.4,pointBackgroundColor:'#64748b',pointRadius:4,pointHoverRadius:6,borderDash:[5,3]}
   ]},options:{...co,plugins:{...co.plugins,legend:{display:true,position:'bottom',labels:{usePointStyle:true,boxWidth:8,color:'#64748b',font:{size:10}}}},scales:{...co.scales,y:{...co.scales.y,title:{display:true,text:'시청률(%)',color:'#64748b',font:{size:8}}}}}});
 }
 
 function updCharts(){
-  if(!tC||!rC)return;
-  const dates=D.dates,idx=dates.indexOf(curDate);
+  if(!tC||!rC||!yoyC||!curDate)return;
+  const allDates=D.dates;
+  const curIdx=allDates.indexOf(curDate);
+
+  // ── 시청률/순위 추이: 선택일 기준 앞뒤 10일
+  const startIdx=Math.max(0,curIdx-9);
+  const endIdx=curIdx;
+  const trendDates=allDates.slice(startIdx,endIdx+1);
+  const trendLabels=trendDates.map(d=>d.slice(5).replace('-','/'));
+
+  const bRat=trendDates.map(d=>{const r=(((D.days[d]||{}).rankings||{})['종합']||[]).find(x=>x.channel==='바둑TV');return r?+r.rating.toFixed(4):null;});
+  const kRat=trendDates.map(d=>{const r=(((D.days[d]||{}).rankings||{})['종합']||[]).find(x=>x.channel==='K바둑');return r?+r.rating.toFixed(4):null;});
+  const bRnk=trendDates.map(d=>{const r=(((D.days[d]||{}).rankings||{})['종합']||[]).find(x=>x.channel==='바둑TV');return r?r.rank:null;});
+  const kRnk=trendDates.map(d=>{const r=(((D.days[d]||{}).rankings||{})['종합']||[]).find(x=>x.channel==='K바둑');return r?r.rank:null;});
+
+  tC.data.labels=trendLabels;
+  tC.data.datasets[0].data=bRat;
+  tC.data.datasets[1].data=kRat;
+  tC.update('none');
+
+  rC.data.labels=trendLabels;
+  rC.data.datasets[0].data=bRnk;
+  rC.data.datasets[1].data=kRnk;
+  rC.update('none');
+
+  // 선택일 포인트 하이라이트
+  const trendCurIdx=trendDates.indexOf(curDate);
   [[tC,['#00d4ff','#ff6b35']],[rC,['#00d4ff','#ff6b35']]].forEach(([c,cols])=>{
     c.data.datasets.forEach((ds,di)=>{
       const col=cols[di]||cols[0];
-      ds.pointBackgroundColor=dates.map((_,i)=>i===idx?'#fff':col);
-      ds.pointRadius=dates.map((_,i)=>i===idx?7:4);
+      ds.pointBackgroundColor=trendDates.map((_,i)=>i===trendCurIdx?'#fff':col);
+      ds.pointRadius=trendDates.map((_,i)=>i===trendCurIdx?7:4);
     });
     c.update('none');
   });
-}
 
-
-function toggleTheme(){
-  const isDark=document.documentElement.getAttribute('data-theme')!=='light';
-  document.documentElement.setAttribute('data-theme',isDark?'light':'dark');
-  document.getElementById('themeBtn').textContent=isDark?'🌙 DARK':'☀️ LIGHT';
-  localStorage.setItem('theme',isDark?'light':'dark');
-  // 차트 색상 업데이트
-  if(tC&&rC){
-    const gc=isDark?'rgba(30,45,69,.5)':'rgba(203,213,225,.5)';
-    const tc=isDark?'#64748b':'#94a3b8';
-    [tC,rC].forEach(c=>{
-      c.options.scales.x.grid.color=gc;c.options.scales.y.grid.color=gc;
-      c.options.scales.x.ticks.color=tc;c.options.scales.y.ticks.color=tc;
-      c.update('none');
-    });
-  }
-}
-// 저장된 테마 복원
-
-
-// ── 총평 + 프로그램 분석 표시 ──
-function renderSummary(){
-  const dayData=D.days[curDate]||{};
-  const summary=dayData.summary||{};
-  const programs=dayData.programs||{};
-
-  function setText(id,text){
-    const el=document.getElementById(id);
-    if(!el)return;
-    if(!text||!text.trim()){el.innerHTML='<span class="analysis-empty">데이터 없음</span>';return;}
-    el.innerHTML=text.split('|').map(function(s){return '<div style="margin-bottom:4px">'+s.trim()+'</div>';}).join('');
-  }
-  setText('summaryBaduk',summary.badukTV||'');
-  setText('summaryKbaduk',summary.kbaduk||'');
-
-  const liveEl=document.getElementById('analysisLive');
-  const rerunEl=document.getElementById('analysisRerun');
-  if(!liveEl||!rerunEl)return;
-  let liveHtml='',rerunHtml='';
-
-  Object.keys(programs).forEach(function(channel){
-    const isK=channel.includes('K바둑');
-    const color=isK?'var(--accent2)':'var(--accent)';
-    (programs[channel]||[]).forEach(function(p){
-      if(!p.analysis||!p.analysis.length)return;
-      const pname=(p.program||'').replace(/<생>/g,'').replace(/<재>/g,'').trim();
-      const players=p.players?' '+p.players:'';
-      const analysisHtml=p.analysis.map(function(a){
-        return '<div style="margin-bottom:3px;padding-left:8px;border-left:2px solid var(--border)">'+a+'</div>';
-      }).join('');
-      const block='<div style="margin-bottom:10px"><div style="font-size:12px;font-weight:600;color:'+color+';margin-bottom:4px">'+pname+players+'</div>'+analysisHtml+'</div>';
-      if(p.is_live) liveHtml+=block;
-      else rerunHtml+=block;
-    });
-  });
-
-  if(summary.etc&&summary.etc.trim()){
-    rerunHtml+='<div style="margin-top:8px;padding-top:8px;border-top:1px solid var(--border);font-size:12px;color:var(--muted)">기타: '+summary.etc+'</div>';
+  // ── 전년 동기 대비 추이: 선택 월 전체 (선택일 이후 빈칸)
+  const curYM=curDate.slice(0,7);
+  const monthDates=allDates.filter(d=>d.startsWith(curYM));
+  // 해당 월의 1일부터 말일까지 날짜 생성
+  const year=parseInt(curDate.slice(0,4));
+  const month=parseInt(curDate.slice(5,7));
+  const lastDay=new Date(year,month,0).getDate();
+  const yoyLabels=[];
+  const yoyThisYear=[];
+  const yoyLastYear=[];
+  for(let d=1;d<=lastDay;d++){
+    const dateStr=curYM+'-'+String(d).padStart(2,'0');
+    yoyLabels.push(String(d));
+    // 선택일 이후는 null
+    if(dateStr>curDate){
+      yoyThisYear.push(null);
+    } else {
+      const r=(((D.days[dateStr]||{}).rankings||{})['종합']||[]).find(x=>x.channel==='바둑TV');
+      yoyThisYear.push(r?+r.rating.toFixed(4):null);
+    }
+    const p=D.days[dateStr]||{};
+    yoyLastYear.push(p.yoy_rating!=null?+parseFloat(p.yoy_rating).toFixed(4):null);
   }
 
-  liveEl.innerHTML=liveHtml||'<span class="analysis-empty">데이터 없음</span>';
-  rerunEl.innerHTML=rerunHtml||'<span class="analysis-empty">데이터 없음</span>';
+  yoyC.data.labels=yoyLabels;
+  yoyC.data.datasets[0].data=yoyThisYear;
+  yoyC.data.datasets[1].data=yoyLastYear;
+  yoyC.update('none');
 }
-
-
 
 function closeModal(e){
   if(e.target===document.getElementById('progModal'))
