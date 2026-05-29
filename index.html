@@ -540,13 +540,13 @@ function renderKPI(){
   const todayRankings=((dayData.rankings)||{})['종합']||[];
   const thisRating=(todayRankings.find(function(r){return r.channel==='바둑TV';})||{}).rating||null;
   const yoyRating=dayData.yoy_rating||null;
-  const yoy=(thisRating&&yoyRating)?(thisRating-yoyRating):null;
+  const yoy=(thisRating&&yoyRating)?(thisRating/yoyRating*100):null;
   const monthly=(dayData.monthly)||{};
   if(yoy!=null){
-    const pct=(yoy*100).toFixed(1);
-    const up=parseFloat(pct)>=0;
-    document.getElementById('kYoy').innerHTML=`<span style="color:${up?'var(--green)':'var(--red)'}">${up?'+':''}${pct}</span><span class="kpi-unit">%</span>`;
-    document.getElementById('kYoySub').textContent='전년 동기 대비';
+    const pct=yoy.toFixed(1);
+    const up=parseFloat(pct)>=100;
+    document.getElementById('kYoy').innerHTML=`<span style="color:${up?'var(--green)':'var(--red)'}">${pct}</span><span class="kpi-unit">%</span>`;
+    document.getElementById('kYoySub').textContent='';
   }
   if(monthly.achievement!=null){
     const p=monthly.achievement.toFixed(1);
