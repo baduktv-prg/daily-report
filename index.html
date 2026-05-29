@@ -537,7 +537,10 @@ function renderKPI(){
     document.getElementById('kShr').textContent='점유율: '+bk.share.toFixed(3)+'%';
   }
   // 전년 동기 대비
-  const yoy=null;  // 추후 전년도 데이터 연동 시 추가
+  const todayRankings=((dayData.rankings)||{})['종합']||[];
+  const thisRating=(todayRankings.find(function(r){return r.channel==='바둑TV';})||{}).rating||null;
+  const yoyRating=dayData.yoy_rating||null;
+  const yoy=(thisRating&&yoyRating)?(thisRating-yoyRating):null;
   const monthly=(dayData.monthly)||{};
   if(yoy!=null){
     const pct=(yoy*100).toFixed(1);
@@ -865,8 +868,13 @@ function updCharts(){
       const r=(((D.days[dateStr]||{}).rankings||{})['종합']||[]).find(x=>x.channel==='바둑TV');
       yoyThisYear.push(r?+r.rating.toFixed(4):null);
     }
-    const p=D.days[dateStr]||{};
-    yoyLastYear.push(p.yoy_rating!=null?+parseFloat(p.yoy_rating).toFixed(4):null);
+    // 전년도도 선택일 이후는 null
+    if(dateStr>curDate){
+      yoyLastYear.push(null);
+    } else {
+      const p=D.days[dateStr]||{};
+      yoyLastYear.push(p.yoy_rating!=null?+parseFloat(p.yoy_rating).toFixed(4):null);
+    }
   }
 
   yoyC.data.labels=yoyLabels;
