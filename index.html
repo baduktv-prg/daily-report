@@ -717,7 +717,7 @@ function renderProg(){
       return td;
     }
     progs = progs.filter(function(p){
-    return p.program && p.program !== '프로그램' && typeof p.rating === 'number';
+      return p.program && p.program !== '프로그램';
     });
     progs.forEach(function(p){
       const row=tbody.insertRow();
