@@ -647,7 +647,7 @@ function renderProg(){
 
   Object.keys(programs).forEach(function(channel){
     const isK=channel.includes('K바둑');
-    const progs=programs[channel]||[];
+    let progs=programs[channel]||[];
     const ageProgs=ageRatings[channel]||[];
     const bR=isK?255:0,bG=isK?107:212,bB=isK?53:255;
 
