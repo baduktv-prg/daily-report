@@ -721,7 +721,7 @@ function renderProg(){
       const row=tbody.insertRow();
       const hasRe=p.program&&p.program.includes('<재>');
       const bt=p.broadcast_type||'';
-      const badge=channel==='K바둑'&&!bt?'':(bt==='재'||hasRe?'<span class="badge-re">재</span>':bt==='본'?'<span class="badge-bon">본</span>':'<span class="badge-live">생</span>');
+      const badge=channel==='K바둑'&&!bt?'':(bt==='재방'||hasRe?'<span class="badge-re">재</span>':bt==='본방'?'<span class="badge-bon">본</span>':'<span class="badge-live">생</span>');
       const pname=(p.program||'').replace(/<생>/g,'').replace(/<재>/g,'').trim();
 
       const tdN=document.createElement('td');
