@@ -716,7 +716,9 @@ function renderProg(){
       td.appendChild(inn);
       return td;
     }
-
+    progs = progs.filter(function(p){
+    return p.program && p.program !== '프로그램' && typeof p.rating === 'number';
+    });
     progs.forEach(function(p){
       const row=tbody.insertRow();
       const hasRe=p.program&&p.program.includes('<재>');
