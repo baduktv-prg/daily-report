@@ -719,8 +719,9 @@ function renderProg(){
 
     progs.forEach(function(p){
       const row=tbody.insertRow();
-      const live=p.program&&p.program.includes('<생>');
-      const badge=live?'<span class="badge-live">생</span>':'<span class="badge-re">재</span>';
+      const hasRe=p.program&&p.program.includes('<재>');
+      const hasLive=p.program&&p.program.includes('<생>');
+      const badge=channel==='K바둑'?'':(hasRe?'<span class="badge-re">재</span>':'<span class="badge-live">생</span>');
       const pname=(p.program||'').replace(/<생>/g,'').replace(/<재>/g,'').trim();
 
       const tdN=document.createElement('td');
