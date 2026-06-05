@@ -157,7 +157,7 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
 
 /* ── 분석 텍스트 ── */
 .badge-live{color:var(--accent2);font-size:11px;font-weight:700;background:rgba(255,107,53,.12);border:1px solid rgba(255,107,53,.3);padding:1px 5px;letter-spacing:.5px;margin-left:4px;vertical-align:middle;font-family:'Noto Sans KR',sans-serif}
-.badge-re{color:var(--muted);font-size:11px;background:rgba(100,116,139,.1);border:1px solid rgba(100,116,139,.25);padding:1px 5px;letter-spacing:.5px;margin-left:4px;vertical-align:middle;font-family:'Noto Sans KR',sans-serif}
+.badge-re{color:var(--muted);font-size:11px;background:rgba(100,116,139,.1);border:1px solid rgba(100,116,139,.25);padding:1px 5px;letter-spacing:.5px;margin-left:4px;vertical-align:middle;font-family:'Noto Sans KR',sans-serif}.badge-bon{color:#7ecf7e;font-size:11px;background:rgba(80,160,80,.15);border:1px solid rgba(80,160,80,.35);padding:1px 5px;letter-spacing:.5px;margin-left:4px;vertical-align:middle;font-family:'Noto Sans KR',sans-serif}
 .no-prog{padding:24px;text-align:center;color:var(--muted);font-size:11px;font-family:'Noto Sans KR',sans-serif}
 .sidebar{display:flex;flex-direction:column;gap:18px}
 .card{background:var(--bg2);border:1px solid var(--border);padding:18px}
@@ -720,8 +720,8 @@ function renderProg(){
     progs.forEach(function(p){
       const row=tbody.insertRow();
       const hasRe=p.program&&p.program.includes('<재>');
-      const hasLive=p.program&&p.program.includes('<생>');
-      const badge=channel==='K바둑'?'':(hasRe?'<span class="badge-re">재</span>':'<span class="badge-live">생</span>');
+      const bt=p.broadcast_type||'';
+      const badge=channel==='K바둑'&&!bt?'':(bt==='재'||hasRe?'<span class="badge-re">재</span>':bt==='본'?'<span class="badge-bon">본</span>':'<span class="badge-live">생</span>');
       const pname=(p.program||'').replace(/<생>/g,'').replace(/<재>/g,'').trim();
 
       const tdN=document.createElement('td');
