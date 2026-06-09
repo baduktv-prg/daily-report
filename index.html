@@ -730,8 +730,8 @@ function renderProg(){
       row.appendChild(tdN);
 
       [p.start||'—',p.end||'—',
-       p.rating>0?p.rating.toFixed(3)+'%':'—',
-       p.share>0?p.share.toFixed(3)+'%':'—',
+       p.rating>0?p.rating.toFixed(3):'—',
+       p.share>0?p.share.toFixed(3):'—',
        p.viewers>0?p.viewers.toLocaleString():'—'
       ].forEach(function(val){
         const td=document.createElement('td');
