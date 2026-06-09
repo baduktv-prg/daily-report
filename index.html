@@ -647,7 +647,7 @@ function renderProg(){
 
   Object.keys(programs).forEach(function(channel){
     const isK=channel.includes('K바둑');
-    let progs=programs[channel]||[];
+    const progs=programs[channel]||[];
     const ageProgs=ageRatings[channel]||[];
     const bR=isK?255:0,bG=isK?107:212,bB=isK?53:255;
 
@@ -716,9 +716,7 @@ function renderProg(){
       td.appendChild(inn);
       return td;
     }
-    progs = progs.filter(function(p){
-      return p.program && p.program !== '프로그램';
-    });
+    
     progs.forEach(function(p){
       const row=tbody.insertRow();
       const hasRe=p.program&&p.program.includes('<재>');
@@ -764,7 +762,7 @@ function renderProg(){
       const avgRating=progs.reduce(function(s,p){return s+p.rating;},0)/progs.length;
       const avgShare=progs.reduce(function(s,p){return s+p.share;},0)/progs.length;
       const avgViewers=Math.round(progs.reduce(function(s,p){return s+p.viewers;},0)/progs.length);
-      [avgRating.toFixed(3)+'%',avgShare.toFixed(3)+'%',avgViewers.toLocaleString()].forEach(function(val){
+      [avgRating.toFixed(3),avgShare.toFixed(3),avgViewers.toLocaleString()].forEach(function(val){
         const td=document.createElement('td');
         td.textContent=val;
         td.style.cssText='text-align:right;font-size:12px;font-weight:700;color:var(--text)';
@@ -1044,17 +1042,6 @@ fetch('data.json')
     init();
   })
   .catch(e=>console.error('data.json 로드 실패:', e));
-
-function toggleTheme() {
-  const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-  if (isLight) {
-    document.documentElement.removeAttribute('data-theme');
-    document.getElementById('themeBtn').textContent = '🌙 DARK';
-  } else {
-    document.documentElement.setAttribute('data-theme', 'light');
-    document.getElementById('themeBtn').textContent = '☀️ LIGHT';
-  }
-}
 </script>
 </body>
 </html>
