@@ -356,8 +356,8 @@ footer{text-align:center;padding:20px;color:var(--muted);font-family:'Noto Sans 
   <div>
     <div class="slabel">바둑TV 현황</div>
     <div class="kpi-row">
-      <div class="kpi c-accent"><div class="kpi-lbl">채널 순위 (종합)</div><div class="kpi-val c-accent" id="kR">—</div><div class="kpi-sub">/ 206개 채널</div></div>
-      <div class="kpi c-orange"><div class="kpi-lbl">시청률</div><div class="kpi-val c-orange" id="kRat">—<span class="kpi-unit">%</span></div><div class="kpi-sub" id="kShr">점유율: —</div></div>
+      <div class="kpi c-accent"><div class="kpi-lbl">채널 순위 (종합)</div><div class="kpi-val c-accent" id="kR">—</div><div class="kpi-sub" id="kRSub">—</div></div>
+      <div class="kpi c-orange"><div class="kpi-lbl">시청률</div><div class="kpi-val c-orange" id="kRat">—<span class="kpi-unit">%</span></div><div class="kpi-sub" id="kShr">—</div></div>
       <div class="kpi c-accent"><div class="kpi-lbl">전년 동기 대비</div><div class="kpi-val" id="kYoy">—<span class="kpi-unit">%</span></div><div class="kpi-sub" id="kYoySub">전년: —%</div></div>
       <div class="kpi c-green"><div class="kpi-lbl">월간 목표 달성률</div><div class="kpi-val c-green" id="kAch">—<span class="kpi-unit">%</span></div><div class="kpi-bar"><div class="kpi-bar-fill" id="kAchBar" style="width:0%"></div></div></div>
       <div class="kpi c-gold"><div class="kpi-lbl">월간 누적 시청률</div><div class="kpi-val c-gold" id="kCum">—<span class="kpi-unit">%</span></div><div class="kpi-sub" id="kTgt">목표: —%</div></div>
@@ -531,10 +531,31 @@ function renderKPI(){
   const bk=rows.find(r=>r.channel==='바둑TV');
   const dayData=D.days[curDate]||{};
   const pr=dayData;
+  // 전일 날짜 구하기
+  const curIdx=D.dates.indexOf(curDate);
+  const prevDate=curIdx>0?D.dates[curIdx-1]:null;
+  const prevRows=prevDate?((D.days[prevDate]||{}).rankings||{})['종합']||[]:[];
+  const prevBk=prevRows.find(r=>r.channel==='바둑TV');
+
   if(bk){
     document.getElementById('kR').textContent=bk.rank;
     document.getElementById('kRat').innerHTML=bk.rating.toFixed(3)+'<span class="kpi-unit">%</span>';
-    document.getElementById('kShr').textContent='점유율: '+bk.share.toFixed(3)+'%';
+    // 1. 채널순위 전일 대비
+    if(prevBk){
+      const diff=prevBk.rank-bk.rank;
+      const arrow=diff>0?'▲':diff<0?'▼':'−';
+      const diffText=diff!==0?arrow+' '+Math.abs(diff)+'계단':'변동없음';
+      document.getElementById('kRSub').textContent=diffText;
+    } else {
+      document.getElementById('kRSub').textContent='전일 데이터 없음';
+    }
+    // 2. 시청률 전일 대비
+    if(prevBk&&prevBk.rating>0){
+      const ratioPct=Math.round(bk.rating/prevBk.rating*100);
+      document.getElementById('kShr').textContent='전일 比 '+ratioPct+'%';
+    } else {
+      document.getElementById('kShr').textContent='전일 데이터 없음';
+    }
   }
   // 전년 동기 대비
   const todayRankings=((dayData.rankings)||{})['종합']||[];
