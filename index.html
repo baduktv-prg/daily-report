@@ -544,7 +544,7 @@ function renderKPI(){
     if(prevBk){
       const diff=prevBk.rank-bk.rank;
       const arrow=diff>0?'▲':diff<0?'▼':'−';
-      const diffText=diff!==0?arrow+' '+Math.abs(diff)+'계단':'변동없음';
+      const diffText=diff!==0?'전일 比 '+arrow+' '+Math.abs(diff)+'계단':'변동없음';
       document.getElementById('kRSub').textContent=diffText;
     } else {
       document.getElementById('kRSub').textContent='전일 데이터 없음';
