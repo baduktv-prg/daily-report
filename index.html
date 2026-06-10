@@ -701,7 +701,7 @@ function renderProg(){
     ['프로그램','시작','종료','대국자','시청률','점유율','시청자'].forEach(function(t,i){
       const th=document.createElement('th');
       th.rowSpan=2;th.textContent=t;
-      th.style.cssText='text-align:'+(i===0?'left':i===3?'left':'right')+';vertical-align:bottom;border-bottom:1px solid var(--border)';
+      th.style.cssText='text-align:'+(i===0?'left':'right')+';vertical-align:bottom;border-bottom:1px solid var(--border)';
       hr1.appendChild(th);
     });
     ['남성','여성'].forEach(function(sex){
@@ -758,7 +758,7 @@ function renderProg(){
       ].forEach(function(val,idx){
         const td=document.createElement('td');
         td.textContent=val;
-        td.style.cssText='text-align:'+(idx===2?'left':'right')+';font-size:12px;color:var(--text);font-weight:400';
+        td.style.cssText='text-align:right;font-size:12px;color:var(--text);font-weight:400';
         row.appendChild(td);
       });
 
