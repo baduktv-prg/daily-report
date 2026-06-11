@@ -945,7 +945,8 @@ function renderSummary(){
       }
       var ratingStr=p.rating>0?p.rating.toFixed(3)+'%':'';
       var prevStr='';
-      if(p.prev_rating&&p.prev_rating>0&&p.rating>0){
+      const isLive = p.broadcast_type ? p.broadcast_type !== '재방' : p.is_live;
+      if(isLive&&p.prev_rating&&p.prev_rating>0&&p.rating>0){
         prevStr=' / 전회 比 '+Math.round(p.rating/p.prev_rating*100)+'%';
       }
       var meta=[startRounded,players,ratingStr+prevStr].filter(Boolean).join(' / ');
@@ -954,7 +955,6 @@ function renderSummary(){
         return '<div style="margin-bottom:4px;padding-left:8px;border-left:2px solid var(--border);font-size:13px;color:var(--text);line-height:1.6">'+a+'</div>';
       }).join('');
       const block='<div style="margin-bottom:12px"><div style="font-size:12px;font-weight:700;color:'+color+';margin-bottom:3px">'+pname+'</div>'+(meta?'<div style="font-size:12px;color:'+color+';opacity:0.8;margin-bottom:6px;padding:3px 6px;background:var(--bg3);border-radius:2px">'+meta+'</div>':'')+analysisHtml+'</div>';
-      const isLive = p.broadcast_type ? p.broadcast_type !== '재방' : p.is_live;
       if(isLive) liveHtml+=block;
       else rerunHtml+=block;
     });
