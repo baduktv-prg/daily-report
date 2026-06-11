@@ -1066,6 +1066,13 @@ document.addEventListener('mouseout',e=>{
 });
 
 (function(){const t=localStorage.getItem('theme')||'dark';document.documentElement.setAttribute('data-theme',t);})();
+function toggleTheme(){
+  const t=document.documentElement.getAttribute('data-theme')==='light'?'dark':'light';
+  document.documentElement.setAttribute('data-theme',t);
+  localStorage.setItem('theme',t);
+  document.getElementById('themeBtn').textContent=t==='light'?'☀️ LIGHT':'🌙 DARK';
+}
+
 // 테마 초기화
 (function(){
   const t=localStorage.getItem('theme')||'dark';
