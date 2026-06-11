@@ -932,12 +932,28 @@ function renderSummary(){
     (programs[channel]||[]).forEach(function(p){
       if(!p.analysis||!p.analysis.length)return;
       const pname=(p.program||'').replace(/<생>/g,'').replace(/<재>/g,'').trim();
-      const players=p.players?' '+p.players:'';
+      const players=p.players?p.players:'';
+      // 시작시간 15분 단위 반올림
+      var startRounded='';
+      if(p.start){
+        var parts=p.start.split(':');
+        var h=parseInt(parts[0]),m=parseInt(parts[1]);
+        if(m<15){m=0;}
+        else if(m<45){m=30;}
+        else{m=0;h+=1;}
+        startRounded=(h<10?'0'+h:h)+':'+(m===0?'00':'30')+'~';
+      }
+      var ratingStr=p.rating>0?p.rating.toFixed(3)+'%':'';
+      var prevStr='';
+      if(p.prev_rating&&p.prev_rating>0&&p.rating>0){
+        prevStr=' / 전회 比 '+Math.round(p.rating/p.prev_rating*100)+'%';
+      }
+      var meta=[startRounded,players,ratingStr+prevStr].filter(Boolean).join(' / ');
       const analysisHtml=p.analysis.map(function(a){
         a=a.replace(/^→\s*/,'').trim();
         return '<div style="margin-bottom:3px;padding-left:8px;border-left:2px solid var(--border);font-size:12px;color:var(--muted)">'+a+'</div>';
       }).join('');
-      const block='<div style="margin-bottom:10px"><div style="font-size:12px;font-weight:600;color:'+color+';margin-bottom:4px">'+pname+players+'</div>'+analysisHtml+'</div>';
+      const block='<div style="margin-bottom:10px"><div style="font-size:12px;font-weight:600;color:'+color+';margin-bottom:2px">'+pname+'</div>'+(meta?'<div style="font-size:11px;color:var(--muted);margin-bottom:4px">'+meta+'</div>':'')+analysisHtml+'</div>';
       const isLive = p.broadcast_type ? p.broadcast_type !== '재방' : p.is_live;
       if(isLive) liveHtml+=block;
       else rerunHtml+=block;
