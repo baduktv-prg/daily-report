@@ -937,7 +937,8 @@ function renderSummary(){
         return '<div style="margin-bottom:3px;padding-left:8px;border-left:2px solid var(--border)">'+a+'</div>';
       }).join('');
       const block='<div style="margin-bottom:10px"><div style="font-size:12px;font-weight:600;color:'+color+';margin-bottom:4px">'+pname+players+'</div>'+analysisHtml+'</div>';
-      if(p.is_live) liveHtml+=block;
+      const isLive = p.broadcast_type ? p.broadcast_type !== '재방' : p.is_live;
+      if(isLive) liveHtml+=block;
       else rerunHtml+=block;
     });
   });
