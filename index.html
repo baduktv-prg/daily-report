@@ -780,7 +780,7 @@ function renderProg(){
       tdLbl.textContent='평균';
       tdLbl.style.cssText='text-align:left;padding-left:10px;font-size:12px;font-weight:700;color:var(--text)';
       avgRow.appendChild(tdLbl);
-      ['',''].forEach(function(){const td=document.createElement('td');avgRow.appendChild(td);});
+      ['','',''].forEach(function(){const td=document.createElement('td');avgRow.appendChild(td);});
       const avgRating=progs.reduce(function(s,p){return s+p.rating;},0)/progs.length;
       const avgShare=progs.reduce(function(s,p){return s+p.share;},0)/progs.length;
       const avgViewers=Math.round(progs.reduce(function(s,p){return s+p.viewers;},0)/progs.length);
@@ -916,7 +916,7 @@ function renderSummary(){
     const el=document.getElementById(id);
     if(!el)return;
     if(!text||!text.trim()){el.innerHTML='<span class="analysis-empty">데이터 없음</span>';return;}
-    el.innerHTML=text.split('\n').map(function(s){s=s.trim();if(!s)return '';return '<div style="margin-bottom:4px;padding-left:8px;border-left:2px solid var(--border);font-size:13px;color:var(--text);line-height:1.6">'+s+'</div>';}).filter(Boolean).join('');
+    el.innerHTML=text.split('\n').map(function(s){s=s.trim();if(!s)return '';return '<div style="margin-bottom:3px;padding-left:8px;border-left:2px solid var(--border);font-size:12px;color:var(--muted)">'+s+'</div>';}).filter(Boolean).join('');
   }
   setText('summaryBaduk',summary.badukTV||'');
   setText('summaryKbaduk',summary.kbaduk||'');
@@ -945,16 +945,16 @@ function renderSummary(){
       }
       var ratingStr=p.rating>0?p.rating.toFixed(3)+'%':'';
       var prevStr='';
-      const isLive = p.broadcast_type ? p.broadcast_type !== '재방' : p.is_live;
-      if(isLive&&p.prev_rating&&p.prev_rating>0&&p.rating>0){
+      if(p.prev_rating&&p.prev_rating>0&&p.rating>0){
         prevStr=' / 전회 比 '+Math.round(p.rating/p.prev_rating*100)+'%';
       }
       var meta=[startRounded,players,ratingStr+prevStr].filter(Boolean).join(' / ');
       const analysisHtml=p.analysis.map(function(a){
         a=a.replace(/^→\s*/,'').trim();
-        return '<div style="margin-bottom:4px;padding-left:8px;border-left:2px solid var(--border);font-size:13px;color:var(--text);line-height:1.6">'+a+'</div>';
+        return '<div style="margin-bottom:3px;padding-left:8px;border-left:2px solid var(--border);font-size:12px;color:var(--muted)">'+a+'</div>';
       }).join('');
-      const block='<div style="margin-bottom:12px"><div style="font-size:12px;font-weight:700;color:'+color+';margin-bottom:3px">'+pname+'</div>'+(meta?'<div style="font-size:12px;color:'+color+';opacity:0.8;margin-bottom:6px;padding:3px 6px;background:var(--bg3);border-radius:2px">'+meta+'</div>':'')+analysisHtml+'</div>';
+      const block='<div style="margin-bottom:10px"><div style="font-size:12px;font-weight:600;color:'+color+';margin-bottom:2px">'+pname+'</div>'+(meta?'<div style="font-size:11px;color:var(--muted);margin-bottom:4px">'+meta+'</div>':'')+analysisHtml+'</div>';
+      const isLive = p.broadcast_type ? p.broadcast_type !== '재방' : p.is_live;
       if(isLive) liveHtml+=block;
       else rerunHtml+=block;
     });
