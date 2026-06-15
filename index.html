@@ -815,7 +815,7 @@ function renderProg(){
       const summaryContent=document.createElement('div');
       summaryContent.innerHTML=summaryText.split('\n').map(function(s){
         s=s.trim();if(!s)return '';
-        return '<div style="margin-bottom:5px;padding-left:10px;border-left:2px solid '+(isK?'var(--accent2)':'var(--accent)')+';font-size:14px;color:var(--text);line-height:1.7">'+s+'</div>';
+        return '<div style="margin-bottom:5px;padding-left:10px;border-left:2px solid '+(isK?'var(--accent2)':'var(--accent)')+';font-size:14px;;font-weight:600;color:var(--text);line-height:1.7">'+s+'</div>';
       }).filter(Boolean).join('');
       summaryDiv.appendChild(summaryContent);
       blockDiv.appendChild(summaryDiv);
