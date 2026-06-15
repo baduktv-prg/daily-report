@@ -399,7 +399,7 @@ footer{text-align:center;padding:20px;color:var(--muted);font-family:'Noto Sans 
 
     <div class="card" style="margin-top:20px;margin-bottom:20px">
       <div class="card-title"><div class="dot a"></div>전년 동기 대비 추이</div>
-      <canvas id="yoyC"></canvas>
+      <canvas id="yoyC" height="120"></canvas>
     </div>
 
     <div class="card" style="margin-bottom:20px">
@@ -691,7 +691,7 @@ function renderProg(){
     ['프로그램','대국자','시작','종료','시청률','점유율','시청자'].forEach(function(t,i){
       const th=document.createElement('th');
       th.rowSpan=2;th.textContent=t;
-      th.style.cssText='text-align:'+(i===0||i===1?'left':'right')+';vertical-align:bottom;border-bottom:1px solid var(--border)';
+      th.style.cssText='text-align:'+(i===0?'left':i===1?'center':'right')+';vertical-align:bottom;border-bottom:1px solid var(--border)';
       hr1.appendChild(th);
     });
     ['남성','여성'].forEach(function(sex){
