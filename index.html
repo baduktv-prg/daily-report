@@ -694,7 +694,7 @@ function renderProg(){
     ['프로그램','대국자','시작','종료','시청률','점유율','시청자'].forEach(function(t,i){
       const th=document.createElement('th');
       th.rowSpan=2;th.textContent=t;
-      th.style.cssText='text-align:'+(i===0?'left':'right')+';vertical-align:bottom;border-bottom:1px solid var(--border)';
+      th.style.cssText='text-align:'+(i===0?'left':i===1?'center':'right')+';vertical-align:bottom;border-bottom:1px solid var(--border)';
       hr1.appendChild(th);
     });
     ['남성','여성'].forEach(function(sex){
@@ -1013,7 +1013,7 @@ function openProgModal(block,isK,AGE,gMax){
     return `<tr>
       <td>${p.start||'—'}</td><td>${p.end||'—'}</td>
       <td class="tt" data-tip="${tip.replace(/"/g,'&quot;')}">${pname}${badge}</td>
-      <td class="tt" data-tip="${players.replace(/"/g,'&quot;')}">${players||'—'}</td>
+      <td class="tt" style="text-align:center" data-tip="${players.replace(/"/g,'&quot;')}">${players||'—'}</td>
       <td>${p.rating>0?p.rating.toFixed(3)+'%':'—'}</td>
       <td>${p.share>0?p.share.toFixed(3)+'%':'—'}</td>
       <td>${p.viewers>0?p.viewers.toLocaleString():'—'}</td>
