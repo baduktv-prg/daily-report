@@ -807,11 +807,17 @@ function renderProg(){
     const summaryText=isK?(summary.kbaduk||''):(summary.badukTV||'');
     if(summaryText&&summaryText.trim()){
       const summaryDiv=document.createElement('div');
-      summaryDiv.style.cssText='margin-top:10px;padding:10px 12px;background:var(--bg2);border:1px solid var(--border);border-radius:4px';
-      summaryDiv.innerHTML=summaryText.split('\n').map(function(s){
+      summaryDiv.style.cssText='margin-top:12px;padding:14px 16px;background:'+(isK?'rgba(255,107,53,0.08)':'rgba(0,212,255,0.08)')+';border:1px solid '+(isK?'var(--accent2)':'var(--accent)')+';border-radius:6px';
+      const summaryTitle=document.createElement('div');
+      summaryTitle.style.cssText='font-size:12px;font-weight:700;color:'+(isK?'var(--accent2)':'var(--accent)')+';margin-bottom:8px;letter-spacing:0.5px';
+      summaryTitle.textContent='📋 일일 총평';
+      summaryDiv.appendChild(summaryTitle);
+      const summaryContent=document.createElement('div');
+      summaryContent.innerHTML=summaryText.split('\n').map(function(s){
         s=s.trim();if(!s)return '';
-        return '<div style="margin-bottom:4px;padding-left:8px;border-left:2px solid var(--border);font-size:13px;color:var(--text);line-height:1.6">'+s+'</div>';
+        return '<div style="margin-bottom:5px;padding-left:10px;border-left:2px solid '+(isK?'var(--accent2)':'var(--accent)')+';font-size:14px;color:var(--text);line-height:1.7">'+s+'</div>';
       }).filter(Boolean).join('');
+      summaryDiv.appendChild(summaryContent);
       blockDiv.appendChild(summaryDiv);
     }
 
