@@ -364,15 +364,15 @@ footer{text-align:center;padding:20px;color:var(--muted);font-family:'Noto Sans 
     </div>
 
       <div class="analysis-section">
-      <div class="slabel">일일 총평 및 분석</div>
+      <div class="slabel">프로그램별 분석</div>
       <div class="analysis-grid">
         <div class="analysis-card">
           <div class="analysis-card-title baduk"><div class="dot a"></div>생중계 · 본방 분석</div>
           <div id="analysisLive"><span class="analysis-empty">데이터 없음</span></div>
-        </div>
-        <div class="analysis-card">
-          <div class="analysis-card-title baduk"><div class="dot a"></div>재방 분석</div>
-          <div id="analysisRerun"><span class="analysis-empty">데이터 없음</span></div>
+          <div style="margin-top:16px;padding-top:12px;border-top:1px solid var(--border)">
+            <div class="analysis-card-title baduk" style="margin-bottom:8px"><div class="dot a"></div>재방 분석</div>
+            <div id="analysisRerun"><span class="analysis-empty">데이터 없음</span></div>
+          </div>
         </div>
       </div>
     </div>
@@ -815,7 +815,7 @@ function renderProg(){
       const summaryContent=document.createElement('div');
       summaryContent.innerHTML=summaryText.split('\n').map(function(s){
         s=s.trim();if(!s)return '';
-        return '<div style="margin-bottom:5px;padding-left:10px;border-left:2px solid '+(isK?'var(--accent2)':'var(--accent)')+';font-size:14px;;font-weight:600;color:var(--text);line-height:1.7">'+s+'</div>';
+        return '<div style="margin-bottom:5px;padding-left:10px;border-left:2px solid '+(isK?'var(--accent2)':'var(--accent)')+';font-size:14px;color:var(--text);line-height:1.7">'+s+'</div>';
       }).filter(Boolean).join('');
       summaryDiv.appendChild(summaryContent);
       blockDiv.appendChild(summaryDiv);
