@@ -382,47 +382,44 @@ footer{text-align:center;padding:20px;color:var(--muted);font-family:'Noto Sans 
       <div id="progWrap"></div>
     </div>
 
-    <div class="ranking-section">
-      <div class="ranking-left">
-        <div class="rank-header">
-          <div class="slabel" id="rankLbl">전체 채널 순위 — 종합</div>
-          <div class="plat-tabs-inline" id="platTabs"></div>
-        </div>
-        <div class="search-row">
-          <input class="search-input" id="searchInp" type="text" placeholder="채널명 검색...">
-          <button class="btn" onclick="jumpBaduk('바둑TV')">★ 바둑TV</button>
-          <button class="btn" style="border-color:var(--accent2);color:var(--accent2);background:rgba(255,107,53,.08)" onclick="jumpBaduk('K바둑')">★ K바둑</button>
-        </div>
-        <div class="tbl-wrap">
-          <div class="tbl-scroll">
-            <table class="rtbl">
-              <thead><tr><th>순위</th><th>채널</th><th>시청률</th><th>점유율</th><th>시청자 수</th></tr></thead>
-              <tbody id="rankBody"></tbody>
-            </table>
-          </div>
-        </div>
+    <div class="stats-bar">
+      <div class="card">
+        <div class="card-title"><div class="dot o"></div>경쟁채널 현황</div>
+        <div class="comp-bar-wrap" id="compBarWrap"></div>
       </div>
-      <div class="ranking-right">
-        <div class="card">
-          <div class="card-title"><div class="dot a"></div>전년 동기 대비 추이</div>
-          <canvas id="yoyC"></canvas>
-        </div>
+      <div class="card">
+        <div class="card-title"><div class="dot a"></div>바둑 채널 시청률 추이</div>
+        <canvas id="trendC" height="200"></canvas>
+      </div>
+      <div class="card">
+        <div class="card-title"><div class="dot o"></div>바둑 채널 순위 추이</div>
+        <canvas id="rankC" height="200"></canvas>
       </div>
     </div>
 
-    <div class="stats-bar">
-    <div class="card">
-      <div class="card-title"><div class="dot o"></div>경쟁채널 현황</div>
-      <div class="comp-bar-wrap" id="compBarWrap"></div>
+    <div class="card" style="margin-top:20px;margin-bottom:20px">
+      <div class="card-title"><div class="dot a"></div>전년 동기 대비 추이</div>
+      <canvas id="yoyC"></canvas>
     </div>
-    <div class="card">
-      <div class="card-title"><div class="dot a"></div>바둑 채널 시청률 추이</div>
-      <canvas id="trendC" height="200"></canvas>
-    </div>
-    <div class="card">
-      <div class="card-title"><div class="dot o"></div>바둑 채널 순위 추이</div>
-      <canvas id="rankC" height="200"></canvas>
-    </div>
+
+    <div class="card" style="margin-bottom:20px">
+      <div class="rank-header">
+        <div class="slabel" id="rankLbl" style="margin:0">전체 채널 순위 — 종합</div>
+        <div class="plat-tabs-inline" id="platTabs"></div>
+      </div>
+      <div class="search-row">
+        <input class="search-input" id="searchInp" type="text" placeholder="채널명 검색...">
+        <button class="btn" onclick="jumpBaduk('바둑TV')">★ 바둑TV</button>
+        <button class="btn" style="border-color:var(--accent2);color:var(--accent2);background:rgba(255,107,53,.08)" onclick="jumpBaduk('K바둑')">★ K바둑</button>
+      </div>
+      <div class="tbl-wrap">
+        <div class="tbl-scroll" style="max-height:600px">
+          <table class="rtbl">
+            <thead><tr><th>순위</th><th>채널</th><th>시청률</th><th>점유율</th><th>시청자 수</th></tr></thead>
+            <tbody id="rankBody"></tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -694,7 +691,7 @@ function renderProg(){
     ['프로그램','대국자','시작','종료','시청률','점유율','시청자'].forEach(function(t,i){
       const th=document.createElement('th');
       th.rowSpan=2;th.textContent=t;
-      th.style.cssText='text-align:'+(i===0?'left':i===1?'center':'right')+';vertical-align:bottom;border-bottom:1px solid var(--border)';
+      th.style.cssText='text-align:'+(i===0||i===1?'left':'right')+';vertical-align:bottom;border-bottom:1px solid var(--border)';
       hr1.appendChild(th);
     });
     ['남성','여성'].forEach(function(sex){
