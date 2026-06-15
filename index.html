@@ -956,7 +956,7 @@ function renderSummary(){
         else{m=0;h+=1;}
         startRounded=(h<10?'0'+h:h)+':'+(m===0?'00':'30')+'~';
       }
-      var ratingStr=p.rating>0?p.rating.toFixed(3)+'%':'';
+      var ratingStr=(p.weighted_rating||p.rating)>0?(p.weighted_rating||p.rating).toFixed(3)+'%':'';
       var prevStr='';
       const isLive = p.broadcast_type ? p.broadcast_type !== '재방' : p.is_live;
       if(isLive&&p.prev_rating&&p.prev_rating>0&&p.rating>0){
