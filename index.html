@@ -363,6 +363,28 @@ footer{text-align:center;padding:20px;color:var(--muted);font-family:'Noto Sans 
       <div class="kpi c-gold"><div class="kpi-lbl">월간 누적 시청률</div><div class="kpi-val c-gold" id="kCum">—<span class="kpi-unit">%</span></div><div class="kpi-sub" id="kTgt">목표: —%</div></div>
     </div>
 
+      <div class="analysis-section">
+      <div class="slabel">일일 총평 및 분석</div>
+      <div class="analysis-grid">
+        <div class="analysis-card">
+          <div class="analysis-card-title baduk"><div class="dot a"></div>바둑TV</div>
+          <div class="analysis-text" id="summaryBaduk"><span class="analysis-empty">데이터 없음</span></div>
+          <div style="margin-top:12px;padding-top:10px;border-top:1px solid var(--border)">
+            <div class="analysis-card-title kbaduk" style="margin-bottom:8px"><div class="dot o"></div>K바둑</div>
+            <div class="analysis-text" id="summaryKbaduk"><span class="analysis-empty">데이터 없음</span></div>
+          </div>
+        </div>
+        <div class="analysis-card">
+          <div class="analysis-card-title baduk"><div class="dot a"></div>생중계 · 본방 분석</div>
+          <div id="analysisLive"><span class="analysis-empty">데이터 없음</span></div>
+        </div>
+        <div class="analysis-card">
+          <div class="analysis-card-title baduk"><div class="dot a"></div>재방 분석</div>
+          <div id="analysisRerun"><span class="analysis-empty">데이터 없음</span></div>
+        </div>
+      </div>
+    </div>
+
   <div class="prog-section">
       <div class="slabel" style="margin-top:0">프로그램별 시청률</div>
       <div id="progWrap"></div>
@@ -409,27 +431,6 @@ footer{text-align:center;padding:20px;color:var(--muted);font-family:'Noto Sans 
       <div class="card-title"><div class="dot o"></div>바둑 채널 순위 추이</div>
       <canvas id="rankC" height="200"></canvas>
     </div>
-    </div>
-      <div class="analysis-section">
-      <div class="slabel">일일 총평 및 분석</div>
-      <div class="analysis-grid">
-        <div class="analysis-card">
-          <div class="analysis-card-title baduk"><div class="dot a"></div>바둑TV</div>
-          <div class="analysis-text" id="summaryBaduk"><span class="analysis-empty">데이터 없음</span></div>
-          <div style="margin-top:12px;padding-top:10px;border-top:1px solid var(--border)">
-            <div class="analysis-card-title kbaduk" style="margin-bottom:8px"><div class="dot o"></div>K바둑</div>
-            <div class="analysis-text" id="summaryKbaduk"><span class="analysis-empty">데이터 없음</span></div>
-          </div>
-        </div>
-        <div class="analysis-card">
-          <div class="analysis-card-title baduk"><div class="dot a"></div>생중계 · 본방 분석</div>
-          <div id="analysisLive"><span class="analysis-empty">데이터 없음</span></div>
-        </div>
-        <div class="analysis-card">
-          <div class="analysis-card-title baduk"><div class="dot a"></div>재방 분석</div>
-          <div id="analysisRerun"><span class="analysis-empty">데이터 없음</span></div>
-        </div>
-      </div>
     </div>
   </div>
 
