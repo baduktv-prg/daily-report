@@ -367,14 +367,6 @@ footer{text-align:center;padding:20px;color:var(--muted);font-family:'Noto Sans 
       <div class="slabel">일일 총평 및 분석</div>
       <div class="analysis-grid">
         <div class="analysis-card">
-          <div class="analysis-card-title baduk"><div class="dot a"></div>바둑TV</div>
-          <div class="analysis-text" id="summaryBaduk"><span class="analysis-empty">데이터 없음</span></div>
-          <div style="margin-top:12px;padding-top:10px;border-top:1px solid var(--border)">
-            <div class="analysis-card-title kbaduk" style="margin-bottom:8px"><div class="dot o"></div>K바둑</div>
-            <div class="analysis-text" id="summaryKbaduk"><span class="analysis-empty">데이터 없음</span></div>
-          </div>
-        </div>
-        <div class="analysis-card">
           <div class="analysis-card-title baduk"><div class="dot a"></div>생중계 · 본방 분석</div>
           <div id="analysisLive"><span class="analysis-empty">데이터 없음</span></div>
         </div>
@@ -809,6 +801,20 @@ function renderProg(){
 
     tblWrap.appendChild(tbl);
     blockDiv.appendChild(tblWrap);
+
+    // 채널별 총평 삽입
+    const summary=dayData.summary||{};
+    const summaryText=isK?(summary.kbaduk||''):(summary.badukTV||'');
+    if(summaryText&&summaryText.trim()){
+      const summaryDiv=document.createElement('div');
+      summaryDiv.style.cssText='margin-top:10px;padding:10px 12px;background:var(--bg2);border:1px solid var(--border);border-radius:4px';
+      summaryDiv.innerHTML=summaryText.split('\n').map(function(s){
+        s=s.trim();if(!s)return '';
+        return '<div style="margin-bottom:4px;padding-left:8px;border-left:2px solid var(--border);font-size:13px;color:var(--text);line-height:1.6">'+s+'</div>';
+      }).filter(Boolean).join('');
+      blockDiv.appendChild(summaryDiv);
+    }
+
     wrap.appendChild(blockDiv);
   });
 }
