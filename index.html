@@ -683,15 +683,16 @@ function renderProg(){
     tblWrap.style.cssText='overflow-x:auto;border:1px solid var(--border)';
     const tbl=document.createElement('table');
     tbl.className='ptbl';
-    tbl.style.minWidth='900px';
+    tbl.style.cssText='min-width:900px;table-layout:fixed;width:100%';
 
     // thead
     const thead=tbl.createTHead();
     const hr1=thead.insertRow();
+    const colWidths=['30%','20%','7%','7%','7%','7%','8%'];
     ['프로그램','대국자','시작','종료','시청률','점유율','시청자'].forEach(function(t,i){
       const th=document.createElement('th');
       th.rowSpan=2;th.textContent=t;
-      th.style.cssText='text-align:'+(i===0||i===1?'left':'right')+';vertical-align:bottom;border-bottom:1px solid var(--border)';
+      th.style.cssText='text-align:'+(i===0||i===1?'left':'right')+';vertical-align:bottom;border-bottom:1px solid var(--border);width:'+colWidths[i];
       hr1.appendChild(th);
     });
     ['남성','여성'].forEach(function(sex){
