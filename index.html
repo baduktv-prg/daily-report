@@ -736,7 +736,7 @@ function renderProg(){
       const pname=(p.program||'').replace(/<생>/g,'').replace(/<재>/g,'').trim();
 
       const tdN=document.createElement('td');
-      tdN.style.textAlign='left';
+      tdN.style.cssText='text-align:left;max-width:200px;overflow:hidden;white-space:nowrap';
       tdN.innerHTML='<span class="tt" data-tip="'+pname+'">'+pname+badge+'</span>';
       row.appendChild(tdN);
 
