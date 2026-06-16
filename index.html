@@ -683,16 +683,15 @@ function renderProg(){
     tblWrap.style.cssText='overflow-x:auto;border:1px solid var(--border)';
     const tbl=document.createElement('table');
     tbl.className='ptbl';
-    tbl.style.cssText='min-width:900px;table-layout:fixed;width:100%';
+    tbl.style.minWidth='900px';
 
     // thead
     const thead=tbl.createTHead();
     const hr1=thead.insertRow();
-    const colWidths=['30%','20%','7%','7%','7%','7%','8%'];
     ['프로그램','대국자','시작','종료','시청률','점유율','시청자'].forEach(function(t,i){
       const th=document.createElement('th');
       th.rowSpan=2;th.textContent=t;
-      th.style.cssText='text-align:'+(i===0||i===1?'left':'right')+';vertical-align:bottom;border-bottom:1px solid var(--border);width:'+colWidths[i];
+      th.style.cssText='text-align:'+(i===0||i===1?'left':'right')+';vertical-align:bottom;border-bottom:1px solid var(--border)';
       hr1.appendChild(th);
     });
     ['남성','여성'].forEach(function(sex){
@@ -842,7 +841,8 @@ function initCharts(){
   yoyC=new Chart(document.getElementById('yoyC'),{type:'line',data:{labels:[],datasets:[
     {label:'올해',data:[],borderColor:'#00d4ff',backgroundColor:'transparent',fill:false,tension:.4,pointBackgroundColor:'#00d4ff',pointRadius:4,pointHoverRadius:6},
     {label:'전년',data:[],borderColor:'#64748b',backgroundColor:'transparent',fill:false,tension:.4,pointBackgroundColor:'#64748b',pointRadius:4,pointHoverRadius:6,borderDash:[5,3]}
-  ]},options:{...co,plugins:{...co.plugins,legend:{display:true,position:'bottom',labels:{usePointStyle:true,boxWidth:8,color:'#64748b',font:{size:10}}}},scales:{...co.scales,y:{...co.scales.y,title:{display:true,text:'시청률(%)',color:'#64748b',font:{size:8}}}}}});
+  ]},options:{...co,maintainAspectRatio:false,plugins:{...co.plugins,legend:{display:true,position:'bottom',labels:{usePointStyle:true,boxWidth:8,color:'#64748b',font:{size:10}}}},scales:{...co.scales,y:{...co.scales.y,title:{display:true,text:'시청률(%)',color:'#64748b',font:{size:8}}}}}});
+  document.getElementById('yoyC').parentElement.style.height='200px';
 }
 
 function updCharts(){
