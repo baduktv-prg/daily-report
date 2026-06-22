@@ -5,6 +5,62 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>바둑TV 일일 시청률 리포트</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const SUPABASE_URL = 'https://amerxqtexvhnvzwgmfla.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFtZXJ4cXRleHZobnZ6d2dtZmxhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE1ODY2MDcsImV4cCI6MjA5NzE2MjYwN30.MdScGS1xkMD9XMp5tuBHXALFfn364MfUar5H7iucrSc';
+const ALLOWED_DOMAIN = 'baduk.or.kr';
+const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+async function checkAuth() {
+  // Magic Link 처리
+  const { data: { session } } = await _supabase.auth.getSession();
+  if (session) {
+    const email = session.user.email;
+    if (!email.endsWith('@' + ALLOWED_DOMAIN)) {
+      await _supabase.auth.signOut();
+      showLogin('허용되지 않은 이메일 도메인입니다.');
+      return;
+    }
+    document.getElementById('loginPage').style.display = 'none';
+    document.getElementById('mainPage').style.display = 'block';
+    document.getElementById('userEmail').textContent = email;
+  } else {
+    showLogin('');
+  }
+}
+
+function showLogin(msg) {
+  document.getElementById('loginPage').style.display = 'flex';
+  document.getElementById('mainPage').style.display = 'none';
+  if (msg) document.getElementById('loginMsg').textContent = msg;
+}
+
+async function sendMagicLink() {
+  const email = document.getElementById('emailInput').value.trim();
+  if (!email.endsWith('@' + ALLOWED_DOMAIN)) {
+    document.getElementById('loginMsg').textContent = '@' + ALLOWED_DOMAIN + ' 이메일만 사용 가능합니다.';
+    return;
+  }
+  document.getElementById('loginMsg').textContent = '전송 중...';
+  const { error } = await _supabase.auth.signInWithOtp({
+    email,
+    options: { emailRedirectTo: window.location.origin }
+  });
+  if (error) {
+    document.getElementById('loginMsg').textContent = '오류: ' + error.message;
+  } else {
+    document.getElementById('loginMsg').textContent = '✅ 메일함을 확인해주세요! 링크를 클릭하면 로그인됩니다.';
+  }
+}
+
+async function signOut() {
+  await _supabase.auth.signOut();
+  showLogin('');
+}
+
+window.addEventListener('load', checkAuth);
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
 :root{--bg:#0b0f1a;--bg2:#111827;--bg3:#1a2235;--border:#1e2d45;--accent:#00d4ff;--accent2:#ff6b35;--gold:#ffd700;--text:#e2e8f0;--muted:#64748b;--green:#10b981;--red:#ef4444;--scan:rgba(0,0,0,0.025)}
@@ -305,6 +361,18 @@ footer{text-align:center;padding:20px;color:var(--muted);font-family:'Noto Sans 
 </head>
 <body>
 
+<!-- 로그인 페이지 -->
+<div id="loginPage" style="display:none;position:fixed;inset:0;background:var(--bg);z-index:9999;flex-direction:column;align-items:center;justify-content:center;gap:16px">
+  <div style="font-size:20px;font-weight:700;color:var(--accent)">바둑TV 일일 시청률 리포트</div>
+  <div style="font-size:13px;color:var(--muted);margin-bottom:8px">@baduk.or.kr 이메일로 로그인해주세요</div>
+  <input id="emailInput" type="email" placeholder="이메일 입력" style="width:280px;padding:10px 14px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:14px;outline:none">
+  <button onclick="sendMagicLink()" style="width:280px;padding:10px;background:var(--accent);color:#000;font-weight:700;border:none;border-radius:6px;cursor:pointer;font-size:14px">Magic Link 전송</button>
+  <div id="loginMsg" style="font-size:13px;color:var(--muted);text-align:center;max-width:280px"></div>
+</div>
+
+<!-- 메인 페이지 -->
+<div id="mainPage" style="display:none">
+
 <div id="tt-popup"></div>
 <div class="modal-overlay hidden" id="progModal" onclick="closeModal(event)">
   <div class="modal-box">
@@ -350,6 +418,8 @@ footer{text-align:center;padding:20px;color:var(--muted);font-family:'Noto Sans 
     </div>
   </div>
   <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙 DARK</button>
+  <span id="userEmail" style="font-size:11px;color:var(--muted);margin-left:12px"></span>
+  <button onclick="signOut()" style="margin-left:8px;padding:4px 10px;font-size:11px;background:transparent;border:1px solid var(--border);color:var(--muted);border-radius:4px;cursor:pointer">로그아웃</button>
 </div>
 
 <div class="main">
@@ -1105,5 +1175,6 @@ fetch('data.json')
   })
   .catch(e=>console.error('data.json 로드 실패:', e));
 </script>
+</div><!-- mainPage 끝 -->
 </body>
 </html>
