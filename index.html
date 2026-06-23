@@ -767,10 +767,10 @@ function renderProg(){
     // thead
     const thead=tbl.createTHead();
     const hr1=thead.insertRow();
-    ['프로그램','대국자','시작','종료','시청률','점유율','시청자'].forEach(function(t,i){
+    ['목표','프로그램','대국자','시작','종료','시청률','점유율','시청자'].forEach(function(t,i){
       const th=document.createElement('th');
       th.rowSpan=2;th.textContent=t;
-      th.style.cssText='text-align:'+(i===0||i===1?'left':'right')+';vertical-align:bottom;border-bottom:1px solid var(--border)'+(i===1?';max-width:160px':'');
+      th.style.cssText='text-align:'+(i<=2?'left':'right')+';vertical-align:bottom;border-bottom:1px solid var(--border)'+(i===2?';max-width:160px':'');
       hr1.appendChild(th);
     });
     ['남성','여성'].forEach(function(sex){
@@ -814,6 +814,11 @@ function renderProg(){
       const badge=channel==='K바둑'&&!bt?'':(bt==='재방'||hasRe?'<span class="badge-re">재</span>':bt==='본방'?'<span class="badge-bon">본</span>':'<span class="badge-live">생</span>');
       const pname=(p.program||'').replace(/<생>/g,'').replace(/<재>/g,'').trim();
 
+      const tdTarget=document.createElement('td');
+      tdTarget.style.cssText='text-align:left;font-size:11px;color:var(--muted);font-weight:500';
+      tdTarget.textContent=p.target_rating>0?p.target_rating.toFixed(3):'—';
+      row.appendChild(tdTarget);
+
       const tdN=document.createElement('td');
       tdN.style.cssText='text-align:left;max-width:200px;overflow:hidden;white-space:nowrap';
       tdN.innerHTML='<span class="tt" data-tip="'+pname+'">'+pname+badge+'</span>';
@@ -853,7 +858,7 @@ function renderProg(){
       tdLbl.textContent='평균';
       tdLbl.style.cssText='text-align:left;padding-left:10px;font-size:12px;font-weight:700;color:var(--text)';
       avgRow.appendChild(tdLbl);
-      ['','',''].forEach(function(){const td=document.createElement('td');avgRow.appendChild(td);});
+      ['','','',''].forEach(function(){const td=document.createElement('td');avgRow.appendChild(td);});
       const avgRating=progs.reduce(function(s,p){return s+p.rating;},0)/progs.length;
       const avgShare=progs.reduce(function(s,p){return s+p.share;},0)/progs.length;
       const avgViewers=Math.round(progs.reduce(function(s,p){return s+p.viewers;},0)/progs.length);
