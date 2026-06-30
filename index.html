@@ -918,14 +918,28 @@ function renderProg(){
     tblWrap.appendChild(tbl);
     blockDiv.appendChild(tblWrap);
 
-    // SB 누적 평균 헤더에 표시
-    const sbVals=progs.map(function(p){return p._sb||0;}).filter(function(v){return v>0;});
-    if(sbVals.length>0){
-      const sbAvgMin=Math.round(sbVals.reduce(function(a,b){return a+b;},0)/sbVals.length);
+    // SB 월 누적 평균 헤더에 표시
+    const monthPrefix=curDate.slice(0,7);
+    const monthDates=D.dates.filter(function(d){return d.startsWith(monthPrefix)&&d<=curDate;});
+    const toMinSB=function(t){const s=String(t).split(':');return parseInt(s[0])*60+parseInt(s[1]);};
+    const allSBVals=[];
+    monthDates.forEach(function(d){
+      const dProgs=((D.days[d]||{}).programs||{})[channel]||[];
+      dProgs.forEach(function(p,i){
+        if(i===0)return;
+        const prev=dProgs[i-1];
+        if(prev.end&&p.start){
+          const sb=toMinSB(p.start)-toMinSB(prev.end);
+          if(sb>0)allSBVals.push(sb);
+        }
+      });
+    });
+    if(allSBVals.length>0){
+      const sbAvgMin=Math.round(allSBVals.reduce(function(a,b){return a+b;},0)/allSBVals.length);
       const sbH=Math.floor(sbAvgMin/60),sbM=sbAvgMin%60;
       const sbAvgStr=sbH>0?sbH+'시간 '+sbM+'분':sbM+'분';
       const sbEl=document.getElementById('sbAvg_'+channel.replace(/ /g,'_'));
-      if(sbEl) sbEl.textContent='SB 평균 '+sbAvgStr;
+      if(sbEl) sbEl.textContent='월 SB 평균 '+sbAvgStr;
     }
 
     // 채널별 총평 삽입
