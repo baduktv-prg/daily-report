@@ -918,10 +918,15 @@ function renderProg(){
     tblWrap.appendChild(tbl);
     blockDiv.appendChild(tblWrap);
 
-    // SB 월 누적 평균 헤더에 표시
+    // SB 일평균 + 월 누적 평균 헤더에 표시
+    const toMinSB=function(t){const s=String(t).split(':');return parseInt(s[0])*60+parseInt(s[1]);};
+    const fmtSBhdr=function(m){const h=Math.floor(m/60),mm=m%60;return h>0?h+'시간 '+mm+'분':mm+'분';};
+    // 일평균
+    const daySBVals=progs.map(function(p){return p._sb||0;}).filter(function(v){return v>0;});
+    const daySBAvg=daySBVals.length>0?Math.round(daySBVals.reduce(function(a,b){return a+b;},0)/daySBVals.length):null;
+    // 월 누적 평균
     const monthPrefix=curDate.slice(0,7);
     const monthDates=D.dates.filter(function(d){return d.startsWith(monthPrefix)&&d<=curDate;});
-    const toMinSB=function(t){const s=String(t).split(':');return parseInt(s[0])*60+parseInt(s[1]);};
     const allSBVals=[];
     monthDates.forEach(function(d){
       const dProgs=((D.days[d]||{}).programs||{})[channel]||[];
@@ -934,12 +939,13 @@ function renderProg(){
         }
       });
     });
-    if(allSBVals.length>0){
-      const sbAvgMin=Math.round(allSBVals.reduce(function(a,b){return a+b;},0)/allSBVals.length);
-      const sbH=Math.floor(sbAvgMin/60),sbM=sbAvgMin%60;
-      const sbAvgStr=sbH>0?sbH+'시간 '+sbM+'분':sbM+'분';
-      const sbEl=document.getElementById('sbAvg_'+channel.replace(/ /g,'_'));
-      if(sbEl) sbEl.textContent='월 SB 평균 '+sbAvgStr;
+    const monthSBAvg=allSBVals.length>0?Math.round(allSBVals.reduce(function(a,b){return a+b;},0)/allSBVals.length):null;
+    const sbEl=document.getElementById('sbAvg_'+channel.replace(/ /g,'_'));
+    if(sbEl){
+      let sbTxt='';
+      if(daySBAvg!==null) sbTxt+='일 평균 '+fmtSBhdr(daySBAvg);
+      if(monthSBAvg!==null) sbTxt+=(sbTxt?' · ':'')+'월 평균 '+fmtSBhdr(monthSBAvg);
+      if(sbTxt) sbEl.textContent=sbTxt;
     }
 
     // 채널별 총평 삽입
