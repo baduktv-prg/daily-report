@@ -173,6 +173,7 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
 .prog-ch-hdr.kb{border-left-color:var(--accent2)}
 .prog-ch-name{font-size:14px;font-weight:700;color:var(--accent)}
 .prog-ch-name.kb{color:var(--accent2)}
+.prog-sb-avg{font-size:11px;font-weight:400;color:var(--muted);margin-left:auto;padding:2px 8px;background:rgba(255,255,255,0.05);border-radius:4px;border:1px solid var(--border)}
 .prog-ch-avg{font-family:'Noto Sans KR',sans-serif;font-size:12px;color:var(--muted);margin-left:auto}
 .ptbl-wrap{background:var(--bg2);margin-bottom:0}
 .ptbl{width:100%;border-collapse:collapse}
@@ -754,7 +755,7 @@ function renderProg(){
     const hdr=document.createElement('div');
     hdr.className='prog-ch-hdr'+(isK?' kb':'');
     hdr.innerHTML='<span class="prog-ch-name '+(isK?'kb':'')+'">'
-      +channel+'</span>';
+      +channel+'</span><span class="prog-sb-avg" id="sbAvg_'+channel.replace(/ /g,'_')+'"></span>';
     blockDiv.appendChild(hdr);
 
     // 테이블
@@ -779,6 +780,10 @@ function renderProg(){
       th.style.cssText='text-align:center;border-bottom:1px solid rgba(30,45,69,.4);'+(sex==='남성'?'color:var(--accent)':'color:var(--accent2)');
       hr1.appendChild(th);
     });
+    const thSB=document.createElement('th');
+    thSB.rowSpan=2;thSB.textContent='SB';
+    thSB.style.cssText='text-align:right;vertical-align:bottom;border-bottom:1px solid var(--border);color:var(--muted);font-size:11px';
+    hr1.appendChild(thSB);
     const hr2=thead.insertRow();
     ['age_male','age_female'].forEach(function(){
       AGE.forEach(function(age){
@@ -850,6 +855,24 @@ function renderProg(){
           row.appendChild(makeHeatCell((ageP[gKey]||{})[age]||0,false));
         });
       });
+
+      // SB 컬럼 - 현재 프로그램 시작 - 이전 프로그램 종료
+      const tdSB=document.createElement('td');
+      tdSB.style.cssText='text-align:right;font-size:11px;color:var(--muted)';
+      const toMin=function(t){const s=String(t).split(':');return parseInt(s[0])*60+parseInt(s[1]);};
+      const fmtSB=function(m){const h=Math.floor(m/60);const mm=m%60;return h>0?h+'시간 '+mm+'분':mm+'분';};
+      const pIdx=progs.indexOf(p);
+      p._sb=null;
+      if(pIdx>0){
+        const prevEnd=progs[pIdx-1].end;
+        const curStart=p.start;
+        if(prevEnd && curStart){
+          const sb=toMin(curStart)-toMin(prevEnd);
+          if(sb>0){p._sb=sb;tdSB.textContent=fmtSB(sb);tdSB.style.color='var(--accent2)';}
+          else{tdSB.textContent='—';}
+        } else { tdSB.textContent='—'; }
+      } else { tdSB.textContent='—'; }
+      row.appendChild(tdSB);
     });
 
     // 평균행
@@ -884,10 +907,46 @@ function renderProg(){
           avgRow.appendChild(makeHeatCell((avgAgeRow[gKey]||{})[age]||0,true));
         });
       });
+      const tdSBavg=document.createElement('td');
+      const totalSB=progs.reduce(function(s,p){return s+(p._sb||0);},0);
+      const fmtSBavg=function(m){const h=Math.floor(m/60);const mm=m%60;return h>0?h+'시간 '+mm+'분':mm+'분';};
+      tdSBavg.textContent=totalSB>0?fmtSBavg(totalSB):'—';
+      tdSBavg.style.cssText='text-align:right;font-size:12px;font-weight:700;color:var(--accent2)';
+      avgRow.appendChild(tdSBavg);
     }
 
     tblWrap.appendChild(tbl);
     blockDiv.appendChild(tblWrap);
+
+    // SB 일평균 + 월 누적 평균 헤더에 표시
+    const toMinSB=function(t){const s=String(t).split(':');return parseInt(s[0])*60+parseInt(s[1]);};
+    const fmtSBhdr=function(m){const h=Math.floor(m/60),mm=m%60;return h>0?h+'시간 '+mm+'분':mm+'분';};
+    // 일평균
+    const daySBVals=progs.map(function(p){return p._sb||0;}).filter(function(v){return v>0;});
+    const daySBAvg=daySBVals.length>0?Math.round(daySBVals.reduce(function(a,b){return a+b;},0)/daySBVals.length):null;
+    // 월 누적 평균
+    const monthPrefix=curDate.slice(0,7);
+    const monthDates=D.dates.filter(function(d){return d.startsWith(monthPrefix)&&d<=curDate;});
+    const allSBVals=[];
+    monthDates.forEach(function(d){
+      const dProgs=((D.days[d]||{}).programs||{})[channel]||[];
+      dProgs.forEach(function(p,i){
+        if(i===0)return;
+        const prev=dProgs[i-1];
+        if(prev.end&&p.start){
+          const sb=toMinSB(p.start)-toMinSB(prev.end);
+          if(sb>0)allSBVals.push(sb);
+        }
+      });
+    });
+    const monthSBAvg=allSBVals.length>0?Math.round(allSBVals.reduce(function(a,b){return a+b;},0)/allSBVals.length):null;
+    const sbEl=hdr.querySelector('.prog-sb-avg');
+    if(sbEl){
+      let sbTxt='';
+      if(daySBAvg!==null) sbTxt+='일 평균 '+fmtSBhdr(daySBAvg);
+      if(monthSBAvg!==null) sbTxt+=(sbTxt?' · ':'')+'월 평균 '+fmtSBhdr(monthSBAvg);
+      if(sbTxt) sbEl.textContent=sbTxt;
+    }
 
     // 채널별 총평 삽입
     const summary=dayData.summary||{};
