@@ -173,6 +173,7 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
 .prog-ch-hdr.kb{border-left-color:var(--accent2)}
 .prog-ch-name{font-size:14px;font-weight:700;color:var(--accent)}
 .prog-ch-name.kb{color:var(--accent2)}
+.prog-sb-avg{font-size:11px;font-weight:400;color:var(--muted);margin-left:auto;padding:2px 8px;background:rgba(255,255,255,0.05);border-radius:4px;border:1px solid var(--border)}
 .prog-ch-avg{font-family:'Noto Sans KR',sans-serif;font-size:12px;color:var(--muted);margin-left:auto}
 .ptbl-wrap{background:var(--bg2);margin-bottom:0}
 .ptbl{width:100%;border-collapse:collapse}
@@ -754,7 +755,7 @@ function renderProg(){
     const hdr=document.createElement('div');
     hdr.className='prog-ch-hdr'+(isK?' kb':'');
     hdr.innerHTML='<span class="prog-ch-name '+(isK?'kb':'')+'">'
-      +channel+'</span>';
+      +channel+'</span><span class="prog-sb-avg" id="sbAvg_'+channel.replace(/ /g,'_')+'"></span>';
     blockDiv.appendChild(hdr);
 
     // 테이블
@@ -916,6 +917,16 @@ function renderProg(){
 
     tblWrap.appendChild(tbl);
     blockDiv.appendChild(tblWrap);
+
+    // SB 누적 평균 헤더에 표시
+    const sbVals=progs.map(function(p){return p._sb||0;}).filter(function(v){return v>0;});
+    if(sbVals.length>0){
+      const sbAvgMin=Math.round(sbVals.reduce(function(a,b){return a+b;},0)/sbVals.length);
+      const sbH=Math.floor(sbAvgMin/60),sbM=sbAvgMin%60;
+      const sbAvgStr=sbH>0?sbH+'시간 '+sbM+'분':sbM+'분';
+      const sbEl=document.getElementById('sbAvg_'+channel.replace(/ /g,'_'));
+      if(sbEl) sbEl.textContent='SB 평균 '+sbAvgStr;
+    }
 
     // 채널별 총평 삽입
     const summary=dayData.summary||{};
