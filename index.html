@@ -858,15 +858,17 @@ function renderProg(){
       // SB 컬럼 - 다음 프로그램 시작 - 현재 프로그램 종료
       const tdSB=document.createElement('td');
       tdSB.style.cssText='text-align:right;font-size:11px;color:var(--muted)';
+      const toMin=function(t){const s=String(t).split(':');return parseInt(s[0])*60+parseInt(s[1]);};
+      const fmtSB=function(m){const h=Math.floor(m/60);const mm=m%60;return h>0?h+':'+String(mm).padStart(2,'0'):mm+'분';};
       const pIdx=progs.indexOf(p);
+      p._sb=null;
       if(pIdx>=0 && pIdx<progs.length-1){
         const nextStart=progs[pIdx+1].start;
         const curEnd=p.end;
         if(nextStart && curEnd){
-          const toMin=function(t){const s=String(t).split(':');return parseInt(s[0])*60+parseInt(s[1]);};
           const sb=toMin(nextStart)-toMin(curEnd);
-          tdSB.textContent=sb>0?sb+'분':'—';
-          if(sb>0) tdSB.style.color='var(--accent2)';
+          if(sb>0){p._sb=sb;tdSB.textContent=fmtSB(sb);tdSB.style.color='var(--accent2)';}
+          else{tdSB.textContent='—';}
         } else { tdSB.textContent='—'; }
       } else { tdSB.textContent='—'; }
       row.appendChild(tdSB);
@@ -904,7 +906,12 @@ function renderProg(){
           avgRow.appendChild(makeHeatCell((avgAgeRow[gKey]||{})[age]||0,true));
         });
       });
-      const tdSBavg=document.createElement('td');avgRow.appendChild(tdSBavg);
+      const tdSBavg=document.createElement('td');
+      const totalSB=progs.reduce(function(s,p){return s+(p._sb||0);},0);
+      const fmtSBavg=function(m){const h=Math.floor(m/60);const mm=m%60;return h>0?h+':'+String(mm).padStart(2,'0'):mm+'분';};
+      tdSBavg.textContent=totalSB>0?fmtSBavg(totalSB):'—';
+      tdSBavg.style.cssText='text-align:right;font-size:12px;font-weight:700;color:var(--accent2)';
+      avgRow.appendChild(tdSBavg);
     }
 
     tblWrap.appendChild(tbl);
