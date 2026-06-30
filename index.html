@@ -940,7 +940,7 @@ function renderProg(){
       });
     });
     const monthSBAvg=allSBVals.length>0?Math.round(allSBVals.reduce(function(a,b){return a+b;},0)/allSBVals.length):null;
-    const sbEl=document.getElementById('sbAvg_'+channel.replace(/ /g,'_'));
+    const sbEl=hdr.querySelector('.prog-sb-avg');
     if(sbEl){
       let sbTxt='';
       if(daySBAvg!==null) sbTxt+='일 평균 '+fmtSBhdr(daySBAvg);
