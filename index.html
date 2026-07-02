@@ -1240,7 +1240,13 @@ function toggleTheme(){
 })();
 
 // data.json 로드
-fetch('data.json')
+(async () => {
+  const { data: { session } } = await _supabase.auth.getSession();
+  fetch('https://amerxqtexvhnvzwgmfla.supabase.co/storage/v1/object/daily-report-data/data.json', {
+    headers: {
+      'Authorization': 'Bearer ' + session.access_token
+    }
+  })
   .then(r=>r.json())
   .then(d=>{
     D=d;
@@ -1248,6 +1254,9 @@ fetch('data.json')
     document.getElementById('themeBtn').textContent=t==='light'?'☀️ LIGHT':'🌙 DARK';
     init();
   })
+  .catch(e=>console.error('data.json 로드 실패:', e));
+})();
+
   .catch(e=>console.error('data.json 로드 실패:', e));
 </script>
 </div><!-- mainPage 끝 -->
