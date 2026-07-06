@@ -54,7 +54,7 @@ async function sendMagicLink() {
   document.getElementById('loginMsg').textContent = '전송 중...';
   const { error } = await _supabase.auth.signInWithOtp({
     email,
-    options: { emailRedirectTo: window.location.origin }
+    options: { emailRedirectTo: window.location.origin + window.location.pathname }
   });
   if (error) {
     document.getElementById('loginMsg').textContent = '오류: ' + error.message;
