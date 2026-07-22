@@ -1257,7 +1257,8 @@ function toggleTheme(){
 // data.json 로드
 (async () => {
   const { data: { session } } = await _supabase.auth.getSession();
-  fetch('https://amerxqtexvhnvzwgmfla.supabase.co/storage/v1/object/daily-report-data/data.json', {
+  fetch('https://amerxqtexvhnvzwgmfla.supabase.co/storage/v1/object/daily-report-data/data.json?t=' + Date.now(), {
+    cache: 'no-store',
     headers: {
       'Authorization': 'Bearer ' + session.access_token
     }
