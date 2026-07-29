@@ -278,6 +278,9 @@ footer{text-align:center;padding:20px;color:var(--muted);font-family:'Noto Sans 
   /* 채널 헤더 */
 
   .prog-ch-hdr{flex-wrap:wrap;gap:6px}
+  /* 프로그램명 - 정해진 폭 안에서 폰트 자동 축소 (JS: fitProgNames) */
+  .prog-name-cell{max-width:118px}
+  .prog-name-fit{display:block;overflow:hidden;max-width:118px}
   /* 차트 카드 높이 */
   .card canvas{max-height:140px}
 }
@@ -850,8 +853,9 @@ function renderProg(){
       }
 
       const tdN=document.createElement('td');
+      tdN.className='prog-name-cell';
       tdN.style.cssText='text-align:left;white-space:nowrap;padding-right:16px';
-      tdN.innerHTML='<span class="tt" data-tip="'+pname+'">'+pname+badge+'</span>';
+      tdN.innerHTML='<span class="tt prog-name-fit" data-tip="'+pname+'">'+pname+badge+'</span>';
       row.appendChild(tdN);
 
       [p.players||'—',
@@ -992,7 +996,27 @@ function renderProg(){
 
     wrap.appendChild(blockDiv);
   });
+
+  fitProgNames();
 }
+
+// ── 모바일: 프로그램명이 정해진 칸(.prog-name-cell)을 넘치면 폰트를 0.5px씩 줄여서 맞춤 ──
+function fitProgNames(){
+  document.querySelectorAll('.prog-name-fit').forEach(function(el){
+    if(window.innerWidth>768){el.style.fontSize='';return;}
+    let size=12;
+    el.style.fontSize=size+'px';
+    while(el.scrollWidth>el.clientWidth && size>8){
+      size-=0.5;
+      el.style.fontSize=size+'px';
+    }
+  });
+}
+let _fitTimer=null;
+window.addEventListener('resize',function(){
+  clearTimeout(_fitTimer);
+  _fitTimer=setTimeout(fitProgNames,150);
+});
 
 function initCharts(){
   const co={responsive:true,animation:{duration:300},plugins:{legend:{display:false},tooltip:{backgroundColor:'var(--bg2)',borderColor:'var(--border)',borderWidth:1,titleFont:{family:'Noto Sans KR',size:10},bodyFont:{family:'Noto Sans KR',size:10}}},scales:{x:{ticks:{color:'oklch(62% 0.015 255)',font:{family:'Noto Sans KR',size:8}},grid:{color:'oklch(32% 0.018 255 / 0.5)'}},y:{ticks:{color:'oklch(62% 0.015 255)',font:{family:'Noto Sans KR',size:8}},grid:{color:'oklch(32% 0.018 255 / 0.5)'}}}}; 
