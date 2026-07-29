@@ -104,6 +104,11 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
 .cal-day.active{background:var(--accent)!important;color:var(--bg2)!important;font-weight:700}
 .main{max-width:1360px;margin:0 auto;padding:24px 5vw;display:block}
 .slabel{font-family:'Noto Sans KR',sans-serif;font-size:13px;font-weight:600;letter-spacing:.4px;color:var(--muted);margin-bottom:14px}
+.main-tabs{display:flex;gap:28px;border-bottom:1px solid var(--border);margin-bottom:28px}
+.main-tab{padding:0 2px 12px;font-size:14px;font-family:'Noto Sans KR',sans-serif;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;transition:color .15s,border-color .15s;white-space:nowrap}
+.main-tab:hover{color:var(--text)}
+.main-tab.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:700}
+@media(max-width:480px){.main-tabs{gap:18px}.main-tab{font-size:13px}}
 .kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;margin-bottom:24px}
 .kpi{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:20px;position:relative;overflow:hidden}
 .kpi-lbl{font-size:12px;color:var(--muted);font-family:'Noto Sans KR',sans-serif;margin-bottom:10px}
@@ -323,7 +328,7 @@ footer{text-align:center;padding:20px;color:var(--muted);font-family:'Noto Sans 
 .prog-ch-card.kb{border-left-color:var(--accent2)}
 .prog-ch-card.kb:hover{background:oklch(74% 0.1 55 / 0.1)}
 .prog-ch-card-hint{font-size:11px;color:var(--muted);font-family:'Noto Sans KR',sans-serif;margin-left:auto}
-.prog-channel-block{margin-bottom:20px;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.prog-channel-block{margin-bottom:20px;border:1px solid var(--border);border-radius:10px}
 .prog-avg-row td{border-top:2px solid var(--text)!important}
 /* ── 랭킹 섹션 좌우 분할 ── */
 .ranking-section{align-items:start}
@@ -430,7 +435,12 @@ footer{text-align:center;padding:20px;color:var(--muted);font-family:'Noto Sans 
 </div>
 
 <div class="main">
-  <div>
+  <div class="main-tabs">
+    <div class="main-tab active" id="mainTabOverview" onclick="switchMainTab('overview')">개요</div>
+    <div class="main-tab" id="mainTabRanking" onclick="switchMainTab('ranking')">채널 순위</div>
+  </div>
+
+  <div id="tabPanelOverview">
     <div class="card" id="channelTrendCard" style="margin-bottom:20px">
       <div class="card-title"><div class="dot o"></div>유료방송채널 트렌드 분석</div>
       <div id="channelTrendText" style="font-size:13px;color:var(--text);line-height:1.7"></div>
@@ -438,7 +448,7 @@ footer{text-align:center;padding:20px;color:var(--muted);font-family:'Noto Sans 
 
     <div class="slabel">바둑TV 현황</div>
     <div class="kpi-row">
-      <div class="kpi c-accent"><div class="kpi-lbl">채널 순위 (종합)</div><div class="kpi-val c-accent" id="kR">—</div><div class="kpi-sub" id="kRSub">—</div></div>
+      <div class="kpi c-accent" style="cursor:pointer" onclick="switchMainTab('ranking')"><div class="kpi-lbl">채널 순위 (종합)</div><div class="kpi-val c-accent" id="kR">—</div><div class="kpi-sub" id="kRSub">—</div></div>
       <div class="kpi c-orange"><div class="kpi-lbl">시청률</div><div class="kpi-val c-orange" id="kRat">—<span class="kpi-unit">%</span></div><div class="kpi-sub" id="kShr">—</div></div>
       <div class="kpi c-accent"><div class="kpi-lbl">전년 동기 대비</div><div class="kpi-val" id="kYoy">—<span class="kpi-unit">%</span></div><div class="kpi-sub" id="kYoySub">전년: —%</div></div>
       <div class="kpi c-green"><div class="kpi-lbl">월간 목표 달성률</div><div class="kpi-val c-green" id="kAch">—<span class="kpi-unit">%</span></div><div class="kpi-bar"><div class="kpi-bar-fill" id="kAchBar" style="width:0%"></div></div></div>
@@ -483,7 +493,9 @@ footer{text-align:center;padding:20px;color:var(--muted);font-family:'Noto Sans 
       <div class="card-title"><div class="dot a"></div>전년 동기 대비 추이</div>
       <canvas id="yoyC" height="80"></canvas>
     </div>
+  </div>
 
+  <div id="tabPanelRanking" style="display:none">
     <div class="card" style="margin-bottom:20px">
       <div class="rank-header">
         <div class="slabel" id="rankLbl" style="margin:0">전체 채널 순위 — 종합</div>
@@ -510,6 +522,15 @@ footer{text-align:center;padding:20px;color:var(--muted);font-family:'Noto Sans 
 <footer>AGB 닐슨 · 전국 전플랫폼 (유료가구) · 206개 채널 기준 · 종편채널제외</footer>
 
 <script>
+// ── 상단 탭 전환 (개요 / 채널 순위) ──
+function switchMainTab(tab){
+  const isOverview=tab==='overview';
+  document.getElementById('tabPanelOverview').style.display=isOverview?'block':'none';
+  document.getElementById('tabPanelRanking').style.display=isOverview?'none':'block';
+  document.getElementById('mainTabOverview').classList.toggle('active',isOverview);
+  document.getElementById('mainTabRanking').classList.toggle('active',!isOverview);
+}
+
 // ── 전일/후일 이동 ──
 function moveDate(dir){
   const dates=D.dates;
@@ -762,10 +783,10 @@ function renderProg(){
 
     // 테이블
     const tblWrap=document.createElement('div');
-    tblWrap.style.cssText='overflow-x:auto;border:1px solid var(--border)';
+    tblWrap.style.cssText='overflow-x:auto;border:1px solid var(--border);border-top:none;border-radius:0 0 10px 10px';
     const tbl=document.createElement('table');
     tbl.className='ptbl';
-    tbl.style.minWidth='900px';
+    tbl.style.minWidth='1260px';
 
     // thead
     const thead=tbl.createTHead();
@@ -801,14 +822,14 @@ function renderProg(){
 
     function makeHeatCell(v,isAvgRow){
       const td=document.createElement('td');
-      td.style.textAlign='center';td.style.padding='0';
+      td.style.textAlign='center';td.style.padding='0';td.style.minWidth='38px';
       if(v>0&&!isAvgRow){
         const ratio=Math.min(v/gMax,1);
         td.style.background='rgba('+bR+','+bG+','+bB+','+(ratio*0.82).toFixed(2)+')';
       }
       const inn=document.createElement('div');
       inn.className='age-hm-cell'+(v===0?' zero':'');
-      inn.style.cssText='font-size:12px;font-weight:'+(isAvgRow?'700':'400');
+      inn.style.cssText='font-size:12px;font-weight:'+(isAvgRow?'700':'400')+';white-space:nowrap';
       inn.textContent=v.toFixed(3);
       td.appendChild(inn);
       return td;
@@ -883,9 +904,9 @@ function renderProg(){
       avgRow.className='prog-avg-row'+(isK?' kb':'');
       const tdLbl=document.createElement('td');
       tdLbl.textContent='평균';
-      tdLbl.style.cssText='text-align:left;padding-left:10px;font-size:12px;font-weight:700;color:var(--text)';
+      tdLbl.colSpan=isK?4:5;
+      tdLbl.style.cssText='text-align:left;padding-left:10px;font-size:12px;font-weight:700;color:var(--text);white-space:nowrap';
       avgRow.appendChild(tdLbl);
-      (isK?['','','']:['','','','']).forEach(function(){const td=document.createElement('td');avgRow.appendChild(td);});
       const avgRating=progs.reduce(function(s,p){return s+p.rating;},0)/progs.length;
       const avgShare=progs.reduce(function(s,p){return s+p.share;},0)/progs.length;
       const avgViewers=Math.round(progs.reduce(function(s,p){return s+p.viewers;},0)/progs.length);
