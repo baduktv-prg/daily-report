@@ -248,7 +248,6 @@ footer{text-align:center;padding:20px;color:var(--muted);font-family:'Noto Sans 
 /* ── TABLET (768px ~ 1199px) ── */
 @media(max-width:1199px){
   .ranking-section{grid-template-columns:1fr}
-  .stats-bar{grid-template-columns:1fr}
   .prog-channel-inner{grid-template-columns:1fr}
   .kpi-row{grid-template-columns:repeat(3,1fr)}
   .header,.toolbar{padding-left:14px;padding-right:14px}
@@ -374,6 +373,7 @@ footer{text-align:center;padding:20px;color:var(--muted);font-family:'Noto Sans 
 .stats-bar{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:32px;margin-bottom:20px}
 .stats-bar .card{margin:0;min-width:0;overflow:hidden}
 .stats-bar .card canvas{max-width:100%}
+@media(max-width:1199px){.stats-bar{grid-template-columns:1fr}}
 
 .date-nav-wrap{display:flex;align-items:center;gap:8px}
 .date-nav-btn{background:var(--bg3);border:1px solid var(--border);border-radius:8px;color:var(--muted);width:30px;height:30px;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;transition:all .15s;flex-shrink:0}
