@@ -228,7 +228,13 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
 .badge-re{color:var(--muted);font-size:11px;background:var(--bg3);border:1px solid var(--border);border-radius:20px;padding:1px 8px;letter-spacing:.3px;margin-left:4px;vertical-align:middle;font-family:'Noto Sans KR',sans-serif}.badge-bon{color:var(--green);font-size:11px;background:oklch(72% 0.13 150 / 0.14);border:1px solid oklch(72% 0.13 150 / 0.35);border-radius:20px;padding:1px 8px;letter-spacing:.3px;margin-left:4px;vertical-align:middle;font-family:'Noto Sans KR',sans-serif}
 .no-prog{padding:24px;text-align:center;color:var(--muted);font-size:11px;font-family:'Noto Sans KR',sans-serif}
 .sidebar{display:flex;flex-direction:column;gap:18px}
-.card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:22px 24px}
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:22px 24px;position:relative}
+.chart-tooltip{position:absolute;pointer-events:none;opacity:0;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:10px 14px;box-shadow:0 12px 32px rgba(0,0,0,.28);font-family:'Noto Sans KR',sans-serif;font-size:12px;z-index:500;transition:opacity .1s;white-space:nowrap}
+.chart-tooltip .tt-title{font-weight:700;margin-bottom:6px;color:var(--text)}
+.chart-tooltip .tt-row{display:flex;align-items:center;gap:16px;justify-content:space-between;padding:2px 0}
+.chart-tooltip .tt-label{display:flex;align-items:center;gap:6px;color:var(--muted)}
+.chart-tooltip .tt-dot{width:8px;height:8px;border-radius:50%;display:inline-block;flex:none}
+.chart-tooltip .tt-value{font-weight:700;color:var(--text);margin-left:12px}
 .card-title{font-size:13px;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px}
 .dot{width:6px;height:6px;border-radius:50%}.dot.a{background:var(--accent)}.dot.o{background:var(--accent2)}
 .comp-tbl{width:100%;border-collapse:collapse}
@@ -1018,26 +1024,62 @@ window.addEventListener('resize',function(){
   _fitTimer=setTimeout(fitProgNames,150);
 });
 
+function getOrCreateTooltip(chart){
+  let el=chart.canvas.parentNode.querySelector('.chart-tooltip');
+  if(!el){
+    el=document.createElement('div');
+    el.className='chart-tooltip';
+    chart.canvas.parentNode.appendChild(el);
+  }
+  return el;
+}
+function makeExternalTooltip(opts){
+  return function(context){
+    const {chart,tooltip}=context;
+    const el=getOrCreateTooltip(chart);
+    if(tooltip.opacity===0){el.style.opacity=0;return;}
+    if(tooltip.body){
+      const title=(tooltip.title&&tooltip.title[0])||'';
+      let rows='';
+      tooltip.dataPoints.forEach(function(dp){
+        const ds=chart.data.datasets[dp.datasetIndex];
+        const color=ds.borderColor;
+        const raw=dp.raw;
+        const val=(raw===null||raw===undefined||raw==='')?'-':(opts.decimals!==undefined?Number(raw).toFixed(opts.decimals):raw);
+        const suffix=(raw===null||raw===undefined||raw==='')?'':(opts.suffix||'');
+        rows+='<div class="tt-row"><span class="tt-label"><span class="tt-dot" style="background:'+color+'"></span>'+ds.label+'</span><span class="tt-value">'+val+suffix+'</span></div>';
+      });
+      el.innerHTML='<div class="tt-title">'+title+'</div>'+rows;
+    }
+    const {offsetLeft:posX,offsetTop:posY}=chart.canvas;
+    el.style.opacity=1;
+    let left=posX+tooltip.caretX+12;
+    const maxLeft=chart.canvas.parentNode.clientWidth-el.offsetWidth-4;
+    if(left>maxLeft)left=posX+tooltip.caretX-el.offsetWidth-12;
+    el.style.left=Math.max(4,left)+'px';
+    el.style.top=Math.max(4,posY+tooltip.caretY-10)+'px';
+  };
+}
 function initCharts(){
-  const co={responsive:true,animation:{duration:300},plugins:{legend:{display:false},tooltip:{backgroundColor:'var(--bg2)',borderColor:'var(--border)',borderWidth:1,titleFont:{family:'Noto Sans KR',size:10},bodyFont:{family:'Noto Sans KR',size:10}}},scales:{x:{ticks:{color:'oklch(62% 0.015 255)',font:{family:'Noto Sans KR',size:8}},grid:{color:'oklch(32% 0.018 255 / 0.5)'}},y:{ticks:{color:'oklch(62% 0.015 255)',font:{family:'Noto Sans KR',size:8}},grid:{color:'oklch(32% 0.018 255 / 0.5)'}}}}; 
+  const co={responsive:true,animation:{duration:300},plugins:{legend:{display:false}},scales:{x:{ticks:{color:'oklch(62% 0.015 255)',font:{family:'Noto Sans KR',size:8}},grid:{color:'oklch(32% 0.018 255 / 0.5)'}},y:{ticks:{color:'oklch(62% 0.015 255)',font:{family:'Noto Sans KR',size:8}},grid:{color:'oklch(32% 0.018 255 / 0.5)'}}}}; 
 
   // 시청률 추이 (빈 데이터로 초기화, updCharts에서 업데이트)
   tC=new Chart(document.getElementById('trendC'),{type:'line',data:{labels:[],datasets:[
     {label:'바둑TV',data:[],borderColor:'oklch(72% 0.11 235)',backgroundColor:'oklch(72% 0.11 235 / 0.12)',fill:false,tension:.4,pointBackgroundColor:'oklch(72% 0.11 235)',pointRadius:4,pointHoverRadius:6},
     {label:'K바둑',data:[],borderColor:'oklch(74% 0.1 55)',backgroundColor:'oklch(74% 0.1 55 / 0.12)',fill:false,tension:.4,pointBackgroundColor:'oklch(74% 0.1 55)',pointRadius:4,pointHoverRadius:6}
-  ]},options:{...co,plugins:{...co.plugins,legend:{display:true,position:'bottom',labels:{usePointStyle:true,boxWidth:8,color:'oklch(62% 0.015 255)',font:{size:10}}}},scales:{...co.scales,y:{...co.scales.y,title:{display:true,text:'시청률(%)',color:'oklch(62% 0.015 255)',font:{size:8}}}}}});
+  ]},options:{...co,plugins:{...co.plugins,legend:{display:true,position:'bottom',labels:{usePointStyle:true,boxWidth:8,color:'oklch(62% 0.015 255)',font:{size:10}}},tooltip:{enabled:false,external:makeExternalTooltip({suffix:'%',decimals:3})}},scales:{...co.scales,y:{...co.scales.y,title:{display:true,text:'시청률(%)',color:'oklch(62% 0.015 255)',font:{size:8}}}}}});
 
   // 순위 추이
   rC=new Chart(document.getElementById('rankC'),{type:'line',data:{labels:[],datasets:[
     {label:'바둑TV',data:[],borderColor:'oklch(72% 0.11 235)',backgroundColor:'oklch(72% 0.11 235 / 0.12)',fill:false,tension:.4,pointBackgroundColor:'oklch(72% 0.11 235)',pointRadius:4,pointHoverRadius:6},
     {label:'K바둑',data:[],borderColor:'oklch(74% 0.1 55)',backgroundColor:'oklch(74% 0.1 55 / 0.12)',fill:false,tension:.4,pointBackgroundColor:'oklch(74% 0.1 55)',pointRadius:4,pointHoverRadius:6}
-  ]},options:{...co,plugins:{...co.plugins,legend:{display:true,position:'bottom',labels:{usePointStyle:true,boxWidth:8,color:'oklch(62% 0.015 255)',font:{size:10}}}},scales:{...co.scales,y:{...co.scales.y,reverse:true,title:{display:true,text:'순위',color:'oklch(62% 0.015 255)',font:{size:8}}}}}});
+  ]},options:{...co,plugins:{...co.plugins,legend:{display:true,position:'bottom',labels:{usePointStyle:true,boxWidth:8,color:'oklch(62% 0.015 255)',font:{size:10}}},tooltip:{enabled:false,external:makeExternalTooltip({suffix:'위',decimals:0})}},scales:{...co.scales,y:{...co.scales.y,reverse:true,title:{display:true,text:'순위',color:'oklch(62% 0.015 255)',font:{size:8}}}}}});
 
   // 전년 동기 대비 추이
   yoyC=new Chart(document.getElementById('yoyC'),{type:'line',data:{labels:[],datasets:[
     {label:'올해',data:[],borderColor:'oklch(72% 0.11 235)',backgroundColor:'transparent',fill:false,tension:.4,pointBackgroundColor:'oklch(72% 0.11 235)',pointRadius:4,pointHoverRadius:6},
     {label:'전년',data:[],borderColor:'oklch(62% 0.015 255)',backgroundColor:'transparent',fill:false,tension:.4,pointBackgroundColor:'oklch(62% 0.015 255)',pointRadius:4,pointHoverRadius:6,borderDash:[5,3]}
-  ]},options:{...co,maintainAspectRatio:false,plugins:{...co.plugins,legend:{display:true,position:'bottom',labels:{usePointStyle:true,boxWidth:8,color:'oklch(62% 0.015 255)',font:{size:10}}}},scales:{...co.scales,y:{...co.scales.y,title:{display:true,text:'시청률(%)',color:'oklch(62% 0.015 255)',font:{size:8}}}}}});
+  ]},options:{...co,maintainAspectRatio:false,plugins:{...co.plugins,legend:{display:true,position:'bottom',labels:{usePointStyle:true,boxWidth:8,color:'oklch(62% 0.015 255)',font:{size:10}}},tooltip:{enabled:false,external:makeExternalTooltip({suffix:'%',decimals:3})}},scales:{...co.scales,y:{...co.scales.y,title:{display:true,text:'시청률(%)',color:'oklch(62% 0.015 255)',font:{size:8}}}}}});
   document.getElementById('yoyC').parentElement.style.height='300px';
 }
 
