@@ -1061,26 +1061,48 @@ function makeExternalTooltip(opts){
     el.style.top=Math.max(4,posY+tooltip.caretY-10)+'px';
   };
 }
+function chAlpha(c,a){return c.replace(')',' / '+a+')');}
+function chGrad(id,color,h){
+  const el=document.getElementById(id);
+  const ctx=el.getContext('2d');
+  const g=ctx.createLinearGradient(0,0,0,h);
+  g.addColorStop(0,chAlpha(color,.32));
+  g.addColorStop(.65,chAlpha(color,.07));
+  g.addColorStop(1,chAlpha(color,0));
+  return g;
+}
+function chBg(){return document.documentElement.getAttribute('data-theme')==='light'?'oklch(100% 0 0)':'oklch(21% 0.018 255)';}
+
 function initCharts(){
-  const co={responsive:true,animation:{duration:300},plugins:{legend:{display:false}},scales:{x:{ticks:{color:'oklch(62% 0.015 255)',font:{family:'Noto Sans KR',size:8}},grid:{color:'oklch(32% 0.018 255 / 0.5)'}},y:{ticks:{color:'oklch(62% 0.015 255)',font:{family:'Noto Sans KR',size:8}},grid:{color:'oklch(32% 0.018 255 / 0.5)'}}}}; 
+  const ACC='oklch(72% 0.11 235)', ACC2='oklch(74% 0.1 55)', MUT='oklch(62% 0.015 255)', BORD='oklch(32% 0.018 255 / 0.5)';
+  const co={responsive:true,animation:{duration:350,easing:'easeOutQuart'},interaction:{mode:'index',intersect:false},plugins:{legend:{display:false}},scales:{
+    x:{ticks:{color:MUT,font:{family:'Noto Sans KR',size:8}},grid:{display:false},border:{color:BORD}},
+    y:{ticks:{color:MUT,font:{family:'Noto Sans KR',size:8}},grid:{color:'oklch(32% 0.018 255 / 0.3)',borderDash:[3,4],drawTicks:false},border:{display:false}}
+  }};
+  function legendOpt(){return{display:true,position:'bottom',labels:{usePointStyle:true,pointStyle:'circle',boxWidth:7,padding:16,color:MUT,font:{size:10}}};}
+  function lineDS(label,color,extra){
+    return Object.assign({label:label,data:[],borderColor:color,borderWidth:2.5,borderCapStyle:'round',borderJoinStyle:'round',
+      fill:false,tension:.42,pointRadius:3,pointHoverRadius:6,pointHitRadius:10,pointBackgroundColor:color,
+      pointBorderColor:chBg(),pointBorderWidth:2,pointHoverBorderWidth:2},extra||{});
+  }
 
   // 시청률 추이 (빈 데이터로 초기화, updCharts에서 업데이트)
   tC=new Chart(document.getElementById('trendC'),{type:'line',data:{labels:[],datasets:[
-    {label:'바둑TV',data:[],borderColor:'oklch(72% 0.11 235)',backgroundColor:'oklch(72% 0.11 235 / 0.12)',fill:false,tension:.4,pointBackgroundColor:'oklch(72% 0.11 235)',pointRadius:4,pointHoverRadius:6},
-    {label:'K바둑',data:[],borderColor:'oklch(74% 0.1 55)',backgroundColor:'oklch(74% 0.1 55 / 0.12)',fill:false,tension:.4,pointBackgroundColor:'oklch(74% 0.1 55)',pointRadius:4,pointHoverRadius:6}
-  ]},options:{...co,plugins:{...co.plugins,legend:{display:true,position:'bottom',labels:{usePointStyle:true,boxWidth:8,color:'oklch(62% 0.015 255)',font:{size:10}}},tooltip:{enabled:false,external:makeExternalTooltip({suffix:'%',decimals:3})}},scales:{...co.scales,y:{...co.scales.y,title:{display:true,text:'시청률(%)',color:'oklch(62% 0.015 255)',font:{size:8}}}}}});
+    lineDS('바둑TV',ACC,{fill:true,backgroundColor:chGrad('trendC',ACC,300)}),
+    lineDS('K바둑',ACC2,{fill:true,backgroundColor:chGrad('trendC',ACC2,300)})
+  ]},options:{...co,plugins:{...co.plugins,legend:legendOpt(),tooltip:{enabled:false,external:makeExternalTooltip({suffix:'%',decimals:3})}},scales:{...co.scales,y:{...co.scales.y,title:{display:true,text:'시청률(%)',color:MUT,font:{size:8}}}}}});
 
   // 순위 추이
   rC=new Chart(document.getElementById('rankC'),{type:'line',data:{labels:[],datasets:[
-    {label:'바둑TV',data:[],borderColor:'oklch(72% 0.11 235)',backgroundColor:'oklch(72% 0.11 235 / 0.12)',fill:false,tension:.4,pointBackgroundColor:'oklch(72% 0.11 235)',pointRadius:4,pointHoverRadius:6},
-    {label:'K바둑',data:[],borderColor:'oklch(74% 0.1 55)',backgroundColor:'oklch(74% 0.1 55 / 0.12)',fill:false,tension:.4,pointBackgroundColor:'oklch(74% 0.1 55)',pointRadius:4,pointHoverRadius:6}
-  ]},options:{...co,plugins:{...co.plugins,legend:{display:true,position:'bottom',labels:{usePointStyle:true,boxWidth:8,color:'oklch(62% 0.015 255)',font:{size:10}}},tooltip:{enabled:false,external:makeExternalTooltip({suffix:'위',decimals:0})}},scales:{...co.scales,y:{...co.scales.y,reverse:true,title:{display:true,text:'순위',color:'oklch(62% 0.015 255)',font:{size:8}}}}}});
+    lineDS('바둑TV',ACC),
+    lineDS('K바둑',ACC2)
+  ]},options:{...co,plugins:{...co.plugins,legend:legendOpt(),tooltip:{enabled:false,external:makeExternalTooltip({suffix:'위',decimals:0})}},scales:{...co.scales,y:{...co.scales.y,reverse:true,title:{display:true,text:'순위',color:MUT,font:{size:8}}}}}});
 
   // 전년 동기 대비 추이
   yoyC=new Chart(document.getElementById('yoyC'),{type:'line',data:{labels:[],datasets:[
-    {label:'올해',data:[],borderColor:'oklch(72% 0.11 235)',backgroundColor:'transparent',fill:false,tension:.4,pointBackgroundColor:'oklch(72% 0.11 235)',pointRadius:4,pointHoverRadius:6},
-    {label:'전년',data:[],borderColor:'oklch(62% 0.015 255)',backgroundColor:'transparent',fill:false,tension:.4,pointBackgroundColor:'oklch(62% 0.015 255)',pointRadius:4,pointHoverRadius:6,borderDash:[5,3]}
-  ]},options:{...co,maintainAspectRatio:false,plugins:{...co.plugins,legend:{display:true,position:'bottom',labels:{usePointStyle:true,boxWidth:8,color:'oklch(62% 0.015 255)',font:{size:10}}},tooltip:{enabled:false,external:makeExternalTooltip({suffix:'%',decimals:3})}},scales:{...co.scales,y:{...co.scales.y,title:{display:true,text:'시청률(%)',color:'oklch(62% 0.015 255)',font:{size:8}}}}}});
+    lineDS('올해',ACC,{fill:true,backgroundColor:chGrad('yoyC',ACC,340)}),
+    lineDS('전년',MUT,{borderDash:[5,3],pointRadius:2,pointHoverRadius:5})
+  ]},options:{...co,maintainAspectRatio:false,plugins:{...co.plugins,legend:legendOpt(),tooltip:{enabled:false,external:makeExternalTooltip({suffix:'%',decimals:3})}},scales:{...co.scales,y:{...co.scales.y,title:{display:true,text:'시청률(%)',color:MUT,font:{size:8}}}}}});
   document.getElementById('yoyC').parentElement.style.height='300px';
 }
 
