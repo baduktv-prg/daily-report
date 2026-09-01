@@ -446,7 +446,7 @@ footer{text-align:center;padding:20px;color:var(--muted);font-family:'Noto Sans 
 
 <div class="main">
   <div class="main-tabs">
-    <div class="main-tab active" id="mainTabOverview" onclick="switchMainTab('overview')">개요</div>
+    <div class="main-tab active" id="mainTabOverview" onclick="switchMainTab('overview')">분석</div>
     <div class="main-tab" id="mainTabRanking" onclick="switchMainTab('ranking')">채널 순위</div>
   </div>
 
@@ -532,7 +532,7 @@ footer{text-align:center;padding:20px;color:var(--muted);font-family:'Noto Sans 
 <footer>AGB 닐슨 · 전국 전플랫폼 (유료가구) · 206개 채널 기준 · 종편채널제외</footer>
 
 <script>
-// ── 상단 탭 전환 (개요 / 채널 순위) ──
+// ── 상단 탭 전환 (분석 / 채널 순위) ──
 function switchMainTab(tab){
   const isOverview=tab==='overview';
   document.getElementById('tabPanelOverview').style.display=isOverview?'block':'none';
