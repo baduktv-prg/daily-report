@@ -452,8 +452,12 @@ footer{text-align:center;padding:20px;color:var(--muted);font-family:'Noto Sans 
 
   <div id="tabPanelOverview">
     <div class="card" id="channelTrendCard" style="margin-bottom:20px">
-      <div class="card-title"><div class="dot o"></div>유료방송채널 트렌드 분석</div>
-      <div id="channelTrendText" style="font-size:13px;color:var(--text);line-height:1.7"></div>
+    <div class="card" id="channelTrendCard" style="margin-bottom:20px">
+      <div class="card-title" style="cursor:pointer;user-select:none" onclick="toggleChannelTrend()">
+        <div class="dot o"></div>유료방송채널 트렌드 분석
+        <span id="channelTrendArrow" style="margin-left:auto;font-size:11px;color:var(--muted);transition:transform .2s">▶</span>
+      </div>
+      <div id="channelTrendText" style="font-size:13px;color:var(--text);line-height:1.7;display:none"></div>
     </div>
 
     <div class="slabel">바둑TV 현황</div>
@@ -1157,6 +1161,14 @@ function updCharts(){
 }
 
 // ── 총평 + 프로그램 분석 표시 ──
+function toggleChannelTrend(){
+  const el=document.getElementById('channelTrendText');
+  const arrow=document.getElementById('channelTrendArrow');
+  const collapsed=el.style.display==='none';
+  el.style.display=collapsed?'':'none';
+  arrow.style.transform=collapsed?'rotate(90deg)':'rotate(0deg)';
+  localStorage.setItem('channelTrendCollapsed',collapsed?'0':'1');
+}
 function renderChannelTrend(){
   const dayData=D.days[curDate]||{};
   const text=dayData.channel_trend||'';
@@ -1166,6 +1178,9 @@ function renderChannelTrend(){
   if(!text||!text.trim()){card.style.display='none';return;}
   card.style.display='';
   el.innerHTML=text.split('\n').map(function(s){s=s.trim();if(!s)return '';return '<div style="margin-bottom:6px">'+s+'</div>';}).filter(Boolean).join('');
+  const isCollapsed=localStorage.getItem('channelTrendCollapsed')!=='0';
+  el.style.display=isCollapsed?'none':'';
+  document.getElementById('channelTrendArrow').style.transform=isCollapsed?'rotate(0deg)':'rotate(90deg)';
 }
 function renderSummary(){
   const dayData=D.days[curDate]||{};
