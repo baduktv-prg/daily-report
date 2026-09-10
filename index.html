@@ -849,6 +849,17 @@ function renderProg(){
       return td;
     }
     
+    function ratingHeat(value,min){
+      if(isNaN(value))return '';
+      const cap=0.7;
+      const denom=(cap-min)||1;
+      let ratio=(value-min)/denom;
+      ratio=Math.max(0,Math.min(1,ratio));
+      return 'rgba('+bR+','+bG+','+bB+','+(ratio*0.55).toFixed(3)+')';
+    }
+    const validRatings=progs.map(function(p){return p.rating;}).filter(function(r){return !isNaN(r);});
+    const minRating=validRatings.length?Math.min.apply(null,validRatings):0;
+
     progs.forEach(function(p){
       const row=tbody.insertRow();
       const hasRe=p.program&&p.program.includes('<재>');
@@ -881,6 +892,9 @@ function renderProg(){
           td.style.cssText='text-align:left;font-size:11px;color:var(--text);font-weight:400;max-width:160px;overflow:hidden;white-space:nowrap';
         } else {
           td.style.cssText='text-align:right;font-size:12px;color:var(--text);font-weight:400';
+        }
+        if(idx===3){
+          td.style.backgroundColor=ratingHeat(p.rating,minRating);
         }
         row.appendChild(td);
       });
