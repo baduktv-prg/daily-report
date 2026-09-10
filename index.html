@@ -849,16 +849,30 @@ function renderProg(){
       return td;
     }
     
-    function ratingHeat(value,min){
+    function ratingHeat(value){
       if(isNaN(value))return '';
-      const cap=0.7;
-      const denom=(cap-min)||1;
-      let ratio=(value-min)/denom;
+      let ratio=value/0.7;   // 최솟값 0, 최댓값 0.7 고정
       ratio=Math.max(0,Math.min(1,ratio));
       return 'rgba('+bR+','+bG+','+bB+','+(ratio*0.55).toFixed(3)+')';
     }
-    const validRatings=progs.map(function(p){return p.rating;}).filter(function(r){return !isNaN(r);});
-    const minRating=validRatings.length?Math.min.apply(null,validRatings):0;
+    function makeRangeHeat(r,g,b){
+      return function(value,min,max){
+        if(isNaN(value))return '';
+        const denom=(max-min)||1;
+        let ratio=(value-min)/denom;
+        ratio=Math.max(0,Math.min(1,ratio));
+        return 'rgba('+r+','+g+','+b+','+(ratio*0.55).toFixed(3)+')';
+      };
+    }
+    const shareHeat=makeRangeHeat(169,209,142);   // #A9D18E 초록
+    const viewersHeat=makeRangeHeat(46,117,182);  // #2E75B6 파랑
+
+    const validShares=progs.map(function(p){return p.share;}).filter(function(r){return !isNaN(r);});
+    const minShare=validShares.length?Math.min.apply(null,validShares):0;
+    const maxShare=validShares.length?Math.max.apply(null,validShares):0;
+    const validViewers=progs.map(function(p){return p.viewers;}).filter(function(r){return !isNaN(r);});
+    const minViewers=validViewers.length?Math.min.apply(null,validViewers):0;
+    const maxViewers=validViewers.length?Math.max.apply(null,validViewers):0;
 
     progs.forEach(function(p){
       const row=tbody.insertRow();
@@ -894,7 +908,11 @@ function renderProg(){
           td.style.cssText='text-align:right;font-size:12px;color:var(--text);font-weight:400';
         }
         if(idx===3){
-          td.style.backgroundColor=ratingHeat(p.rating,minRating);
+          td.style.backgroundColor=ratingHeat(p.rating);
+        } else if(idx===4){
+          td.style.backgroundColor=shareHeat(p.share,minShare,maxShare);
+        } else if(idx===5){
+          td.style.backgroundColor=viewersHeat(p.viewers,minViewers,maxViewers);
         }
         row.appendChild(td);
       });
