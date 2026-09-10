@@ -1239,8 +1239,8 @@ function renderSummary(){
   let liveHtml='',rerunHtml='';
 
   Object.keys(programs).forEach(function(channel){
-    const isK=channel.includes('K바둑');
-    const color=isK?'var(--accent2)':'var(--accent)';
+    if(channel.includes('K바둑'))return;
+    const color='var(--accent)';
     (programs[channel]||[]).forEach(function(p){
       if(!p.program)return;
       const pname=(p.program||'').replace(/<생>/g,'').replace(/<재>/g,'').trim();
