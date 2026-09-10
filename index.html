@@ -1242,7 +1242,7 @@ function renderSummary(){
     const isK=channel.includes('K바둑');
     const color=isK?'var(--accent2)':'var(--accent)';
     (programs[channel]||[]).forEach(function(p){
-      if(!p.analysis||!p.analysis.length)return;
+      if(!p.program)return;
       const pname=(p.program||'').replace(/<생>/g,'').replace(/<재>/g,'').trim();
       const players=p.players?p.players:'';
       // 시작시간 15분 단위 반올림
@@ -1263,10 +1263,10 @@ function renderSummary(){
         prevStr=' / 전회 比 '+Math.round(p.rating/p.prev_rating*100)+'%';
       }
       var meta=[startRounded,players,ratingStr+prevStr].filter(Boolean).join(' / ');
-      const analysisHtml=p.analysis.map(function(a){
+      const analysisHtml=(p.analysis&&p.analysis.length)?p.analysis.map(function(a){
         a=a.replace(/^→\s*/,'').trim();
         return '<div style="margin-bottom:4px;padding-left:8px;border-left:2px solid var(--border);font-size:13px;color:var(--text);line-height:1.6">'+a+'</div>';
-      }).join('');
+      }).join(''):'';
       const block='<div style="margin-bottom:12px"><div style="font-size:12px;font-weight:700;color:'+color+';margin-bottom:3px">'+pname+'</div>'+(meta?'<div style="font-size:12px;color:'+color+';opacity:0.8;margin-bottom:6px;padding:3px 6px;background:var(--bg3);border-radius:2px">'+meta+'</div>':'')+analysisHtml+'</div>';
       if(isLive) liveHtml+=block;
       else rerunHtml+=block;
