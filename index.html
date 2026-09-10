@@ -849,11 +849,15 @@ function renderProg(){
       return td;
     }
     
+    function isDarkTheme(){
+      return document.documentElement.getAttribute('data-theme')!=='light';
+    }
     function ratingHeat(value){
       if(isNaN(value))return '';
       let ratio=value/0.7;   // 최솟값 0, 최댓값 0.7 고정
       ratio=Math.max(0,Math.min(1,ratio));
-      return 'rgba('+bR+','+bG+','+bB+','+(ratio*0.55).toFixed(3)+')';
+      const maxAlpha=isDarkTheme()?0.9:0.55;
+      return 'rgba('+bR+','+bG+','+bB+','+(ratio*maxAlpha).toFixed(3)+')';
     }
     function makeRangeHeat(r,g,b){
       return function(value,min,max){
@@ -861,7 +865,8 @@ function renderProg(){
         const denom=(max-min)||1;
         let ratio=(value-min)/denom;
         ratio=Math.max(0,Math.min(1,ratio));
-        return 'rgba('+r+','+g+','+b+','+(ratio*0.55).toFixed(3)+')';
+        const maxAlpha=isDarkTheme()?0.9:0.55;
+        return 'rgba('+r+','+g+','+b+','+(ratio*maxAlpha).toFixed(3)+')';
       };
     }
     const shareHeat=makeRangeHeat(169,209,142);   // #A9D18E 초록
@@ -1379,6 +1384,7 @@ function toggleTheme(){
   document.documentElement.setAttribute('data-theme',t);
   localStorage.setItem('theme',t);
   document.getElementById('themeBtn').textContent=t==='light'?'☀️ LIGHT':'🌙 DARK';
+  if(typeof renderProg==='function')renderProg();
 }
 
 // 테마 초기화
