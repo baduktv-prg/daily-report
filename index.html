@@ -1242,9 +1242,35 @@ function renderSummary(){
   Object.keys(programs).forEach(function(channel){
     if(channel.includes('K바둑'))return;
     const color='var(--accent)';
-    (programs[channel]||[]).forEach(function(p){
+
+    // ── 같은 프로그램명+대국자로 연속된 분할 방영분(1부/2부 등)을 하나로 병합 ──
+    const rawProgs=programs[channel]||[];
+    const mergedProgs=[];
+    rawProgs.forEach(function(p){
       if(!p.program)return;
       const pname=(p.program||'').replace(/<생>/g,'').replace(/<재>/g,'').trim();
+      const last=mergedProgs[mergedProgs.length-1];
+      function timeToMin(t){if(!t)return null;var pt=t.split(':');return parseInt(pt[0])*60+parseInt(pt[1]);}
+      let gapOk=false;
+      if(last){
+        const lastEnd=timeToMin(last.end),curStart=timeToMin(p.start);
+        if(lastEnd!=null&&curStart!=null)gapOk=Math.abs(curStart-lastEnd)<=30;
+      }
+      if(last&&last._pname===pname&&(last.players||'')===(p.players||'')&&gapOk){
+        last.end=p.end||last.end;
+        (p.analysis||[]).forEach(function(a){
+          if(last.analysis.indexOf(a)===-1)last.analysis.push(a);
+        });
+        if(!isNaN(p.weighted_rating))last.weighted_rating=p.weighted_rating;
+        if(!isNaN(p.rating))last.rating=p.rating;
+        if(!isNaN(p.prev_rating))last.prev_rating=p.prev_rating;
+      } else {
+        mergedProgs.push(Object.assign({},p,{_pname:pname,analysis:(p.analysis||[]).slice()}));
+      }
+    });
+
+    mergedProgs.forEach(function(p){
+      const pname=p._pname;
       const players=p.players?p.players:'';
       // 시작시간 15분 단위 반올림
       var startRounded='';
