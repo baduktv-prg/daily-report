@@ -452,6 +452,7 @@ footer{text-align:center;padding:20px;color:var(--muted);font-family:'Noto Sans 
 
   <div id="tabPanelOverview">
     <div class="card" id="channelTrendCard" style="margin-bottom:20px">
+    <div class="card" id="channelTrendCard" style="margin-bottom:20px">
       <div class="card-title" style="cursor:pointer;user-select:none" onclick="toggleChannelTrend()">
         <div class="dot o"></div>유료방송채널 트렌드 분석
         <span id="channelTrendArrow" style="margin-left:auto;font-size:11px;color:var(--muted);transition:transform .2s">▶</span>
@@ -504,8 +505,11 @@ footer{text-align:center;padding:20px;color:var(--muted);font-family:'Noto Sans 
 
     <div class="card" style="margin-top:20px;margin-bottom:20px">
       <div class="card-title"><div class="dot a"></div>전년 동기 대비 추이</div>
-      <canvas id="yoyC" height="80"></canvas>
+      <div style="position:relative;height:300px">
+        <canvas id="yoyC" height="80"></canvas>
+      </div>
     </div>
+  </div>
   </div>
 
   <div id="tabPanelRanking" style="display:none">
@@ -851,9 +855,10 @@ function renderProg(){
     function isDarkTheme(){
       return document.documentElement.getAttribute('data-theme')!=='light';
     }
-    function ratingHeat(value){
+    function ratingHeat(value,min,max){
       if(isNaN(value))return '';
-      let ratio=value/0.7;   // 최솟값 0, 최댓값 0.7 고정
+      const denom=(max-min)||1;
+      let ratio=(value-min)/denom;
       ratio=Math.max(0,Math.min(1,ratio));
       const maxAlpha=isDarkTheme()?0.9:0.55;
       return 'rgba('+bR+','+bG+','+bB+','+(ratio*maxAlpha).toFixed(3)+')';
@@ -871,6 +876,9 @@ function renderProg(){
     const shareHeat=makeRangeHeat(169,209,142);   // #A9D18E 초록
     const viewersHeat=makeRangeHeat(46,117,182);  // #2E75B6 파랑
 
+    const validRatings=progs.map(function(p){return p.rating;}).filter(function(r){return !isNaN(r);});
+    const minRating=validRatings.length?Math.min.apply(null,validRatings):0;
+    const maxRating=validRatings.length?Math.max.apply(null,validRatings):0;
     const validShares=progs.map(function(p){return p.share;}).filter(function(r){return !isNaN(r);});
     const minShare=validShares.length?Math.min.apply(null,validShares):0;
     const maxShare=validShares.length?Math.max.apply(null,validShares):0;
@@ -912,7 +920,7 @@ function renderProg(){
           td.style.cssText='text-align:right;font-size:12px;color:var(--text);font-weight:400';
         }
         if(idx===3){
-          td.style.backgroundColor=ratingHeat(p.rating);
+          td.style.backgroundColor=ratingHeat(p.rating,minRating,maxRating);
         } else if(idx===4){
           td.style.backgroundColor=shareHeat(p.share,minShare,maxShare);
         } else if(idx===5){
