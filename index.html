@@ -1309,7 +1309,7 @@ function renderSummary(){
   });
 
   if(summary.etc&&summary.etc.trim()){
-    rerunHtml+='<div style="margin-top:8px;padding-top:8px;border-top:1px solid var(--border);font-size:12px;color:var(--muted)">기타: '+escapeHtml(summary.etc)+'</div>';
+    rerunHtml+='<div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--border);font-size:13px;color:var(--text);line-height:1.6"><b style="color:var(--accent)">기타:</b> '+escapeHtml(summary.etc)+'</div>';
   }
 
   liveEl.innerHTML=liveHtml||'<span class="analysis-empty">데이터 없음</span>';
