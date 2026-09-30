@@ -453,7 +453,7 @@ footer{text-align:center;padding:20px;color:var(--muted);font-family:'Noto Sans 
   <div id="tabPanelOverview">
     <div class="card" id="channelTrendCard" style="margin-bottom:20px">
       <div class="card-title" style="cursor:pointer;user-select:none" onclick="toggleChannelTrend()">
-        <div class="dot o"></div>유료방송채널 트렌드 AI 분석
+        <div class="dot o"></div>유료방송채널 트렌드 분석
         <span id="channelTrendArrow" style="margin-left:auto;font-size:11px;color:var(--muted);transition:transform .2s">▶</span>
       </div>
       <div id="channelTrendText" style="font-size:13px;color:var(--text);line-height:1.7;display:none"></div>
@@ -907,9 +907,9 @@ function renderProg(){
 
       [p.players||'—',
        p.start||'—',p.end||'—',
-       !isNaN(p.rating)?p.rating.toFixed(3):'—',
-       !isNaN(p.share)?p.share.toFixed(3):'—',
-       !isNaN(p.viewers)?p.viewers.toLocaleString():'—'
+       (p.rating!=null&&!isNaN(p.rating))?p.rating.toFixed(3):'—',
+       (p.share!=null&&!isNaN(p.share))?p.share.toFixed(3):'—',
+       (p.viewers!=null&&!isNaN(p.viewers))?p.viewers.toLocaleString():'—'
       ].forEach(function(val,idx){
         const td=document.createElement('td');
         td.textContent=val;
@@ -1225,6 +1225,9 @@ function renderChannelTrend(){
   el.style.display=isCollapsed?'none':'';
   document.getElementById('channelTrendArrow').style.transform=isCollapsed?'rotate(0deg)':'rotate(90deg)';
 }
+function escapeHtml(s){
+  return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
 function renderSummary(){
   const dayData=D.days[curDate]||{};
   const summary=dayData.summary||{};
@@ -1234,7 +1237,7 @@ function renderSummary(){
     const el=document.getElementById(id);
     if(!el)return;
     if(!text||!text.trim()){el.innerHTML='<span class="analysis-empty">데이터 없음</span>';return;}
-    el.innerHTML=text.split('\n').map(function(s){s=s.trim();if(!s)return '';return '<div style="margin-bottom:4px;padding-left:8px;border-left:2px solid var(--border);font-size:13px;color:var(--text);line-height:1.6">'+s+'</div>';}).filter(Boolean).join('');
+    el.innerHTML=text.split('\n').map(function(s){s=s.trim();if(!s)return '';return '<div style="margin-bottom:4px;padding-left:8px;border-left:2px solid var(--border);font-size:13px;color:var(--text);line-height:1.6">'+escapeHtml(s)+'</div>';}).filter(Boolean).join('');
   }
   setText('summaryBaduk',summary.badukTV||'');
   setText('summaryKbaduk',summary.kbaduk||'');
@@ -1266,9 +1269,9 @@ function renderSummary(){
         (p.analysis||[]).forEach(function(a){
           if(last.analysis.indexOf(a)===-1)last.analysis.push(a);
         });
-        if(!isNaN(p.weighted_rating))last.weighted_rating=p.weighted_rating;
-        if(!isNaN(p.rating))last.rating=p.rating;
-        if(!isNaN(p.prev_rating))last.prev_rating=p.prev_rating;
+        if(p.weighted_rating!=null&&!isNaN(p.weighted_rating))last.weighted_rating=p.weighted_rating;
+        if(p.rating!=null&&!isNaN(p.rating))last.rating=p.rating;
+        if(p.prev_rating!=null&&!isNaN(p.prev_rating))last.prev_rating=p.prev_rating;
       } else {
         mergedProgs.push(Object.assign({},p,{_pname:pname,analysis:(p.analysis||[]).slice()}));
       }
@@ -1288,7 +1291,7 @@ function renderSummary(){
         startRounded=(h<10?'0'+h:h)+':'+(m===0?'00':'30')+'~';
       }
       var wr=(p.weighted_rating!=null?p.weighted_rating:p.rating);
-      var ratingStr=!isNaN(wr)?wr.toFixed(3)+'%':'';
+      var ratingStr=(wr!=null&&!isNaN(wr))?wr.toFixed(3)+'%':'';
       var prevStr='';
       const isLive = p.broadcast_type ? p.broadcast_type !== '재방' : p.is_live;
       if(isLive&&p.prev_rating&&p.prev_rating>0&&p.rating>0){
@@ -1297,16 +1300,16 @@ function renderSummary(){
       var meta=[startRounded,players,ratingStr+prevStr].filter(Boolean).join(' / ');
       const analysisHtml=(p.analysis&&p.analysis.length)?p.analysis.map(function(a){
         a=a.replace(/^→\s*/,'').trim();
-        return '<div style="margin-bottom:4px;padding-left:8px;border-left:2px solid var(--border);font-size:13px;color:var(--text);line-height:1.6">'+a+'</div>';
+        return '<div style="margin-bottom:4px;padding-left:8px;border-left:2px solid var(--border);font-size:13px;color:var(--text);line-height:1.6">'+escapeHtml(a)+'</div>';
       }).join(''):'';
-      const block='<div style="margin-bottom:12px"><div style="font-size:12px;font-weight:700;color:'+color+';margin-bottom:3px">'+pname+'</div>'+(meta?'<div style="font-size:12px;color:'+color+';opacity:0.8;margin-bottom:6px;padding:3px 6px;background:var(--bg3);border-radius:2px">'+meta+'</div>':'')+analysisHtml+'</div>';
+      const block='<div style="margin-bottom:12px"><div style="font-size:12px;font-weight:700;color:'+color+';margin-bottom:3px">'+escapeHtml(pname)+'</div>'+(meta?'<div style="font-size:12px;color:'+color+';opacity:0.8;margin-bottom:6px;padding:3px 6px;background:var(--bg3);border-radius:2px">'+escapeHtml(meta)+'</div>':'')+analysisHtml+'</div>';
       if(isLive) liveHtml+=block;
       else rerunHtml+=block;
     });
   });
 
   if(summary.etc&&summary.etc.trim()){
-    rerunHtml+='<div style="margin-top:8px;padding-top:8px;border-top:1px solid var(--border);font-size:12px;color:var(--muted)">기타: '+summary.etc+'</div>';
+    rerunHtml+='<div style="margin-top:8px;padding-top:8px;border-top:1px solid var(--border);font-size:12px;color:var(--muted)">기타: '+escapeHtml(summary.etc)+'</div>';
   }
 
   liveEl.innerHTML=liveHtml||'<span class="analysis-empty">데이터 없음</span>';
