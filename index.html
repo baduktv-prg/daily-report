@@ -1262,11 +1262,15 @@ function renderSummary(){
       let gapOk=false;
       if(last){
         const lastEnd=timeToMin(last.end),curStart=timeToMin(p.start);
-        if(lastEnd!=null&&curStart!=null)gapOk=Math.abs(curStart-lastEnd)<=30;
+        if(lastEnd!=null&&curStart!=null)gapOk=Math.abs(curStart-lastEnd)<20;
       }
       const pLive=p.broadcast_type?p.broadcast_type!=='재방':!!p.is_live;
+      // 이 블록에 실제로 합쳐지는 방송분만으로 방송시간 가중평균을 계산 (data.json의 weighted_rating은 대국자가 다른 회차까지 섞일 수 있어 사용하지 않음)
+      const pDur=(timeToMin(p.end)!=null&&timeToMin(p.start)!=null)?timeToMin(p.end)-timeToMin(p.start):0;
+      const pOk=(p.rating!=null&&!isNaN(p.rating)&&pDur>0);
       if(last&&last._pname===pname&&last._live===pLive&&(last.players||'')===(p.players||'')&&gapOk){
         last.end=p.end||last.end;
+        if(pOk){last._dur+=pDur;last._sum+=p.rating*pDur;}
         (p.analysis||[]).forEach(function(a){
           if(last.analysis.indexOf(a)===-1)last.analysis.push(a);
         });
@@ -1274,7 +1278,7 @@ function renderSummary(){
         if(p.rating!=null&&!isNaN(p.rating))last.rating=p.rating;
         if(p.prev_rating!=null&&!isNaN(p.prev_rating))last.prev_rating=p.prev_rating;
       } else {
-        mergedProgs.push(Object.assign({},p,{_pname:pname,_live:pLive,analysis:(p.analysis||[]).slice()}));
+        mergedProgs.push(Object.assign({},p,{_pname:pname,_live:pLive,_dur:pOk?pDur:0,_sum:pOk?p.rating*pDur:0,analysis:(p.analysis||[]).slice()}));
       }
     });
 
@@ -1291,7 +1295,7 @@ function renderSummary(){
         else{m=0;h+=1;}
         startRounded=(h<10?'0'+h:h)+':'+(m===0?'00':'30')+'~';
       }
-      var wr=(p.weighted_rating!=null?p.weighted_rating:p.rating);
+      var wr=(p._dur>0)?(p._sum/p._dur):(p.weighted_rating!=null?p.weighted_rating:p.rating);
       var ratingStr=(wr!=null&&!isNaN(wr))?wr.toFixed(3)+'%':'';
       var prevStr='';
       const isLive = p.broadcast_type ? p.broadcast_type !== '재방' : p.is_live;
