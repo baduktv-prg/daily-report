@@ -1264,7 +1264,8 @@ function renderSummary(){
         const lastEnd=timeToMin(last.end),curStart=timeToMin(p.start);
         if(lastEnd!=null&&curStart!=null)gapOk=Math.abs(curStart-lastEnd)<=30;
       }
-      if(last&&last._pname===pname&&(last.players||'')===(p.players||'')&&gapOk){
+      const pLive=p.broadcast_type?p.broadcast_type!=='재방':!!p.is_live;
+      if(last&&last._pname===pname&&last._live===pLive&&(last.players||'')===(p.players||'')&&gapOk){
         last.end=p.end||last.end;
         (p.analysis||[]).forEach(function(a){
           if(last.analysis.indexOf(a)===-1)last.analysis.push(a);
@@ -1273,7 +1274,7 @@ function renderSummary(){
         if(p.rating!=null&&!isNaN(p.rating))last.rating=p.rating;
         if(p.prev_rating!=null&&!isNaN(p.prev_rating))last.prev_rating=p.prev_rating;
       } else {
-        mergedProgs.push(Object.assign({},p,{_pname:pname,analysis:(p.analysis||[]).slice()}));
+        mergedProgs.push(Object.assign({},p,{_pname:pname,_live:pLive,analysis:(p.analysis||[]).slice()}));
       }
     });
 
