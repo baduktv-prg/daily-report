@@ -914,7 +914,9 @@ function renderProg(){
         const td=document.createElement('td');
         td.textContent=val;
         if(idx===0){
-          td.style.cssText='text-align:left;font-size:11px;color:var(--text);font-weight:400;max-width:160px;overflow:hidden;white-space:nowrap';
+          td.style.cssText='text-align:left;font-size:11px;color:var(--text);font-weight:400;max-width:160px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis';
+          // 칸보다 길어서 잘리면 마우스 오버 시 전체 대국자 표시 (프로그램명과 동일한 툴팁)
+          if(val!=='—'){td.classList.add('tt');td.dataset.tip=val;}
         } else {
           td.style.cssText='text-align:right;font-size:12px;color:var(--text);font-weight:400';
         }
