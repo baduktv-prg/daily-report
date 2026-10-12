@@ -1264,13 +1264,18 @@ function renderSummary(){
       let gapOk=false;
       if(last){
         const lastEnd=timeToMin(last.end),curStart=timeToMin(p.start);
-        if(lastEnd!=null&&curStart!=null)gapOk=Math.abs(curStart-lastEnd)<20;
+        if(lastEnd!=null&&curStart!=null){
+          // 간격 20분 미만일 때만 1·2부로 병합 (대국자 일치 여부는 아래 조건에서 함께 비교)
+          gapOk=Math.abs(curStart-lastEnd)<20;
+        }
       }
       const pLive=p.broadcast_type?p.broadcast_type!=='재방':!!p.is_live;
       // 이 블록에 실제로 합쳐지는 방송분만으로 방송시간 가중평균을 계산 (data.json의 weighted_rating은 대국자가 다른 회차까지 섞일 수 있어 사용하지 않음)
       const pDur=(timeToMin(p.end)!=null&&timeToMin(p.start)!=null)?timeToMin(p.end)-timeToMin(p.start):0;
       const pOk=(p.rating!=null&&!isNaN(p.rating)&&pDur>0);
-      if(last&&last._pname===pname&&last._live===pLive&&(last.players||'')===(p.players||'')&&gapOk){
+      const sameProg=!!last&&last._pname===pname&&last._live===pLive;
+      // 시트 K열에 '통합'으로 표시된 행(merge_prev)은 간격·대국자와 무관하게 바로 앞 방송과 합침 (프로그램명·생/재방은 같아야 함)
+      if(sameProg&&(p.merge_prev||((last.players||'')===(p.players||'')&&gapOk))){
         last.end=p.end||last.end;
         if(pOk){last._dur+=pDur;last._sum+=p.rating*pDur;}
         (p.analysis||[]).forEach(function(a){
