@@ -83,7 +83,7 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
 .logo-text{font-size:16px;font-weight:700;letter-spacing:-.2px}
 .logo-sub{font-size:12px;color:var(--muted);font-family:'Noto Sans KR',sans-serif;letter-spacing:.3px;margin-top:1px}
 .header-right{font-size:12px;color:var(--muted);font-family:'Noto Sans KR',sans-serif;text-align:right}
-.toolbar{background:var(--bg2);border-bottom:1px solid var(--border);padding:10px 2vw;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.toolbar{background:var(--bg2);border-bottom:1px solid var(--border);padding:10px 2vw;display:flex;align-items:center;gap:16px;flex-wrap:wrap;position:sticky;top:68px;z-index:190}
 .toolbar-label{font-size:12px;letter-spacing:.5px;color:var(--muted);font-family:'Noto Sans KR',sans-serif;white-space:nowrap}
 .theme-toggle{background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:9px 16px;border-radius:8px;font-size:13px;cursor:pointer;display:flex;align-items:center;gap:6px;font-family:'Noto Sans KR',sans-serif;letter-spacing:.3px;transition:all .15s;margin-left:auto}
 .theme-toggle:hover{border-color:var(--accent);color:var(--accent)}
@@ -104,7 +104,7 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
 .cal-day.active{background:var(--accent)!important;color:var(--bg2)!important;font-weight:700}
 .main{max-width:1760px;margin:0 auto;padding:24px 2vw;display:block}
 .slabel{font-family:'Noto Sans KR',sans-serif;font-size:13px;font-weight:600;letter-spacing:.4px;color:var(--muted);margin-bottom:14px}
-.main-tabs{display:flex;gap:28px;border-bottom:1px solid var(--border);margin-bottom:28px}
+.main-tabs{display:flex;gap:28px;border-bottom:1px solid var(--border);margin-bottom:28px;position:sticky;top:var(--stick-top,128px);z-index:180;background:var(--bg);padding-top:10px}
 .main-tab{padding:0 2px 12px;font-size:14px;font-family:'Noto Sans KR',sans-serif;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;transition:color .15s,border-color .15s;white-space:nowrap}
 .main-tab:hover{color:var(--text)}
 .main-tab.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:700}
@@ -259,7 +259,7 @@ footer{text-align:center;padding:20px;color:var(--muted);font-family:'Noto Sans 
 @media(max-width:768px){
   .header{padding:0 14px;height:56px;flex-wrap:wrap}
   .header-right{display:none}
-  .toolbar{padding:8px 14px;gap:8px;flex-wrap:wrap}
+  .toolbar{padding:8px 14px;gap:8px;flex-wrap:wrap;position:static}
   .theme-toggle{margin-left:0}
   .main{grid-template-columns:1fr;padding:14px;gap:16px}
   .sidebar{flex-direction:column}
@@ -1460,5 +1460,20 @@ function toggleTheme(){
 })();
 </script>
 </div><!-- mainPage 끝 -->
+<script>
+// 고정 영역(헤더 + PC에서는 날짜 바) 높이에 맞춰 탭 바의 고정 위치를 계산
+function updateStickTop(){
+  try{
+    var h=document.querySelector('.header'),t=document.querySelector('.toolbar');
+    if(!h)return;
+    var top=h.offsetHeight;
+    if(t&&getComputedStyle(t).position==='sticky')top+=t.offsetHeight;
+    document.documentElement.style.setProperty('--stick-top',top+'px');
+  }catch(e){}
+}
+window.addEventListener('load',updateStickTop);
+window.addEventListener('resize',updateStickTop);
+setTimeout(updateStickTop,300);
+</script>
 </body>
 </html>
