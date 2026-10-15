@@ -967,9 +967,18 @@ function renderProg(){
       tdLbl.colSpan=isK?4:5;
       tdLbl.style.cssText='text-align:left;padding-left:10px;font-size:12px;font-weight:700;color:var(--text);white-space:nowrap';
       avgRow.appendChild(tdLbl);
-      const avgRating=progs.reduce(function(s,p){return s+p.rating;},0)/progs.length;
-      const avgShare=progs.reduce(function(s,p){return s+p.share;},0)/progs.length;
-      const avgViewers=Math.round(progs.reduce(function(s,p){return s+p.viewers;},0)/progs.length);
+      // 평균행: 채널 순위(종합 = 유료종합플랫폼)의 해당 채널 일 시청률·점유율·시청자 수를 사용. 없을 때만 행 단순평균으로 대체
+      const platRow=(((dayData.rankings)||{})['종합']||[]).find(function(r){return r.channel===channel;});
+      let avgRating,avgShare,avgViewers;
+      if(platRow&&platRow.rating!=null){
+        avgRating=platRow.rating;
+        avgShare=platRow.share!=null?platRow.share:0;
+        avgViewers=Math.round(platRow.viewers||0);
+      }else{
+        avgRating=progs.reduce(function(s,p){return s+p.rating;},0)/progs.length;
+        avgShare=progs.reduce(function(s,p){return s+p.share;},0)/progs.length;
+        avgViewers=Math.round(progs.reduce(function(s,p){return s+p.viewers;},0)/progs.length);
+      }
       [avgRating.toFixed(3),avgShare.toFixed(3),avgViewers.toLocaleString()].forEach(function(val){
         const td=document.createElement('td');
         td.textContent=val;
