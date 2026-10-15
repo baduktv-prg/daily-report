@@ -785,7 +785,7 @@ function renderProg(){
     const allVals=ageProgs.flatMap(function(p){
       return Object.values(p.age_male||{}).concat(Object.values(p.age_female||{}));
     });
-    const gMax=Math.max.apply(null,allVals.concat([0.001]));
+    const gMax=0.15;
 
     // 채널 헤더
     const blockDiv=document.createElement('div');
@@ -876,8 +876,8 @@ function renderProg(){
     const viewersHeat=makeRangeHeat(46,117,182);  // #2E75B6 파랑
 
     const validRatings=progs.map(function(p){return p.rating;}).filter(function(r){return !isNaN(r);});
-    const minRating=validRatings.length?Math.min.apply(null,validRatings):0;
-    const maxRating=validRatings.length?Math.max.apply(null,validRatings):0;
+    const minRating=0;
+    const maxRating=0.15;
     const validShares=progs.map(function(p){return p.share;}).filter(function(r){return !isNaN(r);});
     const minShare=validShares.length?Math.min.apply(null,validShares):0;
     const maxShare=validShares.length?Math.max.apply(null,validShares):0;
