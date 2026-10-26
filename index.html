@@ -849,7 +849,6 @@ function renderProg(){
     const blockDiv=document.createElement('div');
     blockDiv.className='prog-channel-block';
     blockDiv.style.marginBottom='24px';
-    if(isK)blockDiv.appendChild(buildKbadukKpi(dayData));
     const hdr=document.createElement('div');
     hdr.className='prog-ch-hdr'+(isK?' kb':'');
     hdr.innerHTML='<span class="prog-ch-name '+(isK?'kb':'')+'">'
@@ -1118,6 +1117,8 @@ function renderProg(){
       blockDiv.appendChild(summaryDiv);
     }
 
+    // K바둑 현황 카드는 채널 블록(테두리 박스) 밖, 블록 바로 위에 둠
+    if(isK)wrap.appendChild(buildKbadukKpi(dayData));
     wrap.appendChild(blockDiv);
   });
 
