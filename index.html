@@ -762,6 +762,64 @@ function renderComp(){
   });
 }
 
+// ── K바둑 현황 (바둑TV 일일 총평 아래, K바둑 프로그램별 시청률 위) ──
+function buildKbadukKpi(dayData){
+  const CH='K바둑';
+  const findCh=function(date){return (((D.days[date]||{}).rankings||{})['종합']||[]).find(function(r){return r.channel===CH;});};
+  const cur=findCh(curDate);
+  const curIdx=D.dates.indexOf(curDate);
+  const prevDate=curIdx>0?D.dates[curIdx-1]:null;
+  const prev=prevDate?findCh(prevDate):null;
+
+  // 채널 순위 / 시청률 (전일 比)
+  let rankVal='—',rankSub='—',ratVal='—',ratSub='—';
+  if(cur){
+    rankVal=String(cur.rank);
+    ratVal=cur.rating.toFixed(3)+'<span class="kpi-unit">%</span>';
+    if(prev){
+      const diff=prev.rank-cur.rank;
+      const arrow=diff>0?'▲':diff<0?'▼':'−';
+      rankSub=diff!==0?'전일 比 '+arrow+' '+Math.abs(diff)+'계단':'변동없음';
+      ratSub=prev.rating>0?'전일 比 '+Math.round(cur.rating/prev.rating*100)+'%':'전일 데이터 없음';
+    }else{rankSub='전일 데이터 없음';ratSub='전일 데이터 없음';}
+  }
+
+  // 전년 동기 대비: 시트(yoy_rating_k) 우선, 없으면 data.json에 쌓인 전년 같은 날 K바둑 종합 시청률
+  let yoyVal='—';
+  if(cur){
+    let yoyRating=dayData.yoy_rating_k!=null?dayData.yoy_rating_k:null;
+    if(yoyRating==null){
+      const lyDate=(parseInt(curDate.slice(0,4))-1)+curDate.slice(4);
+      const ly=findCh(lyDate);
+      if(ly&&ly.rating>0)yoyRating=ly.rating;
+    }
+    if(yoyRating>0){
+      const pct=(cur.rating/yoyRating*100).toFixed(1);
+      const up=parseFloat(pct)>=100;
+      yoyVal='<span style="color:'+(up?'var(--green)':'var(--red)')+'">'+pct+'</span><span class="kpi-unit">%</span>';
+    }
+  }
+
+  // 월간 누적 시청률: 해당 월 1일~선택일 K바둑 종합 시청률의 단순평균 (바둑TV와 같은 방식)
+  let cumVal='—';
+  const ym=curDate.slice(0,7);
+  const ratings=D.dates.filter(function(d){return d.slice(0,7)===ym&&d<=curDate;})
+    .map(function(d){const r=findCh(d);return r?r.rating:null;})
+    .filter(function(v){return v!=null&&!isNaN(v);});
+  if(ratings.length)cumVal=(ratings.reduce(function(a,b){return a+b;},0)/ratings.length).toFixed(3)+'<span class="kpi-unit">%</span>';
+
+  const box=document.createElement('div');
+  box.style.marginBottom='4px';
+  box.innerHTML='<div class="slabel">K바둑 현황</div>'
+    +'<div class="kpi-row">'
+    +'<div class="kpi c-orange"><div class="kpi-lbl">채널 순위 (종합)</div><div class="kpi-val c-orange">'+rankVal+'</div><div class="kpi-sub">'+rankSub+'</div></div>'
+    +'<div class="kpi c-orange"><div class="kpi-lbl">시청률</div><div class="kpi-val c-orange">'+ratVal+'</div><div class="kpi-sub">'+ratSub+'</div></div>'
+    +'<div class="kpi c-accent"><div class="kpi-lbl">전년 동기 대비</div><div class="kpi-val">'+yoyVal+'</div><div class="kpi-sub">&nbsp;</div></div>'
+    +'<div class="kpi c-gold"><div class="kpi-lbl">월간 누적 시청률</div><div class="kpi-val c-gold">'+cumVal+'</div><div class="kpi-sub">&nbsp;</div></div>'
+    +'</div>';
+  return box;
+}
+
 function renderProg(){
   const dayData=D.days[curDate]||{};
   const wrap=document.getElementById('progWrap');
@@ -791,6 +849,7 @@ function renderProg(){
     const blockDiv=document.createElement('div');
     blockDiv.className='prog-channel-block';
     blockDiv.style.marginBottom='24px';
+    if(isK)blockDiv.appendChild(buildKbadukKpi(dayData));
     const hdr=document.createElement('div');
     hdr.className='prog-ch-hdr'+(isK?' kb':'');
     hdr.innerHTML='<span class="prog-ch-name '+(isK?'kb':'')+'">'
