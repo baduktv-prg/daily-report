@@ -135,11 +135,14 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
 .rtbl tr:hover td{background:var(--bg3)}
 .rtbl tr.hl td{background:oklch(72% 0.11 235 / 0.1)}
 .rtbl tr.hl:hover td{background:oklch(72% 0.11 235 / 0.16)}
+.rtbl tr.hlk td{background:oklch(74% 0.1 55 / 0.1)}
+.rtbl tr.hlk:hover td{background:oklch(74% 0.1 55 / 0.16)}
 .rtbl tr.smatch td{background:oklch(78% 0.1 85 / 0.1)}
 .rtbl tr.hidden{display:none}
 .rnk{font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;display:inline-block;width:26px;text-align:right}
 .rnk.r1{color:var(--gold)}.rnk.r2{color:oklch(80% 0.005 255)}.rnk.r3{color:oklch(65% 0.08 55)}.rnk.ro{color:var(--muted)}
 .ch-b{color:var(--accent);font-weight:700}
+.ch-k{color:var(--accent2);font-weight:700}
 .bar-cell{display:flex;align-items:center;justify-content:flex-end;gap:6px}
 .mbar{width:48px;height:3px;background:var(--bg3);border-radius:2px}.mbar-f{height:3px;background:var(--accent);border-radius:2px}.mbar-f.b{background:var(--accent2)}
 .prog-section{margin-top:28px}
@@ -698,12 +701,14 @@ function renderTbl(){
   if(!rows.length){tb.innerHTML='<tr><td colspan="5" class="no-data">데이터 없음</td></tr>';return;}
   rows.forEach(r=>{
     const ib=r.channel==='바둑TV';
+    const ik=r.channel==='K바둑';
     const tr=document.createElement('tr');tr.dataset.ch=r.channel;
     if(ib)tr.classList.add('hl');
+    if(ik)tr.classList.add('hlk');
     const rc=r.rank===1?'r1':r.rank===2?'r2':r.rank===3?'r3':'ro';
     const bp=((r.rating/max)*100).toFixed(1);
     tr.innerHTML=`<td><span class="rnk ${rc}">${r.rank}</span></td>
-      <td class="${ib?'ch-b':''}">${r.channel}${ib?' ★':''}</td>
+      <td class="${ib?'ch-b':ik?'ch-k':''}">${r.channel}${ib||ik?' ★':''}</td>
       <td><div class="bar-cell"><span>${r.rating.toFixed(3)}%</span><div class="mbar"><div class="mbar-f ${ib?'b':''}" style="width:${bp}%"></div></div></div></td>
       <td>${r.share.toFixed(3)}%</td><td>${r.viewers.toLocaleString()}</td>`;
     tb.appendChild(tr);
