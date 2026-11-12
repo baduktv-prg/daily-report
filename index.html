@@ -1513,23 +1513,32 @@ function toggleTheme(){
   document.documentElement.setAttribute('data-theme',t);
 })();
 
-// data.json 로드
+// data.json 로드 (gzip 우선, 실패 시 일반 data.json 폴백)
 (async () => {
   const { data: { session } } = await _supabase.auth.getSession();
-  fetch('https://amerxqtexvhnvzwgmfla.supabase.co/storage/v1/object/daily-report-data/data.json?t=' + Date.now(), {
-    cache: 'no-store',
-    headers: {
-      'Authorization': 'Bearer ' + session.access_token
-    }
-  })
-  .then(r=>r.json())
-  .then(d=>{
-    D=d;
+  const BASE = 'https://amerxqtexvhnvzwgmfla.supabase.co/storage/v1/object/daily-report-data/';
+  const opt = { cache: 'no-store', headers: { 'Authorization': 'Bearer ' + session.access_token } };
+  async function loadGz() {
+    if (typeof DecompressionStream === 'undefined') throw new Error('DecompressionStream 미지원');
+    const r = await fetch(BASE + 'data.json.gz?t=' + Date.now(), opt);
+    if (!r.ok) throw new Error('gz HTTP ' + r.status);
+    const txt = await new Response(r.body.pipeThrough(new DecompressionStream('gzip'))).text();
+    return JSON.parse(txt);
+  }
+  async function loadPlain() {
+    const r = await fetch(BASE + 'data.json?t=' + Date.now(), opt);
+    if (!r.ok) throw new Error('json HTTP ' + r.status);
+    return r.json();
+  }
+  try {
+    let d;
+    try { d = await loadGz(); }
+    catch (e) { console.warn('data.json.gz 로드 실패, 일반 data.json으로 재시도:', e); d = await loadPlain(); }
+    D = d;
     const t=localStorage.getItem('theme')||'dark';
     document.getElementById('themeBtn').textContent=t==='light'?'☀️ LIGHT':'🌙 DARK';
     init();
-  })
-  .catch(e=>console.error('data.json 로드 실패:', e));
+  } catch (e) { console.error('data.json 로드 실패:', e); }
 })();
 </script>
 </div><!-- mainPage 끝 -->
