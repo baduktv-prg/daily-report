@@ -1379,8 +1379,8 @@ function renderSummary(){
       var ratingStr=(wr!=null&&!isNaN(wr))?wr.toFixed(3)+'%':'';
       var prevStr='';
       const isLive = p.broadcast_type ? p.broadcast_type !== '재방' : p.is_live;
-      if(isLive&&p.prev_rating&&p.prev_rating>0&&p.rating>0){
-        prevStr=' / 전회 比 '+Math.round(p.rating/p.prev_rating*100)+'%';
+            if(isLive&&p.prev_rating&&p.prev_rating>0&&wr>0){
+        prevStr=' / 전회 比 '+Math.round(wr/p.prev_rating*100)+'%';
       }
       var meta=[startRounded,players,ratingStr+prevStr].filter(Boolean).join(' / ');
       const analysisHtml=(p.analysis&&p.analysis.length)?p.analysis.map(function(a){
